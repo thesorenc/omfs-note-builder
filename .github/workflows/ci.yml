@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      # Vault is not present in CI; build:content --check skips drift and the build
+      # uses the committed JSON. (Run build:content locally when templates change.)
+      - run: npm run build:content -- --check
+      - run: npm run build
