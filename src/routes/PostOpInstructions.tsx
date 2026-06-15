@@ -14,26 +14,35 @@ export function PostOpInstructions() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr]">
-      <aside className="no-print">
-        <h2 className="mb-3 text-lg font-semibold">Post-Op Instructions</h2>
-        <p className="mb-3 text-xs text-slate-500">
-          Select one or more components to assemble a patient handout.
-        </p>
+    <div className="workbench">
+      <aside className="pane library no-print">
         <Picker items={POSTOP} selected={selected} onToggle={toggle} multi />
       </aside>
-      <section>
-        {chosen.length ? (
-          <NoteAssembler
-            components={chosen}
-            options={{ unfilledPolicy: 'sentinel', surfaceFlags: true }}
-            filename="post-op-instructions.txt"
-            patientFacing
-          />
-        ) : (
-          <p className="text-slate-500">Select components on the left to build a handout.</p>
-        )}
-      </section>
+      {chosen.length ? (
+        <NoteAssembler
+          components={chosen}
+          options={{ unfilledPolicy: 'sentinel', surfaceFlags: true }}
+          filename="post-op-instructions.txt"
+          patientFacing
+          heroTitle="Post-op instructions"
+          heroSub="Select one or more components on the left to assemble a printable patient handout."
+        />
+      ) : (
+        <section className="pane config">
+          <div className="config-inner">
+            <div className="case-empty">
+              <div className="ce-mark">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6M9 13h6M9 17h6" />
+                </svg>
+              </div>
+              <h3>No components selected</h3>
+              <p>Pick post-op instruction components from the library to build a handout.</p>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   )
 }

@@ -6,16 +6,15 @@ import { PostOpInstructions } from '../src/routes/PostOpInstructions'
 import { Library } from '../src/routes/Library'
 
 describe('UI smoke', () => {
-  it('Op Note Builder renders a template and assembles output', () => {
+  it('Op Note Builder renders a template, encounter bar, and output', () => {
     render(
       <MemoryRouter>
         <OpNoteBuilder />
       </MemoryRouter>,
     )
-    expect(screen.getByText('Op Note Builder')).toBeInTheDocument()
-    // The header checklist option should produce the checklist in the output.
-    expect(screen.getByText(/OPERATIVE NOTE HEADER/)).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Copy' })).toBeInTheDocument()
+    expect(screen.getByText('Operative note')).toBeInTheDocument()
+    expect(screen.getByText('Attending')).toBeInTheDocument() // encounter bar
+    expect(screen.getByRole('button', { name: 'Copy text' })).toBeInTheDocument()
   })
 
   it('Post-Op shows components and builds a handout after selection', () => {
@@ -28,7 +27,7 @@ describe('UI smoke', () => {
     const comp = buttons.find((b) => /extraction|orif|sinus|mmf|i&d|rx|pain/i.test(b.textContent ?? ''))
     expect(comp).toBeTruthy()
     fireEvent.click(comp!)
-    expect(screen.getByRole('button', { name: 'Copy' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Copy text' })).toBeInTheDocument()
   })
 
   it('Library renders items and a count', () => {

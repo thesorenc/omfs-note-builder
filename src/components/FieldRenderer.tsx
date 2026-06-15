@@ -1,113 +1,135 @@
+import type { ReactNode } from 'react'
 import type { Field } from '@/lib/types'
 import { useFormStore } from '@/state/useFormStore'
 import { canonicalSide, valueKey } from '@/lib/assembler'
-
-const inputCls =
-  'w-full rounded border border-slate-300 px-2 py-1 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500'
 
 export function FieldRenderer({ field }: { field: Field }) {
   const values = useFormStore((s) => s.values)
   const setValue = useFormStore((s) => s.setValue)
 
+  let control: ReactNode
+
   if (field.kind === 'side') {
     const key = valueKey(field)
     const current = values[key]
     const opts = field.options ?? ['right', 'left']
-    return (
-      <div>
-        <label className="mb-1 block text-xs font-medium text-slate-600">{field.label}</label>
-        <div className="inline-flex overflow-hidden rounded border border-slate-300">
-          {opts.map((opt) => {
-            const canon = canonicalSide(opt)
-            const active = current === canon
-            return (
-              <button
-                key={opt}
-                type="button"
-                onClick={() => setValue(key, canon)}
-                className={`px-3 py-1 text-sm ${active ? 'bg-sky-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-100'}`}
-              >
-                {opt}
-              </button>
-            )
-          })}
-        </div>
+    control = (
+      <div className="chips">
+        {opts.map((opt) => {
+          const canon = canonicalSide(opt)
+          const on = current === canon
+          return (
+            <button
+              key={opt}
+              type="button"
+              className={'chip' + (on ? ' on' : '')}
+              onClick={() => setValue(key, canon)}
+            >
+              <span className="ck">✓</span>
+              {opt}
+            </button>
+          )
+        })}
       </div>
     )
-  }
-
-  if (field.kind === 'hardwareDim') {
-    return (
-      <div>
-        <label className="mb-1 block text-xs font-medium text-slate-600">{field.label}</label>
-        <div className="flex items-center gap-1">
-          <input
-            className={inputCls}
-            placeholder="diameter"
-            inputMode="decimal"
-            value={values[`${field.id}:d`] ?? ''}
-            onChange={(e) => setValue(`${field.id}:d`, e.target.value)}
-          />
-          <span className="text-slate-500">x</span>
-          <input
-            className={inputCls}
-            placeholder="length"
-            inputMode="decimal"
-            value={values[`${field.id}:l`] ?? ''}
-            onChange={(e) => setValue(`${field.id}:l`, e.target.value)}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  if (field.kind === 'enumText') {
+  } else if (field.kind === 'enumText') {
     const opts = field.options ?? []
     const v = values[field.id] ?? ''
     const isOther = v !== '' && !opts.includes(v)
-    return (
-      <div>
-        <label className="mb-1 block text-xs font-medium text-slate-600">{field.label}</label>
-        <select
-          className={inputCls}
-          value={isOther ? '__other__' : v}
-          onChange={(e) => setValue(field.id, e.target.value === '__other__' ? ' ' : e.target.value)}
-        >
-          <option value="">- select -</option>
+    control = (
+      <div className="field" style={{ gap: 7 }}>
+        <div className="chips">
           {opts.map((o) => (
-            <option key={o} value={o}>
+            <button
+              key={o}
+              type="button"
+              className={'chip' + (v === o ? ' on' : '')}
+              onClick={() => setValue(field.id, o)}
+            >
+              <span className="ck">✓</span>
               {o}
-            </option>
+            </button>
           ))}
-          <option value="__other__">Other...</option>
-        </select>
+          <button
+            type="button"
+            className={'chip' + (isOther ? ' on' : '')}
+            onClick={() => setValue(field.id, isOther ? '' : ' ')}
+          >
+            Other…
+          </button>
+        </div>
         {isOther && (
           <input
-            className={`${inputCls} mt-1`}
+            className="f-input"
+            autoFocus
             placeholder="custom value"
             value={v.trim()}
             onChange={(e) => setValue(field.id, e.target.value)}
-            autoFocus
           />
         )}
       </div>
     )
-  }
-
-  const isNumber = field.kind === 'measurement' || field.kind === 'hardwareCount'
-  return (
-    <div>
-      <label className="mb-1 block text-xs font-medium text-slate-600">
-        {field.label}
-        {field.unit ? <span className="text-slate-400"> ({field.unit})</span> : null}
-      </label>
+  } else if (field.kind === 'hardwareDim') {
+    control = (
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <input
+          className="f-input mono"
+          style={{ width: 90 }}
+          placeholder="Ø"
+          inputMode="decimal"
+          value={values[`${field.id}:d`] ?? ''}
+          onChange={(e) => setValue(`${field.id}:d`, e.target.value)}
+        />
+        <span style={{ color: 'var(--muted)' }}>×</span>
+        <input
+          className="f-input mono"
+          style={{ width: 90 }}
+          placeholder="length"
+          inputMode="decimal"
+          value={values[`${field.id}:l`] ?? ''}
+          onChange={(e) => setValue(`${field.id}:l`, e.target.value)}
+        />
+      </div>
+    )
+  } else if (field.kind === 'hardwareCount') {
+    const v = parseInt(values[field.id] ?? '', 10)
+    const set = (n: number) => setValue(field.id, String(Math.max(0, n)))
+    control = (
+      <div className="stepper">
+        <button type="button" onClick={() => set((isNaN(v) ? 0 : v) - 1)}>
+          –
+        </button>
+        <input
+          inputMode="numeric"
+          value={values[field.id] ?? ''}
+          onChange={(e) => setValue(field.id, e.target.value)}
+        />
+        <button type="button" onClick={() => set((isNaN(v) ? 0 : v) + 1)}>
+          +
+        </button>
+      </div>
+    )
+  } else {
+    // measurement / toothNumber / text / blank
+    const mono = field.kind === 'measurement' || field.kind === 'toothNumber'
+    control = (
       <input
-        className={inputCls}
-        inputMode={isNumber ? 'decimal' : 'text'}
+        className={'f-input' + (mono ? ' mono' : '')}
+        inputMode={field.kind === 'measurement' ? 'decimal' : 'text'}
         placeholder={field.hint ?? field.raw}
         value={values[field.id] ?? ''}
         onChange={(e) => setValue(field.id, e.target.value)}
       />
+    )
+  }
+
+  return (
+    <div className="field">
+      <label className="f-label">
+        {field.label}
+        {field.unit ? <span className="f-hint">{field.unit}</span> : null}
+      </label>
+      {control}
     </div>
   )
 }
