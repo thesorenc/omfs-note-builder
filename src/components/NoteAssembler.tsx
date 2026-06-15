@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import type { ParsedComponent } from '@/lib/types'
 import type { AssembleOptions } from '@/lib/assembler'
@@ -52,6 +52,7 @@ export function NoteAssembler({
   const setValue = useFormStore((s) => s.setValue)
   const resetAll = useFormStore((s) => s.resetAll)
   const unfilledPolicy = usePrefs((s) => s.unfilledPolicy)
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const optKey = JSON.stringify(options ?? {})
   const result = useMemo(() => {
@@ -114,7 +115,10 @@ export function NoteAssembler({
         </div>
       </section>
 
-      <section className="pane output">
+      <section id="docs-pane" className={'pane output' + (drawerOpen ? ' open' : '')}>
+        <button className="drawer-close" aria-label="Close documents" onClick={() => setDrawerOpen(false)}>
+          ✕
+        </button>
         <OutputPanel
           text={result.text}
           smartlinks={result.smartlinks}
@@ -123,6 +127,16 @@ export function NoteAssembler({
           patientFacing={patientFacing}
         />
       </section>
+
+      {drawerOpen && <div className="drawer-backdrop no-print" onClick={() => setDrawerOpen(false)} />}
+      <button
+        className="drawer-toggle no-print"
+        aria-controls="docs-pane"
+        aria-expanded={drawerOpen}
+        onClick={() => setDrawerOpen(true)}
+      >
+        Documents
+      </button>
     </>
   )
 }

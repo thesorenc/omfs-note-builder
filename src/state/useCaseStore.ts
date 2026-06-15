@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
 import type { Encounter } from '@/lib/encounter'
 import { defaultEncounter } from '@/lib/encounter'
 
@@ -21,7 +22,12 @@ interface CaseState {
   countOf: (procedureId: string) => number
 }
 
-export const useCaseStore = create<CaseState>((set, get) => ({
+// Persisted to sessionStorage so a refresh keeps the case. This is NOT PHI:
+// the app bars patient identifiers; only procedures/variables/encounter are stored,
+// and sessionStorage clears when the tab closes.
+export const useCaseStore = create<CaseState>()(
+  persist(
+    (set, get) => ({
   items: [],
   values: {},
   encounter: defaultEncounter(),
@@ -43,4 +49,11 @@ export const useCaseStore = create<CaseState>((set, get) => ({
   setEncounter: (encounter) => set({ encounter }),
   reset: () => set({ items: [], values: {}, encounter: defaultEncounter(), seq: 1 }),
   countOf: (procedureId) => get().items.filter((i) => i.procedureId === procedureId).length,
-}))
+    }),
+    {
+      name: 'omfs-case',
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (s) => ({ items: s.items, values: s.values, encounter: s.encounter, seq: s.seq }),
+    },
+  ),
+)

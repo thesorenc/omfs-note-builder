@@ -77,7 +77,7 @@ function parseFile(
   const tags = Array.isArray(frontmatter.tags) ? (frontmatter.tags as string[]) : []
 
   const id = slug(file)
-  const { bodyTemplate, fields, flags, includes, warnings } = tokenize(body, id)
+  const { bodyTemplate, fields, flags, includes, smartlinks, warnings } = tokenize(body, id)
 
   // Human title. Dot phrases are EHR shortcuts and must NEVER appear in a title.
   //  - op notes: the PROCEDURE line.
@@ -102,6 +102,7 @@ function parseFile(
     fields,
     flags,
     includes,
+    smartlinks,
     tags,
     rawBody: body,
     warnings,

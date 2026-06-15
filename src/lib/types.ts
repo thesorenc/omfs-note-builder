@@ -69,6 +69,8 @@ export interface ParsedComponent {
   flags: FlagAnnotation[]
   /** Referenced component dot-phrases / ids (.sacx*). */
   includes: string[]
+  /** EHR SmartLink tokens left verbatim for the EHR to fill (e.g. [Age], [Allergies]). */
+  smartlinks: string[]
   tags: string[]
   /** Original body text (for the edit -> download-md feature). */
   rawBody: string
@@ -82,5 +84,6 @@ export interface TokenizeResult {
   fields: Field[]
   flags: FlagAnnotation[]
   includes: string[]
+  smartlinks: string[]
   warnings: string[]
 }

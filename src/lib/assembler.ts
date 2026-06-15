@@ -84,8 +84,6 @@ Disposition & condition:
 CPT / total operative time:
 `
 
-const SMARTLINK_RE = /\[[^\][\n]{1,40}\]/g
-
 export function assemble(
   component: ParsedComponent,
   values: FieldValues,
@@ -96,6 +94,7 @@ export function assemble(
   const policy = options.unfilledPolicy ?? 'keepRaw'
   const missing: string[] = []
   const flags: FlagAnnotation[] = [...component.flags]
+  const smartlinkSet = new Set(component.smartlinks ?? [])
   const fieldById = new Map(component.fields.map((f) => [f.id, f]))
 
   let text = component.bodyTemplate.replace(SENTINEL_RE, (_m, token: string) => {
@@ -108,6 +107,7 @@ export function assemble(
           const sub = assemble(inc, values, {}, resolveInclude, seen)
           flags.push(...sub.flags)
           missing.push(...sub.missing)
+          sub.smartlinks.forEach((s) => smartlinkSet.add(s))
           return sub.text.trimEnd()
         }
       }
@@ -125,7 +125,7 @@ export function assemble(
     return formatted
   })
 
-  const smartlinks = Array.from(new Set(text.match(SMARTLINK_RE) ?? []))
+  const smartlinks = [...smartlinkSet]
   const annotationFlags = flags.filter((f) => ANNOTATION_TYPES.has(f.type))
 
   if (options.includeHeaderChecklist) {

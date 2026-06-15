@@ -297,6 +297,7 @@ export function tokenize(rawBody: string, componentId: string): TokenizeResult {
   const fields: Field[] = []
   const flags: FlagAnnotation[] = []
   const includes: string[] = []
+  const smartlinks: string[] = []
   const kindCounts: Record<string, number> = {}
 
   // Build the template by walking and substituting.
@@ -313,7 +314,8 @@ export function tokenize(rawBody: string, componentId: string): TokenizeResult {
       continue
     }
     if (t.kind === 'smartlink') {
-      out += t.raw // keep verbatim for the EHR
+      smartlinks.push(t.raw) // keep verbatim for the EHR; record for the "left for EHR" list
+      out += t.raw
       continue
     }
     if (t.kind === 'include') {
@@ -345,5 +347,5 @@ export function tokenize(rawBody: string, componentId: string): TokenizeResult {
   }
   out += rawBody.slice(cursor)
 
-  return { bodyTemplate: out, fields, flags, includes, warnings }
+  return { bodyTemplate: out, fields, flags, includes, smartlinks, warnings }
 }

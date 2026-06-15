@@ -26,7 +26,8 @@ function visibleFields(componentId: string) {
 }
 
 const TABS: { kind: DocKind; label: string }[] = [
-  { kind: 'opnote', label: 'Op Note' },
+  { kind: 'opnote', label: 'Operative Note' },
+  { kind: 'preop', label: 'Pre-op' },
   { kind: 'postop', label: 'Post-op' },
   { kind: 'rx', label: 'Rx' },
 ]
@@ -35,6 +36,7 @@ export function CaseBuilder() {
   const { items, values, encounter, add, remove, setValue, setEncounter, countOf } = useCaseStore()
   const [tab, setTab] = useState<DocKind>('opnote')
   const [q, setQ] = useState('')
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const groups = useMemo(() => {
     const filtered = q.trim()
@@ -161,27 +163,23 @@ export function CaseBuilder() {
       </section>
 
       {/* Documents */}
-      <section className="pane output">
-        <div className="out-toolbar no-print" style={{ gap: 2, paddingBottom: 0, borderBottom: 'none' }}>
+      <section id="docs-pane" className={'pane output' + (drawerOpen ? ' open' : '')}>
+        <div className="out-head no-print" role="tablist" aria-label="Documents">
           {TABS.map((t) => (
             <button
               key={t.kind}
-              className="seg-tab"
-              data-on={tab === t.kind}
+              role="tab"
+              aria-selected={tab === t.kind}
+              className="out-tab"
               onClick={() => setTab(t.kind)}
-              style={{
-                border: 'none',
-                background: 'none',
-                padding: '6px 13px 11px',
-                fontWeight: 700,
-                fontSize: 13,
-                color: tab === t.kind ? 'var(--accent-ink)' : 'var(--muted)',
-                borderBottom: `2.5px solid ${tab === t.kind ? 'var(--accent)' : 'transparent'}`,
-              }}
             >
               {t.label}
             </button>
           ))}
+          <span style={{ flex: 1 }} />
+          <button className="drawer-close" aria-label="Close documents" onClick={() => setDrawerOpen(false)}>
+            ✕
+          </button>
         </div>
         {items.length === 0 ? (
           <div className="empty-out">
@@ -192,7 +190,7 @@ export function CaseBuilder() {
                   <path d="M14 2v6h6" />
                 </svg>
               </div>
-              <p>Add a procedure to generate the Op Note, Post-op handout, and Rx.</p>
+              <p>Add a procedure to generate the Operative Note, Pre-op, Post-op handout, and Rx.</p>
             </div>
           </div>
         ) : (
@@ -202,10 +200,20 @@ export function CaseBuilder() {
             flags={doc.flags}
             smartlinks={doc.smartlinks}
             filename={`${tab}.txt`}
-            patientFacing={tab === 'postop'}
+            patientFacing={tab === 'postop' || tab === 'preop'}
           />
         )}
       </section>
+
+      {drawerOpen && <div className="drawer-backdrop no-print" onClick={() => setDrawerOpen(false)} />}
+      <button
+        className="drawer-toggle no-print"
+        aria-controls="docs-pane"
+        aria-expanded={drawerOpen}
+        onClick={() => setDrawerOpen(true)}
+      >
+        Documents
+      </button>
     </div>
   )
 }

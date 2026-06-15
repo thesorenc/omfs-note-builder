@@ -12,6 +12,7 @@ function abbrev(title: string): string {
 export function Library() {
   const [q, setQ] = useState('')
   const [selectedId, setSelectedId] = useState<string>('')
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const fuse = useMemo(() => makeSearch(ALL_CONTENT), [])
   const results = q.trim() ? fuse.search(q).map((r) => r.item) : ALL_CONTENT
   const selected = ALL_CONTENT.find((c) => c.id === selectedId)
@@ -33,7 +34,10 @@ export function Library() {
             <button
               key={c.id}
               className={'proc-card' + (selectedId === c.id ? ' on' : '')}
-              onClick={() => setSelectedId(c.id)}
+              onClick={() => {
+                setSelectedId(c.id)
+                setDrawerOpen(true)
+              }}
             >
               <span className="pc-icon">{abbrev(c.title)}</span>
               <span className="pc-body">
@@ -46,7 +50,10 @@ export function Library() {
         </div>
       </aside>
 
-      <section className="pane output">
+      <section id="docs-pane" className={'pane output' + (drawerOpen ? ' open' : '')}>
+        <button className="drawer-close" aria-label="Close" onClick={() => setDrawerOpen(false)}>
+          ✕
+        </button>
         {selected ? (
           <>
             <div className="out-toolbar no-print">
@@ -101,6 +108,18 @@ export function Library() {
           </div>
         )}
       </section>
+
+      {drawerOpen && <div className="drawer-backdrop no-print" onClick={() => setDrawerOpen(false)} />}
+      {selected && (
+        <button
+          className="drawer-toggle no-print"
+          aria-controls="docs-pane"
+          aria-expanded={drawerOpen}
+          onClick={() => setDrawerOpen(true)}
+        >
+          View
+        </button>
+      )}
     </div>
   )
 }

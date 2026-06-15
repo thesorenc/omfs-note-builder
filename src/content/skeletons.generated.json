@@ -40,6 +40,20 @@
       ".sacxexam",
       ".sacsign"
     ],
+    "smartlinks": [
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[Problems]",
+      "[Home Medications]",
+      "[Allergies]",
+      "[Procedure History 2012]",
+      "[Vital Signs 2012]",
+      "[ST Height & Weight]",
+      "[Age]",
+      "[Patient Gender (Male/Female)]"
+    ],
     "tags": [],
     "rawBody": "[Age] [Patient Gender (Male/Female)] presents for evaluation. Identity confirmed with DOD ID and date of birth.\n\nChief Complaint: \"_\"\n\nSUBJECTIVE\n\nHistory of Present Illness:\n[Age] year-old ASA _ [Patient Gender (Male/Female)]\n\nPast Medical History:\nUnremarkable [Problems]\n\nMedications:\nNone [Home Medications]\n\nAllergies:\n[Allergies]\n\nPast Surgical History:\nNone [Procedure History 2012]\n\nFamily history: Noncontributory\n\nSocial History:\nAlcohol: endorses occasional social consumption\nTobacco: denies any history\nRecreational drug use: denies any history\n\nReview of Systems\n12-system review of systems was performed with no pertinent positives other than those mentioned above.\n\nOBJECTIVE\n[Vital Signs 2012]\n[ST Height & Weight]\n\n.sacxexam\n\nImaging:\n\nASSESSMENT\n[Age] year-old ASA _ [Patient Gender (Male/Female)]\n\nPLAN\n-\n\nNext visit: _\n\n.sacsign",
     "warnings": []
@@ -95,6 +109,14 @@
     "flags": [],
     "includes": [
       ".sacsign_"
+    ],
+    "smartlinks": [
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[pfs_adm_med_vital_signs]",
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[pfs_discharge_medications]"
     ],
     "tags": [],
     "rawBody": "Subjective\n[Age] old [Patient Gender (Male/Female)] w/ history of _ presents to WR OMFS for follow up s/p _, DOS _. Denies nausea, vomiting, fever, chills, shortness of breath, chest pain.\nHealth history detailed in previous evaluation note. No changes to medical hx.\n\nObjective\n[pfs_adm_med_vital_signs]\n\nFocused Physical Exam:\nGEN: Pt sitting comfortably in bed/chair in NAD. AAOx3\nHEAD: Normocephalic/Atraumatic (NCAT), no abrasions, lesions, lacerations, masses, erythema, or discoloration\nEYES: EOMI, PERRLA, vision grossly intact x2\nEARS: Atraumatic, no otorrhea\nNOSE: Atraumatic, no rhinorrhea\nORAL: All surgical sites well approximated. Uvula midline, tonsillar pillars non-deviated, floor-of-mouth non-raised and soft. No concerning pathology noted. Oral Hygiene: fair. Maxillary gingival tissues are pink and well perfused with capillary refill of less than 2 seconds. Mallampati: 2\nTMJ: WNL, MIO 40mm+\nNECK: full ROM, soft, supple, non-tender, thyromental distance 3 fingerbreadths.\nCARD: Distal extremities well perfused\nRESP: Equal non-labored chest rise bilaterally, no audible wheezing or stridor\nNEURO: CN II-XII grossly intact\n\nAssessment\n[Age] old [Patient Gender (Male/Female)] s/p _, DOS _. Progressing as expected_\n\nPlan:\nFollow up in _\n\n[pfs_discharge_medications]\n.sacsign_",
@@ -153,6 +175,23 @@
       ".sacxexam",
       ".sacsign"
     ],
+    "smartlinks": [
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[Age]",
+      "[Patient Gender (Male/Female)]",
+      "[Problems]",
+      "[Home Medications]",
+      "[Allergies]",
+      "[Procedure History 2012]",
+      "[Vital Signs 2012]",
+      "[ST Height & Weight]",
+      "[ST Lab CBC Last 3 All Encounters]",
+      "[ST Lab CMP Last 3 All Encounters]",
+      "[ST Rad Report - 24hrs]",
+      "[Age]",
+      "[Patient Gender (Male/Female)]"
+    ],
     "tags": [],
     "rawBody": "[Age] [Patient Gender (Male/Female)] presents for evaluation and treatment. Identity confirmed with DOD ID and date of birth.\n\nChief Complaint: \"_\"\n\nSUBJECTIVE\n\nHistory of Present Illness:\n[Age] year-old ASA _ [Patient Gender (Male/Female)] presenting with\n\nPast Medical History:\nUnremarkable [Problems]\n\nMedications:\nNone [Home Medications]\n\nAllergies:\n[Allergies]\n\nPast Surgical History:\nNone [Procedure History 2012]\n\nFamily history: Noncontributory\n\nSocial History:\nAlcohol: endorses occasional social consumption\nTobacco: denies any history\nRecreational drug use: denies any history\n\nReview of Systems\n12-system review of systems was performed with no pertinent positives other than those mentioned above.\n\nOBJECTIVE\n[Vital Signs 2012]\n[ST Height & Weight]\n\n.sacxexam\n\nLabs:\n[ST Lab CBC Last 3 All Encounters]\n[ST Lab CMP Last 3 All Encounters]\n\nRads: No new\n[ST Rad Report - 24hrs]\n\nASSESSMENT\n[Age] year-old ASA _ [Patient Gender (Male/Female)] with _\n\nPLAN\n- _\n\nNext visit: _\n\n.sacsign",
     "warnings": []
@@ -170,6 +209,7 @@
     "fields": [],
     "flags": [],
     "includes": [],
+    "smartlinks": [],
     "tags": [],
     "rawBody": "SOREN A. CHRISTENSEN DMD\nMaj, USAF, DC\nPGY-2\nService: Oral & Maxillofacial Surgery\nWalter Reed National Military Medical Center\n\nStaff: Dr.",
     "warnings": []

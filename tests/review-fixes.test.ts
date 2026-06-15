@@ -15,6 +15,7 @@ function comp(body: string, id: string): ParsedComponent {
     fields: t.fields,
     flags: t.flags,
     includes: t.includes,
+    smartlinks: t.smartlinks,
     tags: [],
     rawBody: body,
     warnings: t.warnings,

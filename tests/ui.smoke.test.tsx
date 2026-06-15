@@ -25,10 +25,11 @@ describe('UI smoke', () => {
     fireEvent.click(proc!)
 
     expect(screen.getByRole('button', { name: 'Copy text' })).toBeInTheDocument()
-    // op note / post-op / rx tabs
-    expect(screen.getByText('Op Note')).toBeInTheDocument()
-    expect(screen.getByText('Post-op')).toBeInTheDocument()
-    expect(screen.getByText('Rx')).toBeInTheDocument()
+    // document tabs
+    expect(screen.getByRole('tab', { name: 'Operative Note' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Pre-op' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Post-op' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Rx' })).toBeInTheDocument()
   })
 
   it('Clinical notes render with a template', () => {

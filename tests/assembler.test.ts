@@ -18,6 +18,7 @@ function buildComponent(name: string, id: string): ParsedComponent {
     fields: t.fields,
     flags: t.flags,
     includes: t.includes,
+    smartlinks: t.smartlinks,
     tags: [],
     rawBody: raw,
     warnings: t.warnings,

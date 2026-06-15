@@ -24,37 +24,58 @@ const keep = (ids: string[]) => ids.filter((id) => have.has(id))
 const EXTRACTION = 'post-op-instructions-extraction'
 const ORIF = 'post-op-instructions-orif'
 const ID = 'post-op-instructions-id'
+const MMF = 'post-op-instructions-mmf'
 const SINUS = 'sinus-precautions'
 const RX = 'post-op-rx'
+const ABX_TRAUMA = 'abx-trauma'
+const ABX_ODONT = 'abx-odontogenic'
 
 function linkFor(op: ParsedComponent): { postop: string[]; rx: string[]; review: boolean } {
   const t = op.title.toLowerCase()
   const cat = op.category
   let postop: string[] = []
+  let rx: string[] = [RX]
   let review = false
 
+  // Sinus/orbit involvement -> nose-blowing precautions (orbital emphysema risk).
+  const sinusy = /sinus|le ?fort|zmc|zygomatic|noe|orbit|maxilla|aicbg/.test(t)
+  // Cases that commonly leave the patient in MMF / rigid fixation -> wire-cutter handout.
+  const mmfy = /mmf|imf|symphysis|mandib|closed reduction|arch bar/.test(t)
+
   if (cat === 'Trauma') {
-    postop = [ORIF] // ORIF / fracture care
+    postop = [ORIF]
+    rx = [RX, ABX_TRAUMA]
+    if (sinusy) postop.push(SINUS)
+    if (mmfy) {
+      postop.push(MMF)
+      review = true // confirm the patient is actually leaving in MMF before issuing wire cutters
+    }
     if (/hardware removal/.test(t)) review = true
   } else if (cat === 'Dentoalveolar & Implant') {
     postop = [EXTRACTION]
-    if (/sinus|maxilla|le ?fort|aicbg|bone graft|implant|graft/.test(t)) postop.push(SINUS)
+    if (sinusy) postop.push(SINUS)
   } else if (cat === 'Pathology, Salivary & Infection') {
-    if (/drainage|abscess|i&d/.test(t)) postop = [ID]
-    else postop = [EXTRACTION]
+    if (/drainage|abscess|i&d/.test(t)) {
+      postop = [ID]
+      rx = [RX, ABX_ODONT] // odontogenic infection coverage
+    } else {
+      postop = [EXTRACTION]
+    }
   } else if (cat === 'Orthognathic') {
-    postop = [ORIF]
+    postop = [ORIF, MMF] // guiding elastics / MMF expected
     if (/le ?fort|sarpe/.test(t)) postop.push(SINUS)
     review = true
   } else if (cat === 'TMJ') {
-    postop = [ORIF]
+    // Arthroscopy/arthrocentesis is NOT a fracture; the ORIF handout is wrong for it.
+    if (!/arthroscop|arthrocentesis/.test(t)) postop = [ORIF]
     review = true
   } else {
-    // Cosmetic & Facial and anything else: no general handout yet (postop stays []).
+    // Cosmetic & Facial: the dentoalveolar Rx block is irrelevant; suppress it, no handout yet.
+    rx = []
     review = true
   }
 
-  return { postop: keep([...new Set(postop)]), rx: keep([RX]), review }
+  return { postop: keep([...new Set(postop)]), rx: keep([...new Set(rx)]), review }
 }
 
 export const PROCEDURES: Procedure[] = OP_TEMPLATES.map((op) => {

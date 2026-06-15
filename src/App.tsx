@@ -33,7 +33,9 @@ export default function App() {
         Do not enter patient identifiers (name, MRN, DOB) — leave them as EHR placeholders. Nothing
         here is saved or transmitted.
       </div>
-      <Outlet />
+      <main className="app-main">
+        <Outlet />
+      </main>
     </div>
   )
 }

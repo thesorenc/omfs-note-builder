@@ -3,6 +3,7 @@ import { downloadText } from '@/lib/export'
 import { UNFILLED_SENTINEL } from '@/lib/assembler'
 import type { FlagAnnotation } from '@/lib/types'
 import { FlagBanner } from './FlagBanner'
+import { formatBlocks } from './DocFormat'
 
 export function OutputPanel({
   text,
@@ -37,7 +38,7 @@ export function OutputPanel({
       <div className="out-toolbar no-print">
         <span className="out-kind">
           <span className={'dot' + (patientFacing ? ' print' : '')} />
-          {patientFacing ? 'Printable handout' : 'EMR · plain text'}
+          {patientFacing ? 'Printable handout' : 'Formatted · copies clean to EMR'}
         </span>
         <span className="spacer" />
         <button className={'btn-primary' + (copied ? ' copied' : '')} onClick={copy}>
@@ -74,14 +75,14 @@ export function OutputPanel({
               </div>
               <div className="meta">{new Date().toLocaleDateString()}</div>
             </div>
-            <pre className="sheet-body">{text}</pre>
+            {formatBlocks(text, 'sheet')}
             <div className="sheet-foot">
               Questions or concerns? Contact the OMFS clinic. Seek emergency care for severe
               bleeding, difficulty breathing or swallowing, or fever above 101.5°F.
             </div>
           </div>
         ) : (
-          <pre className="emr">{text}</pre>
+          <div className="doc">{formatBlocks(text, 'doc')}</div>
         )}
       </div>
     </>
