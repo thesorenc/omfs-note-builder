@@ -66,3 +66,70 @@ describe('rx checklist parse + assemble', () => {
     expect(out.toLowerCase()).not.toContain('oxycodone')
   })
 })
+
+const MENU = `Rx:
+Ibuprofen 600 mg PO q6h PRN pain
+Oxycodone 5 mg PO q6h PRN severe pain
+Dexamethasone 4 mg PO - [TO BE COMPLETED] tabs
+
+Antibiotics (if indicated):
+Amoxicillin 500 mg PO TID x 7 days
+OR (if penicillin-allergic):
+Clindamycin 300 mg PO TID x 7 days
+
+Antibiotic Prophylaxis (Trauma):
+Pre-op: Cefazolin 2 g IV
+Post-op: Amoxicillin 500 mg PO TID OR Augmentin 875 mg PO BID`
+
+describe('rx clinical-safety defaults (contingent orders start unchecked)', () => {
+  const { lines, defaultOffIdx } = parseRx(MENU)
+  const order = (re: RegExp) => orders(lines).find((l) => re.test(l.text))!
+  const off = new Set(defaultOffIdx)
+
+  it('keeps first-line oral analgesics (and the opioid) ON by default', () => {
+    expect(off.has(order(/Ibuprofen/).idx)).toBe(false)
+    expect(off.has(order(/Oxycodone/).idx)).toBe(false)
+    expect(off.has(order(/^Amoxicillin/).idx)).toBe(false)
+  })
+
+  it('turns OFF unfilled, IV/pre-op, OR-alternative, and allergy-alternative orders', () => {
+    expect(off.has(order(/TO BE COMPLETED/).idx)).toBe(true) // dex taper with blanks
+    expect(off.has(order(/Cefazolin/).idx)).toBe(true) // IV + Pre-op
+    expect(off.has(order(/OR Augmentin/).idx)).toBe(true) // OR alternative
+    expect(off.has(order(/Clindamycin/).idx)).toBe(true) // under penicillin-allergic header
+  })
+
+  it('default selection emits no parenteral, unfilled, or duplicate-antibiotic lines', () => {
+    const out = assembleSelected(lines, off)
+    expect(out).toContain('Ibuprofen')
+    expect(out).not.toMatch(/\bIV\b/)
+    expect(out).not.toContain('TO BE COMPLETED')
+    expect((out.match(/Amoxicillin/g) ?? []).length).toBeLessThanOrEqual(1)
+  })
+
+  it('selecting an allergy alternative re-includes its antecedent header (no orphan)', () => {
+    const clinda = order(/Clindamycin/).idx
+    const next = new Set(off)
+    next.delete(clinda) // opt into clindamycin while amoxicillin stays off
+    const amox = order(/^Amoxicillin/).idx
+    next.add(amox)
+    const out = assembleSelected(lines, next)
+    expect(out).toContain('Clindamycin')
+    expect(out).toContain('OR (if penicillin-allergic):')
+    expect(out).toContain('Antibiotics (if indicated):') // antecedent kept
+  })
+
+  it('CRITICAL: a trauma atom (post-op-rx + abx-trauma) does not default to stacked/IV antibiotics', () => {
+    const { text } = buildDocument(
+      [{ instanceId: 'a', procedureId: 'hardware-removal' }],
+      {},
+      defaultEncounter(),
+      'rx',
+    )
+    const parsed = parseRx(text)
+    const out = assembleSelected(parsed.lines, new Set(parsed.defaultOffIdx))
+    expect(out).not.toMatch(/\bIV\b/) // no parenteral pre-op dose in the discharge Rx
+    expect(out).not.toContain('TO BE COMPLETED')
+    expect((out.match(/Amoxicillin/g) ?? []).length).toBeLessThanOrEqual(1) // no duplicate menus
+  })
+})

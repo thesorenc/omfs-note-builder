@@ -25,6 +25,9 @@ export function prepareBody(raw: string): PreparedFile {
     if (idx >= 0) content = content.slice(idx + 5)
   }
 
+  // Strip markdown headings ("# title") and Obsidian blockquote/callout lines ("> [!tip]").
+  // In this vault these are always authoring chrome, never clinical content, so removing
+  // them wherever they appear keeps callout syntax out of the rendered notes.
   const body = content
     .split('\n')
     .filter((l) => !/^#\s/.test(l) && !/^>\s?/.test(l))

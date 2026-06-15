@@ -79,4 +79,35 @@ describe('assembler', () => {
     const { text } = assemble(comp, {}, { includeHeaderChecklist: true })
     expect(text).toContain('OPERATIVE NOTE HEADER')
   })
+
+  it('resolves a legitimately repeated include twice (not "[insert]" the second time)', () => {
+    const childT = tokenize('CHILD-CONTENT', 'child')
+    const child: ParsedComponent = {
+      id: 'child', title: 'child', category: 't', modes: ['library'], sourcePath: 'child',
+      bodyTemplate: childT.bodyTemplate, fields: [], flags: [], includes: [], smartlinks: [],
+      tags: [], rawBody: 'CHILD-CONTENT', warnings: [],
+    }
+    const parentT = tokenize('First .sacchild then second .sacchild done', 'parent')
+    const parent: ParsedComponent = {
+      id: 'parent', title: 'parent', category: 't', modes: ['library'], sourcePath: 'parent',
+      bodyTemplate: parentT.bodyTemplate, fields: [], flags: [], includes: parentT.includes,
+      smartlinks: [], tags: [], rawBody: 'parent', warnings: [],
+    }
+    const resolve = (dot: string) => (dot === '.sacchild' ? child : undefined)
+    const { text } = assemble(parent, {}, {}, resolve)
+    expect((text.match(/CHILD-CONTENT/g) ?? []).length).toBe(2)
+    expect(text).not.toContain('[insert')
+  })
+
+  it('breaks an include cycle without infinite recursion', () => {
+    const selfT = tokenize('LOOP .sacself end', 'self')
+    const selfComp: ParsedComponent = {
+      id: 'self', title: 'self', category: 't', modes: ['library'], sourcePath: 'self',
+      bodyTemplate: selfT.bodyTemplate, fields: [], flags: [], includes: selfT.includes,
+      smartlinks: [], tags: [], rawBody: 'self', warnings: [],
+    }
+    const resolve = (dot: string) => (dot === '.sacself' ? selfComp : undefined)
+    const { text } = assemble(selfComp, {}, {}, resolve)
+    expect(text).toContain('[insert .sacself]') // cycle broken, surfaced
+  })
 })

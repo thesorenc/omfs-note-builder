@@ -24,16 +24,20 @@ export function RxPanel({
   flags?: FlagAnnotation[]
   filename?: string
 }) {
-  const { lines, orderCount } = useMemo(() => parseRx(text), [text])
-  const [deselected, setDeselected] = useState<Set<number>>(new Set())
+  const { lines, orderCount, defaultOffIdx } = useMemo(() => parseRx(text), [text])
+  // Contingent orders (allergy alternatives, IV/inpatient doses, "OR" alternatives,
+  // and unfilled "[TO BE COMPLETED]" lines) start unchecked; first-line oral orders
+  // (and opioids) start checked. The clinician opts into the rest.
+  const [deselected, setDeselected] = useState<Set<number>>(() => new Set(defaultOffIdx))
   const [copied, setCopied] = useState(false)
+  const [liveMsg, setLiveMsg] = useState('')
 
   // Reset selections whenever the composed Rx changes (procedure added/removed).
   // Adjusting state during render on a changed input is React's recommended idiom.
   const [prevText, setPrevText] = useState(text)
   if (text !== prevText) {
     setPrevText(text)
-    setDeselected(new Set())
+    setDeselected(new Set(defaultOffIdx))
   }
 
   const selectedText = useMemo(() => assembleSelected(lines, deselected), [lines, deselected])
@@ -52,7 +56,11 @@ export function RxPanel({
     try {
       await navigator.clipboard.writeText(selectedText)
       setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      setLiveMsg('Prescription copied')
+      setTimeout(() => {
+        setCopied(false)
+        setLiveMsg('')
+      }, 1500)
     } catch {
       window.prompt('Copy failed — select and copy manually:', selectedText)
     }
@@ -75,11 +83,15 @@ export function RxPanel({
         <button className="btn-sm" onClick={() => downloadText(filename, selectedText)}>
           Download
         </button>
-        {deselected.size > 0 && (
-          <button className="btn-sm" onClick={() => setDeselected(new Set())}>
-            Select all
-          </button>
-        )}
+        <button className="btn-sm" onClick={() => setDeselected(new Set())}>
+          Select all
+        </button>
+        <button className="btn-sm" onClick={() => setDeselected(new Set(defaultOffIdx))}>
+          Reset
+        </button>
+      </div>
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {liveMsg}
       </div>
 
       <div className="out-scroll">
@@ -90,8 +102,10 @@ export function RxPanel({
           </div>
         )}
         <p className="rx-help no-print">
-          Uncheck any order you don’t want — opioids, antibiotic tiers, or allergy alternatives.
-          Only checked lines are copied, printed, or downloaded.
+          Antibiotic alternatives, IV/inpatient doses, and orders that still need a dose
+          (“[TO BE COMPLETED]”) start unchecked — check the ones you’re prescribing and
+          fill any blanks. Uncheck anything else you don’t want (e.g. opioids). Only checked
+          lines are copied, printed, or downloaded.
         </p>
 
         {/* interactive checklist (screen only) */}

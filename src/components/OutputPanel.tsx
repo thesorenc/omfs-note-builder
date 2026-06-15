@@ -19,6 +19,7 @@ export function OutputPanel({
   patientFacing?: boolean
 }) {
   const [copied, setCopied] = useState(false)
+  const [liveMsg, setLiveMsg] = useState('')
   const unfilledCount = (
     text.match(new RegExp(UNFILLED_SENTINEL.replace(/[[\]]/g, '\\$&'), 'g')) ?? []
   ).length
@@ -27,7 +28,11 @@ export function OutputPanel({
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      setLiveMsg(patientFacing ? 'Handout copied' : 'Note copied')
+      setTimeout(() => {
+        setCopied(false)
+        setLiveMsg('')
+      }, 1500)
     } catch {
       window.prompt('Copy failed — select and copy manually:', text)
     }
@@ -50,6 +55,9 @@ export function OutputPanel({
         <button className="btn-sm" onClick={() => downloadText(filename, text)}>
           Download
         </button>
+      </div>
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {liveMsg}
       </div>
 
       <div className="out-scroll">

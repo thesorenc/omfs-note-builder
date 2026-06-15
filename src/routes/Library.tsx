@@ -13,6 +13,7 @@ export function Library() {
   const [q, setQ] = useState('')
   const [selectedId, setSelectedId] = useState<string>('')
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [liveMsg, setLiveMsg] = useState('')
   const fuse = useMemo(() => makeSearch(ALL_CONTENT), [])
   const results = q.trim() ? fuse.search(q).map((r) => r.item) : ALL_CONTENT
   const selected = ALL_CONTENT.find((c) => c.id === selectedId)
@@ -61,6 +62,9 @@ export function Library() {
         <button className="drawer-close" aria-label="Close" onClick={() => setDrawerOpen(false)}>
           ✕
         </button>
+        <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+          {liveMsg}
+        </div>
         {selected ? (
           <>
             <div className="out-toolbar no-print">
@@ -74,6 +78,10 @@ export function Library() {
                 onClick={() =>
                   navigator.clipboard
                     .writeText(selected.rawBody)
+                    .then(() => {
+                      setLiveMsg('Copied to clipboard')
+                      setTimeout(() => setLiveMsg(''), 1500)
+                    })
                     .catch(() => window.prompt('Copy manually:', selected.rawBody))
                 }
               >

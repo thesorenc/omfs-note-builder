@@ -7,10 +7,14 @@ const SECTION_LABEL = /^([A-Z][A-Z0-9 ()/&.-]{1,34}):\s+(.*)$/s
 const LABEL_LINE = /^[A-Z0-9 ()/&.-]{2,40}:?$/
 
 function esc(s: string): string {
+  // Escapes text AND attribute-significant quotes, so it stays safe even if a future
+  // change interpolates user text into an attribute (today it's element text only).
   return s
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 /**

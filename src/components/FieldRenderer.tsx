@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useRef, type ReactNode } from 'react'
 import type { Field } from '@/lib/types'
 import { canonicalSide, valueKey } from '@/lib/assembler'
 
@@ -15,8 +15,12 @@ function parseTeeth(v: string): Set<number> {
   )
 }
 
+// Teeth in DOM/tab order: upper arch (1..16) then lower arch (32..17).
+const TOOTH_ORDER = [...UPPER, ...LOWER]
+
 function ToothPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const sel = parseTeeth(value)
+  const btnRefs = useRef<(HTMLButtonElement | null)[]>([])
   const emit = (s: Set<number>) => onChange([...s].sort((a, b) => a - b).join(', '))
   const toggle = (n: number) => {
     const s = new Set(sel)
@@ -29,17 +33,49 @@ function ToothPicker({ value, onChange }: { value: string; onChange: (v: string)
     list.forEach((n) => s.add(n))
     emit(s)
   }
-  const Tooth = ({ n }: { n: number }) => (
-    <button
-      type="button"
-      className={'tooth' + (sel.has(n) ? ' on' : '') + (THIRDS.has(n) ? ' third' : '')}
-      aria-pressed={sel.has(n)}
-      aria-label={`Tooth ${n}`}
-      onClick={() => toggle(n)}
-    >
-      {n}
-    </button>
-  )
+  // Roving tabindex: the first selected tooth (or tooth #1 if none) is the single
+  // tab stop; arrows move focus within the grid. The two arches are a 16-col layout,
+  // so Up/Down step by 16 across arches; Left/Right walk the full sequence.
+  const activeOrderIdx = (() => {
+    const first = TOOTH_ORDER.findIndex((n) => sel.has(n))
+    return first === -1 ? 0 : first
+  })()
+  const focusTooth = (orderIdx: number) => {
+    const clamped = Math.max(0, Math.min(TOOTH_ORDER.length - 1, orderIdx))
+    btnRefs.current[clamped]?.focus()
+  }
+  const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, orderIdx: number) => {
+    let next: number
+    if (e.key === 'ArrowRight') next = (orderIdx + 1) % TOOTH_ORDER.length
+    else if (e.key === 'ArrowLeft') next = (orderIdx - 1 + TOOTH_ORDER.length) % TOOTH_ORDER.length
+    else if (e.key === 'ArrowDown') next = orderIdx + 16
+    else if (e.key === 'ArrowUp') next = orderIdx - 16
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = TOOTH_ORDER.length - 1
+    else return
+    if (next < 0 || next >= TOOTH_ORDER.length) return
+    e.preventDefault()
+    focusTooth(next)
+  }
+  const Tooth = ({ n }: { n: number }) => {
+    const orderIdx = TOOTH_ORDER.indexOf(n)
+    return (
+      <button
+        type="button"
+        ref={(el) => {
+          btnRefs.current[orderIdx] = el
+        }}
+        className={'tooth' + (sel.has(n) ? ' on' : '') + (THIRDS.has(n) ? ' third' : '')}
+        aria-pressed={sel.has(n)}
+        aria-label={`Tooth ${n}`}
+        tabIndex={orderIdx === activeOrderIdx ? 0 : -1}
+        onKeyDown={(e) => onKeyDown(e, orderIdx)}
+        onClick={() => toggle(n)}
+      >
+        {n}
+      </button>
+    )
+  }
   return (
     <div className="tooth-picker">
       <div className="arch-label">Upper · Right → Left</div>

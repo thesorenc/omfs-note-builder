@@ -44,7 +44,7 @@ export function defaultEncounter(): Encounter {
 export function encounterHeader(e: Encounter): string {
   const lines: string[] = []
   const fmtDate = e.date
-    ? new Date(e.date + 'T00:00:00').toLocaleDateString(undefined, {
+    ? new Date(e.date + 'T00:00:00').toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',

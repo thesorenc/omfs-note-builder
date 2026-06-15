@@ -1,7 +1,7 @@
 import type { FlagAnnotation } from './types'
 import { assemble } from './assembler'
 import { normalizePlainText } from './normalize'
-import { procedureById, contentById } from './procedures'
+import { procedureById, contentById, atomById } from './procedures'
 import { encounterHeader, type Encounter } from './encounter'
 import type { CaseItem } from '@/state/useCaseStore'
 
@@ -83,7 +83,9 @@ export function buildDocument(
 
     items.forEach((item, idx) => {
       const proc = procedureById(item.procedureId)
-      const op = proc && contentById(proc.opTemplateId)
+      // Use the ATOM's own snippet (not contentById) so colliding op-template slugs
+      // never substitute a full standalone note for the composable atom body.
+      const op = proc && atomById(proc.opTemplateId)
       if (!proc || !op) return
       const r = assemble(op, scopedValues(values, item.instanceId), {
         includeMissingBlock: true,
@@ -114,7 +116,10 @@ export function buildDocument(
       const comp = contentById(id)
       if (!comp) continue
       const r = assemble(comp, {}, {
-        unfilledPolicy: kind === 'postop' ? 'sentinel' : 'keepRaw',
+        // Rx and post-op both use the visible [TO BE COMPLETED] marker for unfilled
+        // fields. For Rx this means a half-specified order (e.g. a steroid taper with
+        // blank doses) is clearly flagged and starts unchecked, never copyable as raw "___".
+        unfilledPolicy: 'sentinel',
         surfaceFlags: true,
       })
       flags.push(...r.flags)

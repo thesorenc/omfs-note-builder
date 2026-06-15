@@ -12,6 +12,7 @@ import { downloadText } from '@/lib/export'
 export function EditableOutput({ text, filename = 'pull-sheet.txt' }: { text: string; filename?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [copied, setCopied] = useState(false)
+  const [liveMsg, setLiveMsg] = useState('')
 
   useEffect(() => {
     if (ref.current) ref.current.innerHTML = formatHtml(text)
@@ -22,7 +23,11 @@ export function EditableOutput({ text, filename = 'pull-sheet.txt' }: { text: st
     try {
       await navigator.clipboard.writeText(current())
       setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      setLiveMsg('Pull sheet copied')
+      setTimeout(() => {
+        setCopied(false)
+        setLiveMsg('')
+      }, 1500)
     } catch {
       window.prompt('Copy failed — select and copy manually:', current())
     }
@@ -54,14 +59,15 @@ export function EditableOutput({ text, filename = 'pull-sheet.txt' }: { text: st
           Reset
         </button>
       </div>
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {liveMsg}
+      </div>
       <div className="out-scroll">
         <div
           className="doc pullsheet-doc"
           contentEditable
           suppressContentEditableWarning
           spellCheck={false}
-          role="textbox"
-          aria-multiline="true"
           aria-label="Editable pull sheet — click to edit, then print"
           ref={ref}
         />

@@ -14,6 +14,16 @@ import './index.css'
 import './design.css'
 import App from './App.tsx'
 import { CaseBuilder } from './routes/CaseBuilder.tsx'
+
+// Clickjacking defense-in-depth: a <meta> CSP can't set frame-ancestors and classic
+// GitHub Pages can't send headers, so bust out of any cross-origin frame here.
+if (window.self !== window.top) {
+  try {
+    window.top!.location.href = window.self.location.href
+  } catch {
+    document.documentElement.style.display = 'none'
+  }
+}
 import { ClinicalNoteBuilder } from './routes/ClinicalNoteBuilder.tsx'
 import { Library } from './routes/Library.tsx'
 

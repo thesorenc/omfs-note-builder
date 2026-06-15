@@ -6,7 +6,7 @@
 //   tsx scripts/build-content.ts --check   (verify committed JSON is up to date)
 
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node:fs'
-import { join, basename, relative } from 'node:path'
+import { join, basename, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { prepareBody } from '../src/lib/prepare'
 import { tokenize } from '../src/lib/tokenizer'
@@ -16,6 +16,15 @@ const DEFAULT_VAULT =
   '/Users/soren/Library/Mobile Documents/iCloud~md~obsidian/Documents/OMFS'
 const VAULT = process.env.VAULT_PATH ?? DEFAULT_VAULT
 const CHECK = process.argv.includes('--check')
+const ALLOW_PARTIAL = process.argv.includes('--allow-partial')
+
+/** Stable, locale-INDEPENDENT id ordering (codepoint, not localeCompare) for reproducible output. */
+const byId = (a: { id: string }, b: { id: string }) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+
+/** Normalize a vault path to a POSIX-style relative path so output is identical across OSes. */
+function posixRelative(from: string, to: string): string {
+  return relative(from, to).split(sep).join('/')
+}
 
 const OUT_DIR = fileURLToPath(new URL('../src/content', import.meta.url))
 
@@ -69,7 +78,8 @@ function parseFile(
   category: string,
   baseModes: ComponentMode[] | null,
 ): ParsedComponent {
-  const raw = readFileSync(path, 'utf8')
+  // Normalize line endings so a CRLF checkout never changes the generated output.
+  const raw = readFileSync(path, 'utf8').replace(/\r\n?/g, '\n')
   const { frontmatter, body } = prepareBody(raw)
   const file = basename(path)
   const dotPhrase = (frontmatter.dot_phrase as string) ?? undefined
@@ -107,7 +117,7 @@ function parseFile(
     description,
     category: (frontmatter.category as string) ?? category,
     modes,
-    sourcePath: relative(VAULT, path),
+    sourcePath: posixRelative(VAULT, path),
     bodyTemplate,
     fields,
     flags,
@@ -136,8 +146,30 @@ function build() {
   const skeletons: ParsedComponent[] = []
   const pullSheets: ParsedComponent[] = []
 
-  // 1. Components
+  // Required source subtrees. If the vault root exists but a subtree is missing (e.g. an
+  // iCloud-synced vault that hasn't fully downloaded), fail loudly rather than silently
+  // emitting truncated JSON that could then be committed as authoritative.
   const compDir = join(VAULT, 'Note Templates', 'Components')
+  const nwDir = join(VAULT, 'Note Writing')
+  const psDir = join(VAULT, 'Note Templates', 'Pull Sheets')
+  const atomDir = join(VAULT, 'Note Templates', 'Procedures')
+  const required: Array<[string, string]> = [
+    ['Components', compDir],
+    ['Note Writing', nwDir],
+    ['Pull Sheets', psDir],
+    ['Procedures', atomDir],
+  ]
+  const missing = required.filter(([, d]) => !existsSync(d)).map(([name]) => name)
+  if (missing.length && !ALLOW_PARTIAL) {
+    console.error(
+      `Vault is missing required subtree(s): ${missing.join(', ')}. ` +
+        `The vault may be partially synced. Refusing to emit truncated content. ` +
+        `Pass --allow-partial to override.`,
+    )
+    process.exit(1)
+  }
+
+  // 1. Components
   for (const f of walk(compDir)) {
     const file = basename(f)
     if (file === 'Components.md' || file === 'Note Templates.md') continue
@@ -159,28 +191,35 @@ function build() {
     }
   }
 
-  // 3. Clinical skeletons
-  const nwDir = join(VAULT, 'Note Writing')
-  for (const f of readdirSync(nwDir)) {
-    if (/^OMFS Template - .+\.md$/.test(f)) {
-      skeletons.push(parseFile(join(nwDir, f), 'Clinical Skeleton', ['clinical', 'library']))
+  // 3. Clinical skeletons (existsSync guard so --allow-partial never throws)
+  if (existsSync(nwDir)) {
+    for (const f of readdirSync(nwDir)) {
+      if (/^OMFS Template - .+\.md$/.test(f)) {
+        skeletons.push(parseFile(join(nwDir, f), 'Clinical Skeleton', ['clinical', 'library']))
+      }
     }
   }
 
   // 4. Pull sheets (team OR setup sheets)
-  const psDir = join(VAULT, 'Note Templates', 'Pull Sheets')
   for (const f of walk(psDir)) {
     pullSheets.push(parseFile(f, 'Pull Sheet', ['pullsheet', 'library']))
   }
 
   // 5. Atomic procedures (composable building blocks; the Case builder library)
   const atoms: ParsedComponent[] = []
-  const atomDir = join(VAULT, 'Note Templates', 'Procedures')
   for (const f of walk(atomDir)) {
     // category comes from frontmatter; folder name is the fallback
     const folderCat = basename(join(f, '..'))
     atoms.push(parseFile(f, folderCat, ['atom', 'library']))
   }
+
+  // Deterministic order: filesystem readdir order is OS-dependent, so sort every
+  // bucket by id before emitting. Without this, --check false-fails across machines.
+  components.sort(byId)
+  opTemplates.sort(byId)
+  skeletons.sort(byId)
+  pullSheets.sort(byId)
+  atoms.sort(byId)
 
   // Report
   const all = [...components, ...opTemplates, ...skeletons, ...pullSheets, ...atoms]
@@ -200,24 +239,8 @@ function build() {
     'atoms.generated.json': atoms,
   }
 
-  if (CHECK) {
-    let drift = false
-    for (const [name, data] of Object.entries(outputs)) {
-      const path = join(OUT_DIR, name)
-      const current = existsSync(path) ? readFileSync(path, 'utf8') : ''
-      if (current.trim() !== JSON.stringify(data, null, 2).trim()) {
-        console.error(`DRIFT: ${name} is out of date. Run npm run build:content.`)
-        drift = true
-      }
-    }
-    process.exit(drift ? 1 : 0)
-  }
-
-  mkdirSync(OUT_DIR, { recursive: true })
-  for (const [name, data] of Object.entries(outputs)) {
-    writeFileSync(join(OUT_DIR, name), JSON.stringify(data, null, 2) + '\n')
-  }
-  // Typed index re-export.
+  // Typed index re-export (checked by the drift gate too, so a hand-edited or stale
+  // index.ts can't pass while importing the wrong content).
   const index = `// AUTO-GENERATED by scripts/build-content.ts. Do not edit.
 import type { ParsedComponent } from '@/lib/types'
 import components from './components.generated.json'
@@ -233,7 +256,31 @@ export const PULL_SHEETS = pullSheets as ParsedComponent[]
 export const ATOMS = atoms as ParsedComponent[]
 export const ALL_CONTENT = [...COMPONENTS, ...OP_TEMPLATES, ...SKELETONS, ...PULL_SHEETS, ...ATOMS]
 `
-  writeFileSync(join(OUT_DIR, 'index.ts'), index)
+
+  // Exact bytes that should be on disk for each file.
+  const files: Record<string, string> = { 'index.ts': index }
+  for (const [name, data] of Object.entries(outputs)) {
+    files[name] = JSON.stringify(data, null, 2) + '\n'
+  }
+
+  if (CHECK) {
+    let drift = false
+    for (const [name, expected] of Object.entries(files)) {
+      const path = join(OUT_DIR, name)
+      // Byte-exact compare (CRLF-normalized): trimming would mask trailing-whitespace drift.
+      const current = existsSync(path) ? readFileSync(path, 'utf8').replace(/\r\n?/g, '\n') : ''
+      if (current !== expected) {
+        console.error(`DRIFT: ${name} is out of date. Run npm run build:content.`)
+        drift = true
+      }
+    }
+    process.exit(drift ? 1 : 0)
+  }
+
+  mkdirSync(OUT_DIR, { recursive: true })
+  for (const [name, content] of Object.entries(files)) {
+    writeFileSync(join(OUT_DIR, name), content)
+  }
   console.log(`Wrote JSON + index to ${relative(process.cwd(), OUT_DIR)}`)
 }
 

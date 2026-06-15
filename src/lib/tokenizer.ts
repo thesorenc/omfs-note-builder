@@ -38,8 +38,10 @@ interface BracketSpan {
   content: string // inner text, untrimmed
 }
 
-const FLAG_KEYWORDS = ['CONFIRM', 'TEMPLATE NOTE', 'TITLE CHECK', 'ADDED', 'NOTE', 'HEADER']
-
+// Stems that take trailing arguments, matched as "<stem> ..." (startsWith + space).
+// Bare patient identifiers (name/mrn/dob/provider) are deliberately EXACT-only: a
+// startsWith on them mis-claims "[Provider Name]" / "[Name Of Procedure]" as
+// non-fillable smartlinks (see isSmartlink).
 const SMARTLINK_PREFIXES = [
   'age',
   'allergies',
@@ -53,31 +55,34 @@ const SMARTLINK_PREFIXES = [
   'st weight',
   'st lab',
   'st rad',
-  'name',
-  'mrn',
-  'dob',
   'date of birth',
-  'provider',
 ]
-const SMARTLINK_EXACT = new Set(SMARTLINK_PREFIXES)
+const SMARTLINK_EXACT = new Set([...SMARTLINK_PREFIXES, 'name', 'mrn', 'dob', 'provider'])
 
-function findTopLevelBrackets(s: string): BracketSpan[] {
-  const out: BracketSpan[] = []
-  let depth = 0
-  let startIdx = -1
+// Find ALL bracket spans, then keep only the top-level ones. Unmatched '[' and ']'
+// are treated as literals (and warned) rather than swallowing every later placeholder:
+// a single stray '[' must not become a black hole that silently drops the rest of the
+// template. Legitimate nesting ([CONFIRM ... [#__] ...]) still yields one outer span.
+function findTopLevelBrackets(s: string, warnings: string[]): BracketSpan[] {
+  const openStack: number[] = []
+  const pairs: Array<{ start: number; end: number }> = []
   for (let i = 0; i < s.length; i++) {
     const ch = s[i]
-    if (ch === '[') {
-      if (depth === 0) startIdx = i
-      depth++
-    } else if (ch === ']') {
-      if (depth > 0) {
-        depth--
-        if (depth === 0 && startIdx >= 0) {
-          out.push({ start: startIdx, end: i + 1, content: s.slice(startIdx + 1, i) })
-          startIdx = -1
-        }
-      }
+    if (ch === '[') openStack.push(i)
+    else if (ch === ']') {
+      if (openStack.length) pairs.push({ start: openStack.pop()!, end: i })
+      else warnings.push(`Unmatched ']' at index ${i} (kept as literal)`)
+    }
+  }
+  for (const pos of openStack) warnings.push(`Unclosed '[' at index ${pos} (kept as literal)`)
+  // Keep only pairs not contained within another pair (top-level), by start order.
+  pairs.sort((a, b) => a.start - b.start)
+  const out: BracketSpan[] = []
+  let lastEnd = -1
+  for (const p of pairs) {
+    if (p.start > lastEnd) {
+      out.push({ start: p.start, end: p.end + 1, content: s.slice(p.start + 1, p.end) })
+      lastEnd = p.end
     }
   }
   return out
@@ -95,15 +100,28 @@ function isSmartlink(trimmed: string): boolean {
 
 function looksLikeAnnotation(trimmed: string): boolean {
   if (/[—–]/.test(trimmed)) return true // contains em/en dash -> our inserted notes
+  if (/\d{4}-\d{2}-\d{2}/.test(trimmed)) return true // dated reviewer note ("Added 2026-06-14 ...")
   if (/\bspecify\b/i.test(trimmed)) return true
   return false
 }
 
+/** Loose keyword match (no delimiter required) — used together with annotation markers. */
+function looseKeyword(trimmed: string): string | null {
+  const m = trimmed.match(/^(CONFIRM|TEMPLATE NOTE|TITLE CHECK|ADDED|NOTE|HEADER)\b/i)
+  if (!m) return null
+  const k = m[1].toUpperCase()
+  return k === 'NOTE' || k === 'HEADER' ? 'NOTE' : k
+}
+
 function flagTypeOf(trimmed: string): string | null {
-  const upper = trimmed.toUpperCase()
-  for (const k of FLAG_KEYWORDS) {
-    if (upper.startsWith(k)) return k === 'NOTE' || k === 'HEADER' ? 'NOTE' : k
-  }
+  // Strong reviewer keywords essentially never start clinical prose -> prefix match.
+  const strong = trimmed.match(/^(CONFIRM|TEMPLATE NOTE|TITLE CHECK)\b/i)
+  if (strong) return strong[1].toUpperCase()
+  // Weak keywords (ADDED/NOTE/HEADER) DO start ordinary prose ("[Note the patient ...]",
+  // "[Added per attending ...]"). Only treat as a strip-flag when the keyword stands alone
+  // or is followed by a ':'/dash delimiter, so real bracketed prose is never silently deleted.
+  const weak = trimmed.match(/^(ADDED|NOTE|HEADER)(\s*[:\-—–]|$)/i)
+  if (weak) return weak[1].toUpperCase() === 'ADDED' ? 'ADDED' : 'NOTE'
   return null
 }
 
@@ -137,14 +155,38 @@ function classifyBrackets(brackets: BracketSpan[], full: string, warnings: strin
       }
     }
 
+    // Markdown link: "[text](url)" — keep the whole thing inline, never a field.
+    if (full[b.end] === '(') {
+      tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType: 'NOTE', strip: false, surface: false })
+      continue
+    }
+    // Markdown task checkbox at a list-item start: "- [ ] ...", "- [x] ...". Keep inline.
+    // Guarded by an actual list marker so a leading "[X] mm" measurement is unaffected.
+    if (/^[xX ]?$/.test(b.content)) {
+      const linePrefix = full.slice(full.lastIndexOf('\n', b.start - 1) + 1, b.start)
+      if (/^\s*[-*]\s+$/.test(linePrefix)) {
+        tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType: 'NOTE', strip: false, surface: false })
+        continue
+      }
+    }
+
     const flagType = flagTypeOf(trimmed)
     if (flagType) {
-      // Real reviewer annotation: surface it AND strip it from the note body.
+      // Recognized reviewer flag (keyword + delimiter): surface it AND strip it from the body.
       tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType, strip: true, surface: true })
       continue
     }
-    if (looksLikeAnnotation(trimmed)) {
-      // Inserted note (dash/"specify"): surface it but keep the text inline (no data loss).
+    const annotationLike = looksLikeAnnotation(trimmed)
+    const loose = looseKeyword(trimmed)
+    if (loose && annotationLike) {
+      // Keyword + annotation markers (dash/date), e.g. "[Added 2026-06-14 — ...]": a genuine
+      // reviewer annotation -> surface AND strip. (Bare "[Added per attending]" has no markers,
+      // so it falls through and is kept inline rather than silently deleted.)
+      tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType: loose, strip: true, surface: true })
+      continue
+    }
+    if (annotationLike) {
+      // Inserted note (dash/date/"specify") without a keyword: surface but keep inline (no data loss).
       tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType: 'NOTE', strip: false, surface: true })
       continue
     }
@@ -186,9 +228,18 @@ function classifyBrackets(brackets: BracketSpan[], full: string, warnings: strin
     // Only when options are short, single-line, and free of nesting/blanks.
     if (trimmed.includes('/')) {
       const opts = trimmed.split('/').map((o) => o.trim())
+      // Reject things that look like a slash but are NOT a choice list: dates
+      // ([10/12/2024], [12/2024]), unit fractions ([mg/dL]), and connectives ([and/or]).
+      // A 2-option numeric pair IS kept (e.g. bur sizes [701/702], suture [3-0/4-0]).
+      const dateLike = (opts.length >= 3 && opts.every((o) => /^\d+$/.test(o))) || opts.some((o) => /^\d{4,}$/.test(o))
+      const unitish = opts.some((o) => /^(mg|mcg|g|ml|dl|l|kg|mm|cm|cc|meq|iu|units?)$/i.test(o))
+      const connective = opts.length === 2 && opts.every((o) => /^(and|or|with|without|w|wo)$/i.test(o))
       const ok =
         opts.length >= 2 &&
         opts.length <= 5 &&
+        !dateLike &&
+        !unitish &&
+        !connective &&
         opts.every((o) => /^[^:[\]]{1,25}$/.test(o) && !o.includes('__'))
       if (ok) {
         tokens.push({ start: b.start, end: b.end, kind: 'enumText', raw, options: opts, hint: trimmed })
@@ -246,9 +297,13 @@ function defaultLabel(kind: Field['kind']): string {
   }
 }
 
-export function tokenize(rawBody: string, componentId: string): TokenizeResult {
+export function tokenize(rawBodyInput: string, componentId: string): TokenizeResult {
   const warnings: string[] = []
-  const brackets = findTopLevelBrackets(rawBody)
+  // Strip our private-use sentinels if they somehow appear in source text (e.g. PUA
+  // glyphs pasted from an icon font), so they can't corrupt assembly downstream.
+  const rawBody = rawBodyInput.replace(new RegExp(`[${S0}${S1}]`, 'g'), '')
+  if (rawBody.length !== rawBodyInput.length) warnings.push('Stripped reserved sentinel character(s) from source')
+  const brackets = findTopLevelBrackets(rawBody, warnings)
   const bracketTokens = classifyBrackets(brackets, rawBody, warnings)
 
   const claimed: Array<[number, number]> = bracketTokens.map((t) => [t.start, t.end])

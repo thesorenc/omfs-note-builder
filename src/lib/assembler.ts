@@ -50,6 +50,11 @@ export function valueKey(field: Field): string {
   return `${componentId}:link:${field.linkKey}`
 }
 
+/** Remove reserved private-use sentinels from any user-entered value. */
+function clean(v: string): string {
+  return v.replace(/[\uE000\uE001]/g, "")
+}
+
 function formatField(field: Field, values: FieldValues): string | null {
   if (field.kind === 'side') {
     const canonical = values[valueKey(field)]
@@ -63,10 +68,10 @@ function formatField(field: Field, values: FieldValues): string | null {
     const d = values[`${field.id}:d`]
     const l = values[`${field.id}:l`]
     if (!d && !l) return null
-    return `${d || '_'}x${l || '_'}`
+    return `${d ? clean(d) : '_'}x${l ? clean(l) : '_'}`
   }
   const v = values[field.id]
-  return v && v.trim() ? v.trim() : null
+  return v && v.trim() ? clean(v.trim()) : null
 }
 
 const HEADER_CHECKLIST = `OPERATIVE NOTE HEADER (verify/complete):
@@ -103,8 +108,13 @@ export function assemble(
       if (resolveInclude && !seen.has(dot)) {
         const inc = resolveInclude(dot)
         if (inc) {
+          // `seen` is a recursion STACK (ancestors only), not a global visited set:
+          // add before recursing and remove after, so a true cycle is broken but a
+          // legitimately repeated include (the same handout twice in one document)
+          // still resolves instead of degrading to "[insert .sacX]".
           seen.add(dot)
           const sub = assemble(inc, values, {}, resolveInclude, seen)
+          seen.delete(dot)
           flags.push(...sub.flags)
           missing.push(...sub.missing)
           sub.smartlinks.forEach((s) => smartlinkSet.add(s))

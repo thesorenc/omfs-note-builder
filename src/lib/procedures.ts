@@ -41,8 +41,15 @@ export const PROCEDURES: Procedure[] = ATOMS.map((a) => {
 const BY_ID = new Map(PROCEDURES.map((p) => [p.id, p]))
 export const procedureById = (id: string) => BY_ID.get(id)
 
+// The atom's own composable op-note snippet. Looked up SEPARATELY because a handful of
+// atom slugs collide with full op-template slugs (e.g. "bsso", "otoplasty"); a flat
+// last-wins map would resolve those to the standalone template instead of the atom.
+const ATOM_BY_ID = new Map(ATOMS.map((a) => [a.id, a]))
+export const atomById = (id: string) => ATOM_BY_ID.get(id)
+
 // Resolve any content id (atom snippet, component, pull sheet, op template) for assembly.
+// Atoms are placed LAST so an atom id wins over a colliding op-template id.
 const COMP_BY_ID = new Map(
-  [...ATOMS, ...COMPONENTS, ...PULL_SHEETS, ...OP_TEMPLATES].map((c) => [c.id, c]),
+  [...OP_TEMPLATES, ...COMPONENTS, ...PULL_SHEETS, ...ATOMS].map((c) => [c.id, c]),
 )
 export const contentById = (id: string) => COMP_BY_ID.get(id)

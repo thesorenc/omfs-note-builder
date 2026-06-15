@@ -13,8 +13,12 @@ export default function App() {
 
   return (
     <div className="app">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <header className="topbar no-print">
-        <nav className="topnav">
+        <h1 className="sr-only">OMFS note builder</h1>
+        <nav className="topnav" aria-label="Primary">
           {tabs.map((t) => (
             <NavLink
               key={t.to}
@@ -41,9 +45,10 @@ export default function App() {
       </header>
       <div className="phi-strip no-print">
         Do not enter patient identifiers (name, MRN, DOB) — leave them as EHR placeholders. Nothing
-        here is saved or transmitted.
+        is transmitted anywhere; the current case is kept in this browser tab only and clears when
+        the tab closes. Close the tab when you’re done on a shared workstation.
       </div>
-      <main className="app-main">
+      <main className="app-main" id="main" tabIndex={-1}>
         <Outlet />
       </main>
     </div>

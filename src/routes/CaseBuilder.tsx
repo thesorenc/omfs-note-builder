@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ATOMS } from '@/content'
 import { PROCEDURES, procedureById, contentById } from '@/lib/procedures'
 import { buildDocument, type DocKind } from '@/lib/caseAssembly'
@@ -42,6 +42,22 @@ export function CaseBuilder() {
   const [tab, setTab] = useState<DocKind>('opnote')
   const [q, setQ] = useState('')
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  // ARIA tabs keyboard model: arrows move (and wrap) selection, Home/End jump to
+  // the ends, and DOM focus follows the newly selected tab.
+  function onTabKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    const current = TABS.findIndex((t) => t.kind === tab)
+    let next: number
+    if (e.key === 'ArrowRight') next = (current + 1) % TABS.length
+    else if (e.key === 'ArrowLeft') next = (current - 1 + TABS.length) % TABS.length
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = TABS.length - 1
+    else return
+    e.preventDefault()
+    setTab(TABS[next].kind)
+    tabRefs.current[next]?.focus()
+  }
 
   const fuse = useMemo(() => makeSearch(ATOMS), [])
 
@@ -176,14 +192,18 @@ export function CaseBuilder() {
 
       {/* Documents */}
       <section id="docs-pane" className={'pane output' + (drawerOpen ? ' open' : '')}>
-        <div className="out-head no-print" role="tablist" aria-label="Documents">
-          {TABS.map((t) => (
+        <div className="out-head no-print" role="tablist" aria-label="Documents" onKeyDown={onTabKeyDown}>
+          {TABS.map((t, i) => (
             <button
               key={t.kind}
               id={`tab-${t.kind}`}
+              ref={(el) => {
+                tabRefs.current[i] = el
+              }}
               role="tab"
               aria-selected={tab === t.kind}
               aria-controls="docs-panel"
+              tabIndex={tab === t.kind ? 0 : -1}
               className="out-tab"
               onClick={() => setTab(t.kind)}
             >
