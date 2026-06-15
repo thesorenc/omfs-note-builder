@@ -2549,6 +2549,58 @@
     "warnings": []
   },
   {
+    "id": "post-op-instructions-hip-donor-site",
+    "dotPhrase": ".sacxpihip",
+    "title": "Post-Op Instructions - Hip Donor Site",
+    "description": "Post-operative instructions handout — hip (iliac crest) bone graft donor site",
+    "category": "Post-Op Instructions",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Instructions - Hip Donor Site.md",
+    "bodyTemplate": "POST-OPERATIVE INSTRUCTIONS — HIP (ILIAC CREST) BONE GRAFT DONOR SITE\n\nABOUT YOUR HIP INCISION: Bone was taken from the front of your hip (the iliac crest) to use in your mouth/jaw. The hip incision is often more sore than the mouth, especially with walking, for the first 1-2 weeks.\n\nPAIN: Soreness and a deep ache at the hip are normal. Take your pain medication as directed. The soreness improves steadily over 1-2 weeks.\n\nWALKING AND ACTIVITY: You may walk and bear weight as tolerated, but expect to walk with a limp at first. Use the cane or walker if one was given to you. Get up and move to prevent blood clots, but avoid strenuous activity, heavy lifting (greater than 15 lbs), bending, and twisting for post-op-instructions-hip-donor-site:enumText:0. No contact sports or running until cleared.\n\nWOUND CARE: Keep the dressing clean and dry. Leave it in place until post-op-instructions-hip-donor-site:enumText:1. Once uncovered, you may shower and let water run over the incision, then pat dry — but do NOT soak the area (no baths, pools, or hot tubs) until fully healed. If you have steri-strips or skin glue, let them fall off on their own.\n\nDRAIN (if present): You may go home with a small drain at the hip. Empty and record the output as instructed. The drain is usually removed at your follow-up visit.\n\nNUMBNESS: A patch of numbness or tingling over the outer thigh is common and is usually temporary. It can occasionally be longer-lasting.\n\nFOLLOW-UP: As scheduled for a wound check, drain removal, and suture/staple removal.\n\nEMERGENCY — seek care for: increasing redness, warmth, or pus-like drainage from the hip; fever greater than 101.5°F; a wound that opens up; new calf pain, swelling, or redness, or chest pain/shortness of breath (possible blood clot); or inability to bear any weight on the leg.",
+    "fields": [
+      {
+        "id": "post-op-instructions-hip-donor-site:enumText:0",
+        "kind": "enumText",
+        "raw": "___ (4 to 6 weeks / per your surgeon)",
+        "label": "15 lbs), bending, and twisting for",
+        "options": [
+          "4 to 6 weeks",
+          "per your surgeon"
+        ],
+        "hint": "4 to 6 weeks / per your surgeon"
+      },
+      {
+        "id": "post-op-instructions-hip-donor-site:enumText:1",
+        "kind": "enumText",
+        "raw": "___ (POD 2-3 / your surgeon tells you to remove it)",
+        "label": "dry. Leave it in place until",
+        "options": [
+          "POD 2-3",
+          "your surgeon tells you to remove it"
+        ],
+        "hint": "POD 2-3 / your surgeon tells you to remove it"
+      }
+    ],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "post-op",
+      "instructions",
+      "donor-site",
+      "iliac-crest",
+      "AICBG"
+    ],
+    "rawBody": "POST-OPERATIVE INSTRUCTIONS — HIP (ILIAC CREST) BONE GRAFT DONOR SITE\n\nABOUT YOUR HIP INCISION: Bone was taken from the front of your hip (the iliac crest) to use in your mouth/jaw. The hip incision is often more sore than the mouth, especially with walking, for the first 1-2 weeks.\n\nPAIN: Soreness and a deep ache at the hip are normal. Take your pain medication as directed. The soreness improves steadily over 1-2 weeks.\n\nWALKING AND ACTIVITY: You may walk and bear weight as tolerated, but expect to walk with a limp at first. Use the cane or walker if one was given to you. Get up and move to prevent blood clots, but avoid strenuous activity, heavy lifting (greater than 15 lbs), bending, and twisting for ___ (4 to 6 weeks / per your surgeon). No contact sports or running until cleared.\n\nWOUND CARE: Keep the dressing clean and dry. Leave it in place until ___ (POD 2-3 / your surgeon tells you to remove it). Once uncovered, you may shower and let water run over the incision, then pat dry — but do NOT soak the area (no baths, pools, or hot tubs) until fully healed. If you have steri-strips or skin glue, let them fall off on their own.\n\nDRAIN (if present): You may go home with a small drain at the hip. Empty and record the output as instructed. The drain is usually removed at your follow-up visit.\n\nNUMBNESS: A patch of numbness or tingling over the outer thigh is common and is usually temporary. It can occasionally be longer-lasting.\n\nFOLLOW-UP: As scheduled for a wound check, drain removal, and suture/staple removal.\n\nEMERGENCY — seek care for: increasing redness, warmth, or pus-like drainage from the hip; fever greater than 101.5°F; a wound that opens up; new calf pain, swelling, or redness, or chest pain/shortness of breath (possible blood clot); or inability to bear any weight on the leg.",
+    "warnings": []
+  },
+  {
     "id": "post-op-instructions-id",
     "dotPhrase": ".sacxpiid",
     "title": "Post-Op Instructions - ID",

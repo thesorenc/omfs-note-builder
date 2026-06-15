@@ -6,6 +6,7 @@ import { makeSearch } from '@/lib/search'
 import { useCaseStore } from '@/state/useCaseStore'
 import { FieldRenderer } from '@/components/FieldRenderer'
 import { OutputPanel } from '@/components/OutputPanel'
+import { RxPanel } from '@/components/RxPanel'
 import { EditableOutput } from '@/components/EditableOutput'
 import { EncounterBar } from '@/components/EncounterBar'
 
@@ -222,6 +223,14 @@ export function CaseBuilder() {
             </div>
           ) : tab === 'pullsheet' ? (
             <EditableOutput key={tab} text={doc.text} filename="pull-sheet.txt" />
+          ) : tab === 'rx' ? (
+            <RxPanel
+              key={tab}
+              text={doc.text}
+              flags={doc.flags}
+              smartlinks={doc.smartlinks}
+              filename="rx.txt"
+            />
           ) : (
             <OutputPanel
               key={tab}

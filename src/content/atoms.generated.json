@@ -8,24 +8,13 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Cosmetic & Facial/Canthopexy.md",
-    "bodyTemplate": "PROCEDURE: Canthopexy\n\nAttention was drawn to the lateral canthopexy:side:0 upper eyelid. canthopexy:measurement:0 cc of 2% lidocaine with 1:100,000 epinephrine was injected. A lateral upper eyelid incision approximately 1 cm in length was made to approach the lateral orbital rim, and the superior lateral orbital rim was identified through this approach. While protecting the orbital contents, a wire passing bur was used to create an osteotomy through the orbital rim. The lateral canthal tendon was identified and canthopexy was performed using 3-0 Prolene suture in a superior vector. Good lift was noted and the procedure was repeated on the contralateral side with symmetry noted. The site was closed with 6-0 plain gut to approximate the orbicularis oculi followed by running 6-0 plain gut for skin closure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "bodyTemplate": "PROCEDURE: Canthopexy\n\nAttention was drawn to the lateral right upper eyelid. canthopexy:measurement:0 cc of 2% lidocaine with 1:100,000 epinephrine was injected. A lateral upper eyelid incision approximately 1 cm in length was made to approach the lateral orbital rim, and the superior lateral orbital rim was identified through this approach. While protecting the orbital contents, a wire passing bur was used to create an osteotomy through the orbital rim. The lateral canthal tendon was identified and canthopexy was performed using 3-0 Prolene suture in a superior vector. Good lift was noted and the procedure was repeated on the contralateral side with symmetry noted. The site was closed with 6-0 plain gut to approximate the orbicularis oculi followed by running 6-0 plain gut for skin closure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "fields": [
-      {
-        "id": "canthopexy:side:0",
-        "kind": "side",
-        "raw": "[right/left]",
-        "label": "Attention was drawn to the lateral",
-        "options": [
-          "right",
-          "left"
-        ],
-        "linkKey": "side"
-      },
       {
         "id": "canthopexy:measurement:0",
         "kind": "measurement",
         "raw": "[X]",
-        "label": "to the lateral [right/left] upper eyelid. (cc)",
+        "label": "to the lateral right upper eyelid. (cc)",
         "unit": "cc"
       }
     ],
@@ -41,7 +30,7 @@
       "est": "30 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Canthopexy\n\nAttention was drawn to the lateral [right/left] upper eyelid. [X] cc of 2% lidocaine with 1:100,000 epinephrine was injected. A lateral upper eyelid incision approximately 1 cm in length was made to approach the lateral orbital rim, and the superior lateral orbital rim was identified through this approach. While protecting the orbital contents, a wire passing bur was used to create an osteotomy through the orbital rim. The lateral canthal tendon was identified and canthopexy was performed using 3-0 Prolene suture in a superior vector. Good lift was noted and the procedure was repeated on the contralateral side with symmetry noted. The site was closed with 6-0 plain gut to approximate the orbicularis oculi followed by running 6-0 plain gut for skin closure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Canthopexy\n\nAttention was drawn to the lateral right upper eyelid. [X] cc of 2% lidocaine with 1:100,000 epinephrine was injected. A lateral upper eyelid incision approximately 1 cm in length was made to approach the lateral orbital rim, and the superior lateral orbital rim was identified through this approach. While protecting the orbital contents, a wire passing bur was used to create an osteotomy through the orbital rim. The lateral canthal tendon was identified and canthopexy was performed using 3-0 Prolene suture in a superior vector. Good lift was noted and the procedure was repeated on the contralateral side with symmetry noted. The site was closed with 6-0 plain gut to approximate the orbicularis oculi followed by running 6-0 plain gut for skin closure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [TEMPLATE: atomic snippet adapted from prior notes; review b"
     ]
@@ -97,7 +86,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Cosmetic & Facial/Facelift (rhytidectomy).md",
-    "bodyTemplate": "PROCEDURE: Facelift (rhytidectomy)\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was injected into the subcutaneous plane of the face and neck (~facelift-rhytidectomy:measurement:0 cc). Attention was first directed to the facelift-rhytidectomy:side:0 face, where a #15 scalpel was used to make a trilobe pre-auricular incision with an anterior curvilinear temporal tuft extension. This incision was continued infra-lobularly, then post-auricularly to the height of the intersection of the pinna with the hairline, and carried into the hairline with a gentle curve. Electrocautery was used to establish a subcutaneous/supra-SMAS dissection plane pre- and post-auricularly, and facelift scissors completed the subcutaneous dissection. All access points were connected pre-to-post auricularly to develop a continuous subcutaneous skin flap with a smooth carpet of fat along the underside, with all bleeding controlled by electrocautery. The incision and subcutaneous dissection were then repeated on the contralateral face. A ~3 cm incision through SMAS was made with electrocautery along the trajectory of a line from the angle of the mandible to the lateral canthus, 1 cm inferior to the zygomatic arch and 1 cm anterior to the tragus. A sub-SMAS plane was developed to near the anterior border of the parotid, then extended beyond it with blunt vertical spreading until sufficient traction could be applied to the SMAS to achieve the desired lift. The mandibular retaining ligament and masseteric cutaneous ligaments were sharply released. The SMAS was secured in a superior position with 2-0 Vicryl followed by gentle lateral traction and securing 2-0 Vicryl sutures, then a running 2-0 Vicryl smoothed the SMAS surface and corrected standing cutaneous deformities. The SMAS work was repeated on the contralateral face. Circumferential undermining was performed as indicated to allow rotation of the skin flap with control of standing cutaneous deformities. Tisseel fibrin sealant was applied to the underside of the flap. The skin flaps were redraped, excess skin was excised stepwise, and the wound edges were secured with 4-0 monocryl deep dermal stay sutures along the temporal tuft, pre-auricular, and post-auricular incisions, with staples within the hairline and a running 6-0 plain gut epidermal layer. A beveled earlobe wedge was excised as needed to create a curvilinear face-to-lobule transition with passive approximation. Hemostasis was confirmed throughout.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "bodyTemplate": "PROCEDURE: Facelift (rhytidectomy)\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was injected into the subcutaneous plane of the face and neck (~facelift-rhytidectomy:measurement:0 cc). Attention was first directed to the right face, where a #15 scalpel was used to make a trilobe pre-auricular incision with an anterior curvilinear temporal tuft extension. This incision was continued infra-lobularly, then post-auricularly to the height of the intersection of the pinna with the hairline, and carried into the hairline with a gentle curve. Electrocautery was used to establish a subcutaneous/supra-SMAS dissection plane pre- and post-auricularly, and facelift scissors completed the subcutaneous dissection. All access points were connected pre-to-post auricularly to develop a continuous subcutaneous skin flap with a smooth carpet of fat along the underside, with all bleeding controlled by electrocautery. The incision and subcutaneous dissection were then repeated on the contralateral face. A ~3 cm incision through SMAS was made with electrocautery along the trajectory of a line from the angle of the mandible to the lateral canthus, 1 cm inferior to the zygomatic arch and 1 cm anterior to the tragus. A sub-SMAS plane was developed to near the anterior border of the parotid, then extended beyond it with blunt vertical spreading until sufficient traction could be applied to the SMAS to achieve the desired lift. The mandibular retaining ligament and masseteric cutaneous ligaments were sharply released. The SMAS was secured in a superior position with 2-0 Vicryl followed by gentle lateral traction and securing 2-0 Vicryl sutures, then a running 2-0 Vicryl smoothed the SMAS surface and corrected standing cutaneous deformities. The SMAS work was repeated on the contralateral face. Circumferential undermining was performed as indicated to allow rotation of the skin flap with control of standing cutaneous deformities. Tisseel fibrin sealant was applied to the underside of the flap. The skin flaps were redraped, excess skin was excised stepwise, and the wound edges were secured with 4-0 monocryl deep dermal stay sutures along the temporal tuft, pre-auricular, and post-auricular incisions, with staples within the hairline and a running 6-0 plain gut epidermal layer. A beveled earlobe wedge was excised as needed to create a curvilinear face-to-lobule transition with passive approximation. Hemostasis was confirmed throughout.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "fields": [
       {
         "id": "facelift-rhytidectomy:measurement:0",
@@ -105,17 +94,6 @@
         "raw": "[X]",
         "label": "of the face and neck (~ (cc)",
         "unit": "cc"
-      },
-      {
-        "id": "facelift-rhytidectomy:side:0",
-        "kind": "side",
-        "raw": "[left/right]",
-        "label": "Attention was first directed to the",
-        "options": [
-          "left",
-          "right"
-        ],
-        "linkKey": "side"
       }
     ],
     "flags": [],
@@ -130,7 +108,7 @@
       "est": "180 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Facelift (rhytidectomy)\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was injected into the subcutaneous plane of the face and neck (~[X] cc). Attention was first directed to the [left/right] face, where a #15 scalpel was used to make a trilobe pre-auricular incision with an anterior curvilinear temporal tuft extension. This incision was continued infra-lobularly, then post-auricularly to the height of the intersection of the pinna with the hairline, and carried into the hairline with a gentle curve. Electrocautery was used to establish a subcutaneous/supra-SMAS dissection plane pre- and post-auricularly, and facelift scissors completed the subcutaneous dissection. All access points were connected pre-to-post auricularly to develop a continuous subcutaneous skin flap with a smooth carpet of fat along the underside, with all bleeding controlled by electrocautery. The incision and subcutaneous dissection were then repeated on the contralateral face. A ~3 cm incision through SMAS was made with electrocautery along the trajectory of a line from the angle of the mandible to the lateral canthus, 1 cm inferior to the zygomatic arch and 1 cm anterior to the tragus. A sub-SMAS plane was developed to near the anterior border of the parotid, then extended beyond it with blunt vertical spreading until sufficient traction could be applied to the SMAS to achieve the desired lift. The mandibular retaining ligament and masseteric cutaneous ligaments were sharply released. The SMAS was secured in a superior position with 2-0 Vicryl followed by gentle lateral traction and securing 2-0 Vicryl sutures, then a running 2-0 Vicryl smoothed the SMAS surface and corrected standing cutaneous deformities. The SMAS work was repeated on the contralateral face. Circumferential undermining was performed as indicated to allow rotation of the skin flap with control of standing cutaneous deformities. Tisseel fibrin sealant was applied to the underside of the flap. The skin flaps were redraped, excess skin was excised stepwise, and the wound edges were secured with 4-0 monocryl deep dermal stay sutures along the temporal tuft, pre-auricular, and post-auricular incisions, with staples within the hairline and a running 6-0 plain gut epidermal layer. A beveled earlobe wedge was excised as needed to create a curvilinear face-to-lobule transition with passive approximation. Hemostasis was confirmed throughout.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Facelift (rhytidectomy)\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was injected into the subcutaneous plane of the face and neck (~[X] cc). Attention was first directed to the right face, where a #15 scalpel was used to make a trilobe pre-auricular incision with an anterior curvilinear temporal tuft extension. This incision was continued infra-lobularly, then post-auricularly to the height of the intersection of the pinna with the hairline, and carried into the hairline with a gentle curve. Electrocautery was used to establish a subcutaneous/supra-SMAS dissection plane pre- and post-auricularly, and facelift scissors completed the subcutaneous dissection. All access points were connected pre-to-post auricularly to develop a continuous subcutaneous skin flap with a smooth carpet of fat along the underside, with all bleeding controlled by electrocautery. The incision and subcutaneous dissection were then repeated on the contralateral face. A ~3 cm incision through SMAS was made with electrocautery along the trajectory of a line from the angle of the mandible to the lateral canthus, 1 cm inferior to the zygomatic arch and 1 cm anterior to the tragus. A sub-SMAS plane was developed to near the anterior border of the parotid, then extended beyond it with blunt vertical spreading until sufficient traction could be applied to the SMAS to achieve the desired lift. The mandibular retaining ligament and masseteric cutaneous ligaments were sharply released. The SMAS was secured in a superior position with 2-0 Vicryl followed by gentle lateral traction and securing 2-0 Vicryl sutures, then a running 2-0 Vicryl smoothed the SMAS surface and corrected standing cutaneous deformities. The SMAS work was repeated on the contralateral face. Circumferential undermining was performed as indicated to allow rotation of the skin flap with control of standing cutaneous deformities. Tisseel fibrin sealant was applied to the underside of the flap. The skin flaps were redraped, excess skin was excised stepwise, and the wound edges were secured with 4-0 monocryl deep dermal stay sutures along the temporal tuft, pre-auricular, and post-auricular incisions, with staples within the hairline and a running 6-0 plain gut epidermal layer. A beveled earlobe wedge was excised as needed to create a curvilinear face-to-lobule transition with passive approximation. Hemostasis was confirmed throughout.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [TEMPLATE: atomic snippet adapted from prior notes; review b"
     ]
@@ -287,7 +265,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Cosmetic & Facial/Midface Lift.md",
-    "bodyTemplate": "PROCEDURE: Midface Lift\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was infiltrated into the midface dissection planes (~midface-lift:measurement:0 cc). Attention was directed to the midface-lift:side:0 midface. Through a temporal and lateral orbital approach, dissection was carried subperiosteally below the zygomaticofrontal suture along the lateral orbital rim and across the body of the zygoma to the inferior orbital rim using a squid and beavertail elevator. Careful subperiosteal release of the midface soft tissues over the malar eminence was continued until the malar fat pad and midface complex were adequately mobilized, with care taken to protect the infraorbital nerve. The released midface tissues were elevated in a superolateral vector and suspended to the deep temporalis fascia with midface-lift:measurement:1-0 midface-lift:text:0 suture under appropriate tension to restore malar projection and efface the nasojugal groove. Symmetry was confirmed against the contralateral side and the identical procedure was performed on the opposite midface. Hemostasis was confirmed throughout. The access incisions were closed in layers.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "bodyTemplate": "PROCEDURE: Midface Lift\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was infiltrated into the midface dissection planes (~midface-lift:measurement:0 cc). Attention was directed to the right midface. Through a temporal and lateral orbital approach, dissection was carried subperiosteally below the zygomaticofrontal suture along the lateral orbital rim and across the body of the zygoma to the inferior orbital rim using a squid and beavertail elevator. Careful subperiosteal release of the midface soft tissues over the malar eminence was continued until the malar fat pad and midface complex were adequately mobilized, with care taken to protect the infraorbital nerve. The released midface tissues were elevated in a superolateral vector and suspended to the deep temporalis fascia with midface-lift:measurement:1-0 midface-lift:text:0 suture under appropriate tension to restore malar projection and efface the nasojugal groove. Symmetry was confirmed against the contralateral side and the identical procedure was performed on the opposite midface. Hemostasis was confirmed throughout. The access incisions were closed in layers.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "fields": [
       {
         "id": "midface-lift:measurement:0",
@@ -295,17 +273,6 @@
         "raw": "[X]",
         "label": "into the midface dissection planes (~ (cc)",
         "unit": "cc"
-      },
-      {
-        "id": "midface-lift:side:0",
-        "kind": "side",
-        "raw": "[right/left]",
-        "label": "cc). Attention was directed to the",
-        "options": [
-          "right",
-          "left"
-        ],
-        "linkKey": "side"
       },
       {
         "id": "midface-lift:measurement:1",
@@ -333,7 +300,7 @@
       "est": "75 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Midface Lift\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was infiltrated into the midface dissection planes (~[X] cc). Attention was directed to the [right/left] midface. Through a temporal and lateral orbital approach, dissection was carried subperiosteally below the zygomaticofrontal suture along the lateral orbital rim and across the body of the zygoma to the inferior orbital rim using a squid and beavertail elevator. Careful subperiosteal release of the midface soft tissues over the malar eminence was continued until the malar fat pad and midface complex were adequately mobilized, with care taken to protect the infraorbital nerve. The released midface tissues were elevated in a superolateral vector and suspended to the deep temporalis fascia with [X]-0 [profile] suture under appropriate tension to restore malar projection and efface the nasojugal groove. Symmetry was confirmed against the contralateral side and the identical procedure was performed on the opposite midface. Hemostasis was confirmed throughout. The access incisions were closed in layers.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Midface Lift\n\nTumescent solution, prepared by combining 50 cc of 2% lidocaine, 1 mg epinephrine (1 cc of 1:1,000), and 1 g tranexamic acid in 500 cc of 0.9% normal saline, was infiltrated into the midface dissection planes (~[X] cc). Attention was directed to the right midface. Through a temporal and lateral orbital approach, dissection was carried subperiosteally below the zygomaticofrontal suture along the lateral orbital rim and across the body of the zygoma to the inferior orbital rim using a squid and beavertail elevator. Careful subperiosteal release of the midface soft tissues over the malar eminence was continued until the malar fat pad and midface complex were adequately mobilized, with care taken to protect the infraorbital nerve. The released midface tissues were elevated in a superolateral vector and suspended to the deep temporalis fascia with [X]-0 [profile] suture under appropriate tension to restore malar projection and efface the nasojugal groove. Symmetry was confirmed against the contralateral side and the identical procedure was performed on the opposite midface. Hemostasis was confirmed throughout. The access incisions were closed in layers.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [TEMPLATE: atomic snippet adapted from prior notes; review b"
     ]
@@ -506,7 +473,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Cosmetic & Facial/Upper Blepharoplasty.md",
-    "bodyTemplate": "PROCEDURE: Upper Blepharoplasty\n\nThe patient was marked in a seated, upright position prior to the procedure. The inferior limb of the incision was marked within the natural supratarsal crease, approximately upper-blepharoplasty:measurement:0 mm above the ciliary margin. The superior limb was marked using a pinch test to identify redundant skin, ensuring at least upper-blepharoplasty:measurement:1 mm of skin remained between the inferior brow margin and the ciliary margin for appropriate closure. Corneal shields were placed bilaterally after application of ophthalmic lubricating ointment. Local anesthesia consisting of 1% lidocaine with 1:100,000 epinephrine was infiltrated into the planned surgical sites. Following appropriate time for hemostasis, attention was directed to the upper-blepharoplasty:side:0 upper eyelid. A #15 blade was used to incise along the previously marked lines. A strip of redundant skin and a conservative strip of the underlying orbicularis oculi muscle were excised using Westcott scissors. The orbital septum was carefully opened medially and the medial fat pad was identified. The fat pad was gently teased out, clamped, excised, and the stump cauterized with bipolar electrocautery before retracting back into the orbit. Meticulous hemostasis was achieved throughout the surgical bed with bipolar electrocautery. The incision was closed with a 6-0 Prolene suture in a running continuous fashion. The identical procedure was performed on the contralateral upper eyelid and bilateral symmetry was assessed and noted to be excellent. The corneal shields were removed, the eyes were cleaned, and erythromycin ophthalmic ointment was applied to the suture lines.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "bodyTemplate": "PROCEDURE: Upper Blepharoplasty\n\nThe patient was marked in a seated, upright position prior to the procedure. The inferior limb of the incision was marked within the natural supratarsal crease, approximately upper-blepharoplasty:measurement:0 mm above the ciliary margin. The superior limb was marked using a pinch test to identify redundant skin, ensuring at least upper-blepharoplasty:measurement:1 mm of skin remained between the inferior brow margin and the ciliary margin for appropriate closure. Corneal shields were placed bilaterally after application of ophthalmic lubricating ointment. Local anesthesia consisting of 1% lidocaine with 1:100,000 epinephrine was infiltrated into the planned surgical sites. Following appropriate time for hemostasis, attention was directed to the right upper eyelid. A #15 blade was used to incise along the previously marked lines. A strip of redundant skin and a conservative strip of the underlying orbicularis oculi muscle were excised using Westcott scissors. The orbital septum was carefully opened medially and the medial fat pad was identified. The fat pad was gently teased out, clamped, excised, and the stump cauterized with bipolar electrocautery before retracting back into the orbit. Meticulous hemostasis was achieved throughout the surgical bed with bipolar electrocautery. The incision was closed with a 6-0 Prolene suture in a running continuous fashion. The identical procedure was performed on the contralateral upper eyelid and bilateral symmetry was assessed and noted to be excellent. The corneal shields were removed, the eyes were cleaned, and erythromycin ophthalmic ointment was applied to the suture lines.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "fields": [
       {
         "id": "upper-blepharoplasty:measurement:0",
@@ -521,17 +488,6 @@
         "raw": "[X]",
         "label": "identify redundant skin, ensuring at least (mm)",
         "unit": "mm"
-      },
-      {
-        "id": "upper-blepharoplasty:side:0",
-        "kind": "side",
-        "raw": "[right/left]",
-        "label": "hemostasis, attention was directed to the",
-        "options": [
-          "right",
-          "left"
-        ],
-        "linkKey": "side"
       }
     ],
     "flags": [],
@@ -546,7 +502,7 @@
       "est": "45 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Upper Blepharoplasty\n\nThe patient was marked in a seated, upright position prior to the procedure. The inferior limb of the incision was marked within the natural supratarsal crease, approximately [X] mm above the ciliary margin. The superior limb was marked using a pinch test to identify redundant skin, ensuring at least [X] mm of skin remained between the inferior brow margin and the ciliary margin for appropriate closure. Corneal shields were placed bilaterally after application of ophthalmic lubricating ointment. Local anesthesia consisting of 1% lidocaine with 1:100,000 epinephrine was infiltrated into the planned surgical sites. Following appropriate time for hemostasis, attention was directed to the [right/left] upper eyelid. A #15 blade was used to incise along the previously marked lines. A strip of redundant skin and a conservative strip of the underlying orbicularis oculi muscle were excised using Westcott scissors. The orbital septum was carefully opened medially and the medial fat pad was identified. The fat pad was gently teased out, clamped, excised, and the stump cauterized with bipolar electrocautery before retracting back into the orbit. Meticulous hemostasis was achieved throughout the surgical bed with bipolar electrocautery. The incision was closed with a 6-0 Prolene suture in a running continuous fashion. The identical procedure was performed on the contralateral upper eyelid and bilateral symmetry was assessed and noted to be excellent. The corneal shields were removed, the eyes were cleaned, and erythromycin ophthalmic ointment was applied to the suture lines.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Upper Blepharoplasty\n\nThe patient was marked in a seated, upright position prior to the procedure. The inferior limb of the incision was marked within the natural supratarsal crease, approximately [X] mm above the ciliary margin. The superior limb was marked using a pinch test to identify redundant skin, ensuring at least [X] mm of skin remained between the inferior brow margin and the ciliary margin for appropriate closure. Corneal shields were placed bilaterally after application of ophthalmic lubricating ointment. Local anesthesia consisting of 1% lidocaine with 1:100,000 epinephrine was infiltrated into the planned surgical sites. Following appropriate time for hemostasis, attention was directed to the right upper eyelid. A #15 blade was used to incise along the previously marked lines. A strip of redundant skin and a conservative strip of the underlying orbicularis oculi muscle were excised using Westcott scissors. The orbital septum was carefully opened medially and the medial fat pad was identified. The fat pad was gently teased out, clamped, excised, and the stump cauterized with bipolar electrocautery before retracting back into the orbit. Meticulous hemostasis was achieved throughout the surgical bed with bipolar electrocautery. The incision was closed with a 6-0 Prolene suture in a running continuous fashion. The identical procedure was performed on the contralateral upper eyelid and bilateral symmetry was assessed and noted to be excellent. The corneal shields were removed, the eyes were cleaned, and erythromycin ophthalmic ointment was applied to the suture lines.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [TEMPLATE: atomic snippet adapted from prior notes; review b"
     ]
@@ -1476,9 +1432,10 @@
     "includes": [],
     "smartlinks": [],
     "links": {
-      "pullSheet": "pull-sheet-hardware-exchange",
+      "pullSheet": "pull-sheet-aicbg",
       "postop": [
-        "post-op-instructions-extraction"
+        "post-op-instructions-extraction",
+        "post-op-instructions-hip-donor-site"
       ],
       "rx": [
         "post-op-rx"
@@ -1898,7 +1855,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
-      "pullSheet": "pull-sheet-hardware-exchange",
+      "pullSheet": "pull-sheet-mandibular-resection",
       "postop": [
         "post-op-instructions-orif"
       ],
@@ -1975,7 +1932,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
-      "pullSheet": "pull-sheet-hardware-exchange",
+      "pullSheet": "pull-sheet-mandibular-resection",
       "postop": [
         "post-op-instructions-orif"
       ],
