@@ -33,7 +33,13 @@ function stripCruft(s: string): string {
   s = s.replace(/\u00A0/g, ' ')
   s = s
     .split('\n')
-    .map((line) => (line.trim().length === 0 ? '' : line.replace(/[ \t]+$/g, '')))
+    .map((line) =>
+      line.trim().length === 0
+        ? ''
+        : // strip trailing ws, then collapse INTERNAL runs of 2+ spaces (e.g. left when an
+          // optional clause is omitted from mid-sentence) while preserving leading indentation
+          line.replace(/[ \t]+$/g, '').replace(/(\S)[ \t]{2,}/g, '$1 '),
+    )
     .join('\n')
   // Collapse 3+ blank lines to a single blank line.
   s = s.replace(/\n{3,}/g, '\n\n')

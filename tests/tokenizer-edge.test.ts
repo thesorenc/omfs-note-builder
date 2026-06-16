@@ -49,10 +49,9 @@ describe('tokenizer — adversarial / silent-loss edge cases', () => {
   it('does NOT delete bracketed prose that merely starts with a flag word', () => {
     const note = '[Note the patient is allergic to penicillin]'
     const parsed = T(note)
-    // It is now classified as an optional clause (a multi-word prose bracket), NOT a
-    // strip-flag — so it is never silently deleted. Undecided, it assembles verbatim.
-    const f = parsed.fields.find((x) => x.kind === 'optionalClause')
-    expect(f?.raw).toContain('Note the patient is allergic')
+    // Not a strip-flag, and not sentence-shaped (no terminal punctuation) so not an
+    // optional clause either -> kept inline verbatim. Never silently deleted.
+    expect(parsed.bodyTemplate).toContain('Note the patient is allergic')
     const { text } = assembleParsed(parsed)
     expect(text).toContain('Note the patient is allergic') // preserved in output (no data loss)
   })

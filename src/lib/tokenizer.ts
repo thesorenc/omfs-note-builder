@@ -242,12 +242,20 @@ function classifyBrackets(brackets: BracketSpan[], full: string, warnings: strin
       const dateLike = (opts.length >= 3 && opts.every((o) => /^\d+$/.test(o))) || opts.some((o) => /^\d{4,}$/.test(o))
       const unitish = opts.some((o) => /^(mg|mcg|g|ml|dl|l|kg|mm|cm|cc|meq|iu|units?)$/i.test(o))
       const connective = opts.length === 2 && opts.every((o) => /^(and|or|with|without|w|wo)$/i.test(o))
+      // Multi-word options must be delimited by SPACED slashes (" / "), so an internal
+      // phrase like "inferior alveolar/mental nerve block" is not mis-split into bogus
+      // choices. Short single-word options ([nasal/oral], [1%/2%]) keep bare slashes.
+      const multiWord = opts.some((o) => /\s/.test(o))
+      const rawSlashes = (trimmed.match(/\//g) || []).length
+      const spacedSlashes = (trimmed.match(/\s\/\s/g) || []).length
+      const slashSpacingOk = !multiWord || rawSlashes === spacedSlashes
       const ok =
         opts.length >= 2 &&
         opts.length <= 5 &&
         !dateLike &&
         !unitish &&
         !connective &&
+        slashSpacingOk &&
         // Options may be multi-word clinical phrases (up to ~70 chars) but never contain
         // a nested placeholder ([ ] / __) — those carry their own fillable content.
         opts.every((o) => /^[^:[\]]{1,70}$/.test(o) && o.length > 0 && !o.includes('__'))
@@ -261,12 +269,15 @@ function classifyBrackets(brackets: BracketSpan[], full: string, warnings: strin
       tokens.push({ start: b.start, end: b.end, kind: 'text', raw })
       continue
     }
-    // Optional clause: a multi-word bracketed PROSE phrase the surgeon may keep or
-    // drop, e.g. "[The site was closed with 3-0 chromic gut suture.]". Becomes an
-    // inline include/omit toggle. Excludes nested brackets, slash-choices, and
-    // underscore blanks (those carry their own fillable content) so we never swallow
-    // a fillable token. Undecided renders the [clause] verbatim (no output change).
-    if (/\s/.test(trimmed) && !/[[\]/_]/.test(trimmed) && trimmed.split(/\s+/).length >= 2) {
+    // Optional clause: a complete bracketed SENTENCE the surgeon may keep or drop,
+    // e.g. "[The site was closed with 3-0 chromic gut suture.]". Must be sentence-shaped
+    // (capitalized start + terminal punctuation, >=3 words) so multi-word VALUE SLOTS
+    // like "[graft material]" or "[treatment area]" are NOT mistaken for togglable prose
+    // — those fall through to inline-verbatim, where they read as a clear fill-in for the
+    // surgeon/EHR. Excludes nested brackets, slash-choices, and underscore blanks.
+    // Undecided renders the [clause] verbatim (no output change).
+    const sentenceShaped = /^[A-Z]/.test(trimmed) && /[.!?]$/.test(trimmed)
+    if (sentenceShaped && !/[[\]/_]/.test(trimmed) && trimmed.split(/\s+/).length >= 3) {
       tokens.push({ start: b.start, end: b.end, kind: 'optionalClause', raw, hint: trimmed })
       continue
     }

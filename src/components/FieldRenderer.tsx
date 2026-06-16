@@ -124,7 +124,9 @@ export function InlineField({
     const current = values[key] ?? ''
     const opts = field.options ?? (isSide ? ['right', 'left'] : [])
     const matchOn = (opt: string) => (isSide ? current === canonicalSide(opt) : current === opt)
-    const isOther = !isSide && current.trim() !== '' && !opts.includes(current)
+    // Match the non-inline renderer: the "Other…" sentinel is a single space, so test
+    // against '' (not trimmed) or the custom input would never appear when chosen.
+    const isOther = !isSide && current !== '' && !opts.includes(current)
 
     // Long multi-word choices (e.g. surgical-approach options) render as a compact
     // dropdown rather than chips, which would wrap awkwardly across the prose line.

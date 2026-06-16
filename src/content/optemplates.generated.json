@@ -1891,7 +1891,7 @@
       "library"
     ],
     "sourcePath": "Note Writing/Op Note Templates/03 Pathology, Salivary & Infection/Excision Cyst Right Mandible.md",
-    "bodyTemplate": "PROCEDURE: Enucleation and Curettage of Cyst, Right Mandible\n\n\n\nFindings: excision-cyst-right-mandible:side:0 excision-cyst-right-mandible:enumText:0 cystic lesion at excision-cyst-right-mandible:enumText:1 measuring approximately excision-cyst-right-mandible:measurement:0 cm, excision-cyst-right-mandible:enumText:2, associated with [impacted tooth #__ / no tooth]. excision-cyst-right-mandible:enumText:3 nerve excision-cyst-right-mandible:enumText:4. Lesion enucleated in excision-cyst-right-mandible:enumText:5 and submitted for permanent pathology. Bony cavity curetted; excision-cyst-right-mandible:enumText:6. [Tooth #__ extracted / no extraction]. No pathologic fracture. Hemostasis achieved.\n\nThe patient was identified in the preoperative holding area. Risks, benefits, alternatives, and complications of the surgery were reviewed, including bleeding, infection, nerve injury (excision-cyst-right-mandible:enumText:7) with potential paresthesia, damage to adjacent teeth, pathologic fracture, recurrence, and need for further surgery. Consent was verified. All questions were answered. The patient was escorted to the operating room and placed in supine position on the operating table. Anesthesia monitors were placed. The patient was placed under general anesthesia and intubated via a excision-cyst-right-mandible:enumText:8 endotracheal route without incident. The oral cavity was suctioned and a throat pack was placed and the mouth was rinsed with peridex. The patient was then prepped and draped for surgery in the usual sterile fashion.\n\nAttention was directed to the excision-cyst-right-mandible:side:1 excision-cyst-right-mandible:enumText:9 excision-cyst-right-mandible:enumText:10 where the site was anesthetized with excision-cyst-right-mandible:measurement:1 cc of excision-cyst-right-mandible:enumText:11 lidocaine with 1:100,000 epinephrine excision-cyst-right-mandible:enumText:12. Using a #15 blade, a excision-cyst-right-mandible:enumText:13 incision was made from [tooth/region __ to __] with excision-cyst-right-mandible:enumText:14 as needed. A full-thickness mucoperiosteal flap was elevated and a subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The excision-cyst-right-mandible:enumText:15 nerve was excision-cyst-right-mandible:enumText:16.\n\n[If aspiration performed: An 18-gauge needle was used to aspirate the lesion prior to entry, returning [straw-colored fluid / nothing / keratinaceous material].] A bony window was developed over the lesion with a excision-cyst-right-mandible:enumText:17 bur under copious irrigation, and any thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in excision-cyst-right-mandible:enumText:18. The specimen was placed in formalin and submitted for permanent pathologic examination. [Tooth #__ was extracted atraumatically and the follicle removed with the specimen.]\n\nThe residual bony cavity was thoroughly curetted and inspected; [a peripheral ostectomy was performed with a round bur under irrigation / Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. Hemostasis was confirmed. [Cavity packed with [collagen/DBM/gelfoam] / left to fill with clot / grafted as noted.] The site was copiously irrigated with sterile saline.\n\nThe flap was repositioned and the incision closed with excision-cyst-right-mandible:enumText:19 excision-cyst-right-mandible:enumText:20 in a excision-cyst-right-mandible:enumText:21 fashion, taking care to re-suspend the papillae. The oral cavity was irrigated, suctioned, and the throat pack was removed. All counts were correct.\n\nThis concluded the surgical procedure. Care of the patient was then turned over to the anesthesia team. The patient was extubated in the operating room without incident and transferred to the recovery room with stable vital signs and spontaneous respirations verified.\n\nSpecimen: [cyst lining ± tooth #__] to permanent pathology.",
+    "bodyTemplate": "PROCEDURE: Enucleation and Curettage of Cyst, Right Mandible\n\n\n\nFindings: excision-cyst-right-mandible:side:0 excision-cyst-right-mandible:enumText:0 cystic lesion at [site/tooth #] measuring approximately excision-cyst-right-mandible:measurement:0 cm, excision-cyst-right-mandible:enumText:1, associated with [impacted tooth #__ / no tooth]. excision-cyst-right-mandible:enumText:2 nerve excision-cyst-right-mandible:enumText:3. Lesion enucleated in excision-cyst-right-mandible:enumText:4 and submitted for permanent pathology. Bony cavity curetted; excision-cyst-right-mandible:enumText:5. [Tooth #__ extracted / no extraction]. No pathologic fracture. Hemostasis achieved.\n\nThe patient was identified in the preoperative holding area. Risks, benefits, alternatives, and complications of the surgery were reviewed, including bleeding, infection, nerve injury (excision-cyst-right-mandible:enumText:6) with potential paresthesia, damage to adjacent teeth, pathologic fracture, recurrence, and need for further surgery. Consent was verified. All questions were answered. The patient was escorted to the operating room and placed in supine position on the operating table. Anesthesia monitors were placed. The patient was placed under general anesthesia and intubated via a excision-cyst-right-mandible:enumText:7 endotracheal route without incident. The oral cavity was suctioned and a throat pack was placed and the mouth was rinsed with peridex. The patient was then prepped and draped for surgery in the usual sterile fashion.\n\nAttention was directed to the excision-cyst-right-mandible:side:1 excision-cyst-right-mandible:enumText:8 excision-cyst-right-mandible:enumText:9 where the site was anesthetized with excision-cyst-right-mandible:measurement:1 cc of excision-cyst-right-mandible:enumText:10 lidocaine with 1:100,000 epinephrine [and an inferior alveolar/mental nerve block was performed]. Using a #15 blade, a excision-cyst-right-mandible:enumText:11 incision was made from [tooth/region __ to __] with excision-cyst-right-mandible:enumText:12 as needed. A full-thickness mucoperiosteal flap was elevated and a subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The excision-cyst-right-mandible:enumText:13 nerve was excision-cyst-right-mandible:enumText:14.\n\n[If aspiration performed: An 18-gauge needle was used to aspirate the lesion prior to entry, returning [straw-colored fluid / nothing / keratinaceous material].] A bony window was developed over the lesion with a excision-cyst-right-mandible:enumText:15 bur under copious irrigation, and any thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in excision-cyst-right-mandible:enumText:16. The specimen was placed in formalin and submitted for permanent pathologic examination. [Tooth #__ was extracted atraumatically and the follicle removed with the specimen.]\n\nThe residual bony cavity was thoroughly curetted and inspected; [a peripheral ostectomy was performed with a round bur under irrigation / Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. Hemostasis was confirmed. [Cavity packed with [collagen/DBM/gelfoam] / left to fill with clot / grafted as noted.] The site was copiously irrigated with sterile saline.\n\nThe flap was repositioned and the incision closed with excision-cyst-right-mandible:enumText:17 [Vicryl/chromic gut] in a excision-cyst-right-mandible:enumText:18 fashion, taking care to re-suspend the papillae. The oral cavity was irrigated, suctioned, and the throat pack was removed. All counts were correct.\n\nThis concluded the surgical procedure. Care of the patient was then turned over to the anesthesia team. The patient was extubated in the operating room without incident and transferred to the recovery room with stable vital signs and spontaneous respirations verified.\n\nSpecimen: [cyst lining ± tooth #__] to permanent pathology.",
     "fields": [
       {
         "id": "excision-cyst-right-mandible:side:0",
@@ -1918,18 +1918,6 @@
         "hint": "mandible/maxilla"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:1",
-        "kind": "enumText",
-        "raw": "[site/tooth #]",
-        "label": "Select",
-        "context": "[R/L] [mandible/maxilla] cystic lesion at ___ measuring approximately [X] cm, [well-corticated/expansile], associated with [impacted tooth #__ / no tooth].",
-        "options": [
-          "site",
-          "tooth #"
-        ],
-        "hint": "site/tooth #"
-      },
-      {
         "id": "excision-cyst-right-mandible:measurement:0",
         "kind": "measurement",
         "raw": "[X]",
@@ -1938,7 +1926,7 @@
         "unit": null
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:2",
+        "id": "excision-cyst-right-mandible:enumText:1",
         "kind": "enumText",
         "raw": "[well-corticated/expansile]",
         "label": "Select",
@@ -1950,7 +1938,7 @@
         "hint": "well-corticated/expansile"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:3",
+        "id": "excision-cyst-right-mandible:enumText:2",
         "kind": "enumText",
         "raw": "[Inferior alveolar / mental / lingual / infraorbital]",
         "label": "Select",
@@ -1964,7 +1952,7 @@
         "hint": "Inferior alveolar / mental / lingual / infraorbital"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:4",
+        "id": "excision-cyst-right-mandible:enumText:3",
         "kind": "enumText",
         "raw": "[visualized and protected / not encountered]",
         "label": "Select",
@@ -1976,7 +1964,7 @@
         "hint": "visualized and protected / not encountered"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:5",
+        "id": "excision-cyst-right-mandible:enumText:4",
         "kind": "enumText",
         "raw": "[toto / piecemeal]",
         "label": "Select",
@@ -1988,7 +1976,7 @@
         "hint": "toto / piecemeal"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:6",
+        "id": "excision-cyst-right-mandible:enumText:5",
         "kind": "enumText",
         "raw": "[peripheral ostectomy with round bur / Carnoy's solution applied / not applied]",
         "label": "Select",
@@ -2001,7 +1989,7 @@
         "hint": "peripheral ostectomy with round bur / Carnoy's solution applied / not applied"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:7",
+        "id": "excision-cyst-right-mandible:enumText:6",
         "kind": "enumText",
         "raw": "[IAN/mental/lingual]",
         "label": "Select",
@@ -2014,7 +2002,7 @@
         "hint": "IAN/mental/lingual"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:8",
+        "id": "excision-cyst-right-mandible:enumText:7",
         "kind": "enumText",
         "raw": "[nasal/oral]",
         "label": "Select",
@@ -2038,7 +2026,7 @@
         "linkKey": "side"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:9",
+        "id": "excision-cyst-right-mandible:enumText:8",
         "kind": "enumText",
         "raw": "[mandibular/maxillary]",
         "label": "Select",
@@ -2050,7 +2038,7 @@
         "hint": "mandibular/maxillary"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:10",
+        "id": "excision-cyst-right-mandible:enumText:9",
         "kind": "enumText",
         "raw": "[vestibule/alveolus]",
         "label": "Select",
@@ -2070,7 +2058,7 @@
         "unit": "cc"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:11",
+        "id": "excision-cyst-right-mandible:enumText:10",
         "kind": "enumText",
         "raw": "[1%/2%]",
         "label": "Select",
@@ -2082,19 +2070,7 @@
         "hint": "1%/2%"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:12",
-        "kind": "enumText",
-        "raw": "[and an inferior alveolar/mental nerve block was performed]",
-        "label": "Select",
-        "context": "Attention was directed to the [R/L] [mandibular/maxillary] [vestibule/alveolus] where the site was anesthetized with [X] cc of [1%/2%] lidocaine with 1:100,000 ",
-        "options": [
-          "and an inferior alveolar",
-          "mental nerve block was performed"
-        ],
-        "hint": "and an inferior alveolar/mental nerve block was performed"
-      },
-      {
-        "id": "excision-cyst-right-mandible:enumText:13",
+        "id": "excision-cyst-right-mandible:enumText:11",
         "kind": "enumText",
         "raw": "[crestal/sulcular/vestibular]",
         "label": "Select",
@@ -2107,7 +2083,7 @@
         "hint": "crestal/sulcular/vestibular"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:14",
+        "id": "excision-cyst-right-mandible:enumText:12",
         "kind": "enumText",
         "raw": "[distal release / hockey-stick extension]",
         "label": "Select",
@@ -2119,7 +2095,7 @@
         "hint": "distal release / hockey-stick extension"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:15",
+        "id": "excision-cyst-right-mandible:enumText:13",
         "kind": "enumText",
         "raw": "[IAN/mental/lingual/infraorbital]",
         "label": "Select",
@@ -2133,7 +2109,7 @@
         "hint": "IAN/mental/lingual/infraorbital"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:16",
+        "id": "excision-cyst-right-mandible:enumText:14",
         "kind": "enumText",
         "raw": "[identified and protected / not encountered]",
         "label": "Select",
@@ -2145,7 +2121,7 @@
         "hint": "identified and protected / not encountered"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:17",
+        "id": "excision-cyst-right-mandible:enumText:15",
         "kind": "enumText",
         "raw": "[701/702]",
         "label": "Select",
@@ -2157,7 +2133,7 @@
         "hint": "701/702"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:18",
+        "id": "excision-cyst-right-mandible:enumText:16",
         "kind": "enumText",
         "raw": "[toto / piecemeal]",
         "label": "Select",
@@ -2169,7 +2145,7 @@
         "hint": "toto / piecemeal"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:19",
+        "id": "excision-cyst-right-mandible:enumText:17",
         "kind": "enumText",
         "raw": "[3-0/4-0]",
         "label": "Select",
@@ -2181,19 +2157,7 @@
         "hint": "3-0/4-0"
       },
       {
-        "id": "excision-cyst-right-mandible:enumText:20",
-        "kind": "enumText",
-        "raw": "[Vicryl/chromic gut]",
-        "label": "Select",
-        "context": "The flap was repositioned and the incision closed with [3-0/4-0] ___ in a [running/interrupted] fashion, taking care to re-suspend the papillae.",
-        "options": [
-          "Vicryl",
-          "chromic gut"
-        ],
-        "hint": "Vicryl/chromic gut"
-      },
-      {
-        "id": "excision-cyst-right-mandible:enumText:21",
+        "id": "excision-cyst-right-mandible:enumText:18",
         "kind": "enumText",
         "raw": "[running/interrupted]",
         "label": "Select",
@@ -2211,13 +2175,16 @@
     "tags": [],
     "rawBody": "PROCEDURE: Enucleation and Curettage of Cyst, Right Mandible\n\n[TEMPLATE NOTE — 2026-06-14: The original \"Excision Cyst Right Mandible\" body in OP Notes.docx was a mis-paste: it contained a right ZMC/zygomaticomaxillary buttress ORIF (Rowe disimpaction, Synthes L-plate), not any cyst procedure. That fracture text is preserved in _archive/OP Notes - original extracted.txt. The body below is a newly drafted generic enucleation/curettage skeleton in the surgeon's voice — verify every step against the actual case before signing, and add Carnoy's/peripheral ostectomy, marsupialization, or resection language as the lesion dictates.]\n\nFindings: [R/L] [mandible/maxilla] cystic lesion at [site/tooth #] measuring approximately [X] cm, [well-corticated/expansile], associated with [impacted tooth #__ / no tooth]. [Inferior alveolar / mental / lingual / infraorbital] nerve [visualized and protected / not encountered]. Lesion enucleated in [toto / piecemeal] and submitted for permanent pathology. Bony cavity curetted; [peripheral ostectomy with round bur / Carnoy's solution applied / not applied]. [Tooth #__ extracted / no extraction]. No pathologic fracture. Hemostasis achieved.\n\nThe patient was identified in the preoperative holding area. Risks, benefits, alternatives, and complications of the surgery were reviewed, including bleeding, infection, nerve injury ([IAN/mental/lingual]) with potential paresthesia, damage to adjacent teeth, pathologic fracture, recurrence, and need for further surgery. Consent was verified. All questions were answered. The patient was escorted to the operating room and placed in supine position on the operating table. Anesthesia monitors were placed. The patient was placed under general anesthesia and intubated via a [nasal/oral] endotracheal route without incident. The oral cavity was suctioned and a throat pack was placed and the mouth was rinsed with peridex. The patient was then prepped and draped for surgery in the usual sterile fashion.\n\nAttention was directed to the [R/L] [mandibular/maxillary] [vestibule/alveolus] where the site was anesthetized with [X] cc of [1%/2%] lidocaine with 1:100,000 epinephrine [and an inferior alveolar/mental nerve block was performed]. Using a #15 blade, a [crestal/sulcular/vestibular] incision was made from [tooth/region __ to __] with [distal release / hockey-stick extension] as needed. A full-thickness mucoperiosteal flap was elevated and a subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The [IAN/mental/lingual/infraorbital] nerve was [identified and protected / not encountered].\n\n[If aspiration performed: An 18-gauge needle was used to aspirate the lesion prior to entry, returning [straw-colored fluid / nothing / keratinaceous material].] A bony window was developed over the lesion with a [701/702] bur under copious irrigation, and any thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in [toto / piecemeal]. The specimen was placed in formalin and submitted for permanent pathologic examination. [Tooth #__ was extracted atraumatically and the follicle removed with the specimen.]\n\nThe residual bony cavity was thoroughly curetted and inspected; [a peripheral ostectomy was performed with a round bur under irrigation / Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. Hemostasis was confirmed. [Cavity packed with [collagen/DBM/gelfoam] / left to fill with clot / grafted as noted.] The site was copiously irrigated with sterile saline.\n\nThe flap was repositioned and the incision closed with [3-0/4-0] [Vicryl/chromic gut] in a [running/interrupted] fashion, taking care to re-suspend the papillae. The oral cavity was irrigated, suctioned, and the throat pack was removed. All counts were correct.\n\nThis concluded the surgical procedure. Care of the patient was then turned over to the anesthesia team. The patient was extubated in the operating room without incident and transferred to the recovery room with stable vital signs and spontaneous respirations verified.\n\nSpecimen: [cyst lining ± tooth #__] to permanent pathology.",
     "warnings": [
+      "Unrecognized bracket kept inline: [site/tooth #]",
       "Unrecognized bracket kept inline: [impacted tooth #__ / no tooth]",
       "Unrecognized bracket kept inline: [Tooth #__ extracted / no extraction]",
+      "Unrecognized bracket kept inline: [and an inferior alveolar/mental nerve block was performed]",
       "Unrecognized bracket kept inline: [tooth/region __ to __]",
       "Unrecognized bracket kept inline: [If aspiration performed: An 18-gauge needle was used to asp",
       "Unrecognized bracket kept inline: [Tooth #__ was extracted atraumatically and the follicle rem",
       "Unrecognized bracket kept inline: [a peripheral ostectomy was performed with a round bur under",
       "Unrecognized bracket kept inline: [Cavity packed with [collagen/DBM/gelfoam] / left to fill wi",
+      "Unrecognized bracket kept inline: [Vicryl/chromic gut]",
       "Unrecognized bracket kept inline: [cyst lining ± tooth #__]"
     ]
   },
