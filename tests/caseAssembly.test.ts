@@ -70,6 +70,31 @@ describe('caseAssembly — documents', () => {
     expect(opioidHits).toBeLessThanOrEqual(1) // not double-dosed
   })
 
+  it('a procedure with no post-op handout surfaces a visible marker, never a blank page', () => {
+    const proc = PROCEDURES.find((p) => p.postopIds.length === 0)
+    expect(proc).toBeTruthy() // e.g. cosmetic / TMJ atoms currently link no handout
+    const { text } = buildDocument([{ instanceId: 'a', procedureId: proc!.id }], {}, enc, 'postop')
+    expect(text.trim().length).toBeGreaterThan(0) // not blank
+    expect(text).toContain('[NO POST-OP HANDOUT LINKED]')
+    expect(text).toContain(proc!.name)
+  })
+
+  it('a covered + an uncovered procedure shows the handout AND the marker', () => {
+    const covered = PROCEDURES.find((p) => p.postopIds.length > 0)!
+    const uncovered = PROCEDURES.find((p) => p.postopIds.length === 0)!
+    const { text } = buildDocument(
+      [
+        { instanceId: 'a', procedureId: covered.id },
+        { instanceId: 'b', procedureId: uncovered.id },
+      ],
+      {},
+      enc,
+      'postop',
+    )
+    expect(text).toContain('[NO POST-OP HANDOUT LINKED]')
+    expect(text).toContain(uncovered.name)
+  })
+
   it('pull sheet assembles for a procedure that has one', () => {
     const proc = PROCEDURES.find((p) => p.pullSheetId)
     expect(proc).toBeTruthy()

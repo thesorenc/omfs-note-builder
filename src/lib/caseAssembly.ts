@@ -105,10 +105,13 @@ export function buildDocument(
   } else {
     // Post-op / Rx: dedupe linked component ids across the case.
     const ids: string[] = []
+    const uncovered: string[] = [] // procedures with NO linked handout/Rx of this kind
     for (const item of items) {
       const proc = procedureById(item.procedureId)
       if (!proc) continue
-      for (const id of kind === 'postop' ? proc.postopIds : proc.rxIds) {
+      const linked = kind === 'postop' ? proc.postopIds : proc.rxIds
+      if (linked.length === 0 && !uncovered.includes(proc.name)) uncovered.push(proc.name)
+      for (const id of linked) {
         if (!ids.includes(id)) ids.push(id)
       }
     }
@@ -125,6 +128,16 @@ export function buildDocument(
       flags.push(...r.flags)
       r.smartlinks.forEach((s) => smartlinks.add(s))
       blocks.push(r.text.trim())
+    }
+    // Patient-safety gate: a procedure with no linked post-op handout must NEVER
+    // silently produce a blank page that could be printed and handed to a patient.
+    // Surface a visible marker naming the uncovered procedure(s) instead.
+    if (kind === 'postop' && uncovered.length) {
+      const list = uncovered.map((n) => `- ${n}`).join('\n')
+      blocks.push(
+        `[NO POST-OP HANDOUT LINKED]\nNo post-operative instructions are on file for:\n${list}\n` +
+          `Provide procedure-specific discharge instructions before the patient leaves.`,
+      )
     }
   }
 
