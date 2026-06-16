@@ -1147,6 +1147,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-all-on-x",
       "postop": [
         "post-op-instructions-implant-graft"
       ],
@@ -1184,6 +1185,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-all-on-x",
       "postop": [
         "post-op-instructions-implant-graft"
       ],
@@ -1219,6 +1221,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-all-on-x",
       "postop": [
         "post-op-instructions-implant-graft"
       ],
@@ -1424,6 +1427,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-hardware-exchange",
       "postop": [
         "post-op-instructions-orif"
       ],
@@ -1555,6 +1559,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-all-on-x",
       "postop": [
         "post-op-instructions-implant-graft"
       ],
@@ -2154,6 +2159,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif",
         "post-op-instructions-mmf"
@@ -2285,6 +2291,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif",
         "sinus-precautions"
@@ -2531,6 +2538,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif"
       ],
@@ -2657,6 +2665,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif",
         "sinus-precautions"
@@ -2810,6 +2819,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif",
         "sinus-precautions"
@@ -2910,6 +2920,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-orif-facial-trauma",
       "postop": [
         "post-op-instructions-orif",
         "sinus-precautions"
@@ -3829,6 +3840,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-all-on-x",
       "postop": [
         "post-op-instructions-implant-graft"
       ],
@@ -4253,6 +4265,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-discopexy",
       "postop": [
         "post-op-instructions-tmj"
       ],
@@ -4380,6 +4393,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-discopexy",
       "postop": [
         "post-op-instructions-tmj"
       ],
@@ -4484,6 +4498,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-discopexy",
       "postop": [
         "post-op-instructions-tmj"
       ],
@@ -4668,6 +4683,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-tmj-total-joint-replacement",
       "postop": [
         "post-op-instructions-tjr"
       ],
@@ -4774,6 +4790,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-tmj-total-joint-replacement",
       "postop": [
         "post-op-instructions-tjr"
       ],
@@ -4928,6 +4945,7 @@
     "includes": [],
     "smartlinks": [],
     "links": {
+      "pullSheet": "pull-sheet-tmj-total-joint-replacement",
       "postop": [
         "post-op-instructions-tjr"
       ],
