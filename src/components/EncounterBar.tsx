@@ -89,6 +89,7 @@ export function EncounterBar({
         <label htmlFor="enc-anesthesia">Anesthesia</label>
         <div className="sel" style={{ minWidth: 170 }}>
           <select id="enc-anesthesia" value={value.anesthesia} onChange={(e) => set({ anesthesia: e.target.value })}>
+            <option value="">— select —</option>
             {ANESTHESIA.map((a) => (
               <option key={a} value={a}>
                 {a}
@@ -115,6 +116,7 @@ export function EncounterBar({
         <label htmlFor="enc-setting">Setting</label>
         <div className="sel" style={{ minWidth: 100 }}>
           <select id="enc-setting" value={value.setting} onChange={(e) => set({ setting: e.target.value })}>
+            <option value="">— select —</option>
             {SETTINGS.map((s) => (
               <option key={s} value={s}>
                 {s}
@@ -133,6 +135,7 @@ export function EncounterBar({
         <label htmlFor="enc-disp">Disposition</label>
         <div className="sel" style={{ minWidth: 150 }}>
           <select id="enc-disp" value={value.disposition} onChange={(e) => set({ disposition: e.target.value })}>
+            <option value="">— select —</option>
             {DISPOSITIONS.map((d) => (
               <option key={d} value={d}>
                 {d}

@@ -28,12 +28,25 @@ describe('caseAssembly — instance scoping', () => {
 })
 
 describe('caseAssembly — documents', () => {
-  it('op note includes the encounter header', () => {
+  it('op note includes the operative header: dx lines, procedure list, encounter fields', () => {
     const proc = PROCEDURES[0]
     const items: CaseItem[] = [{ instanceId: 'a', procedureId: proc.id }]
     const e = { ...enc, attending: 'Dr. Test' }
     const { text } = buildDocument(items, {}, e, 'opnote')
-    expect(text).toContain('Attending: Dr. Test')
+    expect(text).toContain('PREOPERATIVE DIAGNOSIS:')
+    expect(text).toContain('PROCEDURE(S) PERFORMED:')
+    expect(text).toContain(`1. ${proc.name}`)
+    expect(text).toContain('ATTENDING SURGEON: Dr. Test')
+    expect(text).toContain('SPECIMENS (with destination):')
+    expect(text).toContain('CPT / TOTAL OPERATIVE TIME:')
+  })
+
+  it('unset encounter defaults are suppressed (no misleading Clinic/Local-only)', () => {
+    const proc = PROCEDURES[0]
+    const { text } = buildDocument([{ instanceId: 'a', procedureId: proc.id }], {}, defaultEncounter(), 'opnote')
+    expect(text).not.toContain('SETTING:')
+    expect(text).not.toContain('ANESTHESIA:')
+    expect(text).not.toContain('DISPOSITION:')
   })
 
   it('post-op handouts dedupe across two of the same procedure', () => {

@@ -33,6 +33,20 @@ export function formatHtml(text: string): string {
         out.push(`<div class="doc-note">${esc(blk)}</div>`)
         return
       }
+      if (/^PREOPERATIVE DIAGNOSIS:/.test(lines[0])) {
+        const rows = lines
+          .map((l) => {
+            const m = l.match(/^([A-Z][^:]*:)(.*)$/)
+            if (!m) return `<div class="oh-item">${esc(l.trim())}</div>`
+            const v = m[2].trim()
+            const isList = /PROCEDURE\(S\) PERFORMED/.test(m[1])
+            const tail = v ? `<span class="v">${esc(v)}</span>` : isList ? '' : '<span class="blank">________</span>'
+            return `<div class="oh-row"><span class="k">${esc(m[1])}</span>${tail}</div>`
+          })
+          .join('')
+        out.push(`<div class="doc-opheader">${rows}</div>`)
+        return
+      }
       if (lines.length >= 2 && lines.every((l) => /^[A-Za-z][A-Za-z ()/-]{0,34}:\s+\S/.test(l))) {
         const rows = lines
           .map((l) => {
@@ -117,6 +131,32 @@ export function formatBlocks(text: string, variant: 'doc' | 'sheet'): ReactNode[
         out.push(
           <div className="doc-note" key={key}>
             {blk}
+          </div>,
+        )
+        return
+      }
+
+      // Operative-note header: labeled lines (some blank to complete) + the indented
+      // procedure list. Rendered with line breaks preserved so it never collapses into
+      // a paragraph; labels are emphasized and to-complete blanks read clearly.
+      if (/^PREOPERATIVE DIAGNOSIS:/.test(lines[0])) {
+        out.push(
+          <div className="doc-opheader" key={key}>
+            {lines.map((l, j) => {
+              const m = l.match(/^([A-Z][^:]*:)(.*)$/)
+              if (!m) return <div className="oh-item" key={j}>{l.trim()}</div> // procedure list line
+              const isList = /PROCEDURE\(S\) PERFORMED/.test(m[1]) // value is the indented list below
+              return (
+                <div className="oh-row" key={j}>
+                  <span className="k">{m[1]}</span>
+                  {m[2].trim() ? (
+                    <span className="v">{m[2].trim()}</span>
+                  ) : isList ? null : (
+                    <span className="blank">________</span>
+                  )}
+                </div>
+              )
+            })}
           </div>,
         )
         return

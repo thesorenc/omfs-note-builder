@@ -31,18 +31,25 @@ export function defaultEncounter(): Encounter {
     attending: '',
     residents: [''],
     date: new Date().toISOString().slice(0, 10),
-    anesthesia: 'Local only',
+    // Setting/anesthesia/disposition default BLANK: an unset field is suppressed from
+    // the header rather than asserting a (possibly wrong) "Clinic / Local only / Home"
+    // above an OR/GA operative body. The surgeon chooses them per case.
+    anesthesia: '',
     airway: 'N/A',
-    setting: 'Clinic',
+    setting: '',
     ebl: 'Minimal',
-    disposition: 'Home',
+    disposition: '',
     complications: 'None',
   }
 }
 
-/** Build the EMR header block prepended to the op note (filled fields only). */
-export function encounterHeader(e: Encounter): string {
-  const lines: string[] = []
+/**
+ * Standard operative-note header. Auto-fills the procedure list from the case and the
+ * encounter fields the surgeon has set; leaves the medicolegal fields the app cannot
+ * know (diagnoses, specimens, hardware log, CPT/time) as labeled blanks to complete.
+ * Encounter lines that are unset are omitted (no misleading defaults).
+ */
+export function operativeHeader(e: Encounter, procedureNames: string[]): string {
   const fmtDate = e.date
     ? new Date(e.date + 'T00:00:00').toLocaleDateString('en-US', {
         year: 'numeric',
@@ -50,15 +57,28 @@ export function encounterHeader(e: Encounter): string {
         day: 'numeric',
       })
     : ''
-  if (e.attending) lines.push(`Attending: ${e.attending}`)
   const res = e.residents.map((r) => r.trim()).filter(Boolean)
-  if (res.length) lines.push(`Resident(s): ${res.join(', ')}`)
-  if (fmtDate) lines.push(`Date of service: ${fmtDate}`)
-  if (e.setting) lines.push(`Setting: ${e.setting}`)
-  if (e.anesthesia) lines.push(`Anesthesia: ${e.anesthesia}`)
-  if (e.airway && e.airway !== 'N/A') lines.push(`Airway: ${e.airway}`)
-  if (e.ebl) lines.push(`EBL: ${e.ebl}`)
-  if (e.disposition) lines.push(`Disposition: ${e.disposition}`)
-  if (e.complications) lines.push(`Complications: ${e.complications}`)
+  const procList = procedureNames.length
+    ? procedureNames.map((n, i) => `  ${i + 1}. ${n}`).join('\n')
+    : '  '
+
+  const lines: string[] = [
+    'PREOPERATIVE DIAGNOSIS:',
+    'POSTOPERATIVE DIAGNOSIS:',
+    'PROCEDURE(S) PERFORMED:',
+    procList,
+  ]
+  if (e.attending) lines.push(`ATTENDING SURGEON: ${e.attending}`)
+  if (res.length) lines.push(`RESIDENT(S)/ASSISTANT(S): ${res.join(', ')}`)
+  if (fmtDate) lines.push(`DATE OF SERVICE: ${fmtDate}`)
+  if (e.setting) lines.push(`SETTING: ${e.setting}`)
+  if (e.anesthesia) lines.push(`ANESTHESIA: ${e.anesthesia}`)
+  if (e.airway && e.airway !== 'N/A') lines.push(`AIRWAY: ${e.airway}`)
+  lines.push('SPECIMENS (with destination):')
+  lines.push('IMPLANTS/HARDWARE (manufacturer, size, lot):')
+  if (e.ebl) lines.push(`ESTIMATED BLOOD LOSS: ${e.ebl}`)
+  if (e.disposition) lines.push(`DISPOSITION: ${e.disposition}`)
+  if (e.complications) lines.push(`COMPLICATIONS: ${e.complications}`)
+  lines.push('CPT / TOTAL OPERATIVE TIME:')
   return lines.join('\n')
 }

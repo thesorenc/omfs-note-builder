@@ -2,7 +2,7 @@ import type { FlagAnnotation } from './types'
 import { assemble } from './assembler'
 import { normalizePlainText } from './normalize'
 import { procedureById, contentById, atomById } from './procedures'
-import { encounterHeader, type Encounter } from './encounter'
+import { operativeHeader, type Encounter } from './encounter'
 import type { CaseItem } from '@/state/useCaseStore'
 
 export type DocKind = 'opnote' | 'preop' | 'postop' | 'rx' | 'pullsheet'
@@ -78,8 +78,10 @@ export function buildDocument(
   }
 
   if (kind === 'opnote') {
-    const header = encounterHeader(encounter)
-    if (header) blocks.push(header)
+    const procedureNames = items
+      .map((item) => procedureById(item.procedureId)?.name)
+      .filter((n): n is string => !!n)
+    blocks.push(operativeHeader(encounter, procedureNames))
 
     items.forEach((item, idx) => {
       const proc = procedureById(item.procedureId)
