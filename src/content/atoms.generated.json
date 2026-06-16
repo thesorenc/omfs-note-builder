@@ -79,7 +79,7 @@
         "post-op-instructions-hip-donor-site"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "120 min"
     },
@@ -152,7 +152,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "120 min"
     },
@@ -187,7 +187,7 @@
       "pullSheet": "pull-sheet-endobrow-blepharoplasty",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "30 min"
     },
@@ -376,7 +376,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-implant-graft"
       ],
       "est": "45 min"
     },
@@ -420,7 +420,7 @@
       "pullSheet": "pull-sheet-endobrow-blepharoplasty",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "90 min"
     },
@@ -605,7 +605,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-oral-minor"
       ],
       "est": "120 min"
     },
@@ -701,7 +701,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-oral-minor"
       ],
       "est": "60 min"
     },
@@ -807,7 +807,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-oral-minor"
       ],
       "est": "30 min"
     },
@@ -932,7 +932,7 @@
       "pullSheet": "pull-sheet-endobrow-midface-lift",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "180 min"
     },
@@ -969,7 +969,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "60 min"
     },
@@ -1067,7 +1067,7 @@
         "post-op-instructions-id"
       ],
       "rx": [
-        "post-op-rx",
+        "post-op-rx-oral-minor",
         "abx-odontogenic"
       ],
       "est": "60 min"
@@ -1151,7 +1151,7 @@
       "pullSheet": "pull-sheet-endobrow-blepharoplasty",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-laser"
       ],
       "est": "45 min"
     },
@@ -1200,7 +1200,7 @@
         "sinus-precautions"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "120 min"
     },
@@ -1241,7 +1241,7 @@
     "links": {
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-filler"
       ],
       "est": "20 min"
     },
@@ -1267,7 +1267,7 @@
       "pullSheet": "pull-sheet-endobrow-blepharoplasty",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "60 min"
     },
@@ -1315,7 +1315,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-oral-minor"
       ],
       "est": "30 min"
     },
@@ -1416,7 +1416,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "180 min"
     },
@@ -1471,7 +1471,7 @@
       "pullSheet": "pull-sheet-endobrow-midface-lift",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "75 min"
     },
@@ -1563,7 +1563,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx",
+        "post-op-rx-facial",
         "abx-trauma"
       ],
       "est": "45 min"
@@ -2174,7 +2174,7 @@
     "links": {
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "90 min"
     },
@@ -2280,7 +2280,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "120 min"
     },
@@ -2380,7 +2380,7 @@
         "sinus-precautions"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-orthognathic"
       ],
       "est": "90 min"
     },
@@ -2474,7 +2474,7 @@
     "links": {
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "120 min"
     },
@@ -2529,7 +2529,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-oral-minor"
       ],
       "est": "60 min"
     },
@@ -2611,7 +2611,7 @@
         "sinus-precautions"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-implant-graft"
       ],
       "est": "60 min"
     },
@@ -2701,7 +2701,7 @@
         "post-op-instructions-extraction"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-implant-graft"
       ],
       "est": "20 min"
     },
@@ -2871,7 +2871,7 @@
     "links": {
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-tmj"
       ],
       "est": "30 min"
     },
@@ -2960,7 +2960,7 @@
       "pullSheet": "pull-sheet-arthroscopy",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-tmj"
       ],
       "est": "60 min"
     },
@@ -3011,7 +3011,7 @@
       "pullSheet": "pull-sheet-discopexy",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-tmj"
       ],
       "est": "120 min"
     },
@@ -3085,7 +3085,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-tmj"
       ],
       "est": "90 min"
     },
@@ -3269,7 +3269,7 @@
         "post-op-instructions-orif"
       ],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-tmj"
       ],
       "est": "240 min"
     },
@@ -3312,7 +3312,7 @@
       "pullSheet": "pull-sheet-endobrow-blepharoplasty",
       "postop": [],
       "rx": [
-        "post-op-rx"
+        "post-op-rx-facial"
       ],
       "est": "45 min"
     },

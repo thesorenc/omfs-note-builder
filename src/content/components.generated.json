@@ -3170,6 +3170,209 @@
     "warnings": []
   },
   {
+    "id": "post-op-rx-facial",
+    "dotPhrase": ".sacxrxfacial",
+    "title": "Post-Op Rx - Facial",
+    "description": "Post-op Rx for facial cosmetic / periorbital procedures (NO oral rinse, NO dental steroid; eye care; opioid-sparing)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Facial.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food; consider celecoxib if bleeding-sensitive flap)\nOndansetron (Zofran) 4 mg ODT q8h PRN nausea/vomiting - #6 tabs, 0 refills\nOxycodone 5 mg PO q6h PRN severe pain - #8 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\nErythromycin 0.5% ophthalmic or bacitracin ointment - apply to incisions BID (avoid neomycin)\n\nPeriorbital (blepharoplasty / canthopexy):\nIf periorbital: Preservative-free artificial tears - 1-2 gtt each eye q2h while awake\nIf periorbital: Lubricating ophthalmic ointment - to each eye at bedtime\n\nAntibiotic (NOT routine for clean facial; only implant/cartilage/contaminated):\nIf indicated: Cephalexin 500 mg PO QID x 5 days - #20 tabs, 0 refills (cefuroxime or alternative per protocol)",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food; consider celecoxib if bleeding-sensitive flap)\nOndansetron (Zofran) 4 mg ODT q8h PRN nausea/vomiting - #6 tabs, 0 refills\nOxycodone 5 mg PO q6h PRN severe pain - #8 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\nErythromycin 0.5% ophthalmic or bacitracin ointment - apply to incisions BID (avoid neomycin)\n\nPeriorbital (blepharoplasty / canthopexy):\nIf periorbital: Preservative-free artificial tears - 1-2 gtt each eye q2h while awake\nIf periorbital: Lubricating ophthalmic ointment - to each eye at bedtime\n\nAntibiotic (NOT routine for clean facial; only implant/cartilage/contaminated):\nIf indicated: Cephalexin 500 mg PO QID x 5 days - #20 tabs, 0 refills (cefuroxime or alternative per protocol)",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-filler",
+    "dotPhrase": ".sacxrxfiller",
+    "title": "Post-Op Rx - Filler",
+    "description": "Post-op care for soft-tissue filler (no routine Rx; HSV antiviral only if perioral HSV history)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Filler.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 650-1000 mg PO q8h PRN soreness - max 3000 mg/day from all sources (OTC; NSAIDs may increase bruising)\nCold compresses to the area; avoid pressure or massage to the treated site for 1-2 weeks unless directed\n\nAntiviral (only if perioral filler with HSV history):\nIf HSV history: Valacyclovir 500 mg PO BID x 5 days, starting the day before - #10 tabs, 0 refills",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 650-1000 mg PO q8h PRN soreness - max 3000 mg/day from all sources (OTC; NSAIDs may increase bruising)\nCold compresses to the area; avoid pressure or massage to the treated site for 1-2 weeks unless directed\n\nAntiviral (only if perioral filler with HSV history):\nIf HSV history: Valacyclovir 500 mg PO BID x 5 days, starting the day before - #10 tabs, 0 refills",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-implant-graft",
+    "dotPhrase": ".sacxrximplant",
+    "title": "Post-Op Rx - Implant Graft",
+    "description": "Post-op Rx for dental implant / bone graft / sinus augmentation (prophylaxis is peri-op, not a discharge course)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Implant Graft.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 14 days - #1 bottle, 0 refills (begin POD1)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\n\nAntibiotic (discharge course only if protocol/risk-based - not routine):\nIf indicated: Amoxicillin 500 mg PO q8h x 7 days - #21 tabs, 0 refills\nOR (if penicillin-allergic): Azithromycin 250 mg PO - 2 tabs day 1, then 1 tab daily days 2-5 - #6 tabs, 0 refills",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 14 days - #1 bottle, 0 refills (begin POD1)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\n\nAntibiotic (discharge course only if protocol/risk-based - not routine):\nIf indicated: Amoxicillin 500 mg PO q8h x 7 days - #21 tabs, 0 refills\nOR (if penicillin-allergic): Azithromycin 250 mg PO - 2 tabs day 1, then 1 tab daily days 2-5 - #6 tabs, 0 refills",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-laser",
+    "dotPhrase": ".sacxrxlaser",
+    "title": "Post-Op Rx - Laser",
+    "description": "Post-op Rx for CO2 laser skin resurfacing (mandatory HSV antiviral prophylaxis, occlusive care; no oral rinse)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Laser.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nValacyclovir 500 mg PO BID x 10 days, starting the day before the procedure - #20 tabs, 0 refills (HSV prophylaxis; adjust for renal function)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO q6h PRN pain x 3 days - #18 tabs, 0 refills (take with food)\nPetrolatum / occlusive ointment - apply to treated skin to keep moist; do NOT let crusts dry out\n\nAntibiotic / opioid (not routine - add only per protocol):\nIf indicated: add agent and dose per protocol",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nValacyclovir 500 mg PO BID x 10 days, starting the day before the procedure - #20 tabs, 0 refills (HSV prophylaxis; adjust for renal function)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO q6h PRN pain x 3 days - #18 tabs, 0 refills (take with food)\nPetrolatum / occlusive ointment - apply to treated skin to keep moist; do NOT let crusts dry out\n\nAntibiotic / opioid (not routine - add only per protocol):\nIf indicated: add agent and dose per protocol",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-oral-minor",
+    "dotPhrase": ".sacxrxoralminor",
+    "title": "Post-Op Rx - Oral Minor",
+    "description": "Post-op Rx for minor intraoral soft-tissue/bone procedures (no routine opioid/antibiotic)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Oral Minor.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 7 days - #1 bottle, 0 refills (begin POD1; only if an intraoral incision/flap was raised)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\n\nAntibiotic (only if indicated - active infection, immunocompromised; NOT routine):\nIf indicated: Amoxicillin 500 mg PO q8h x 7 days - #21 tabs, 0 refills\nOR (if penicillin-allergic): Azithromycin 250 mg PO - 2 tabs day 1, then 1 tab daily days 2-5 - #6 tabs, 0 refills",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 5 days - #30 tabs, 0 refills (take with food)\nAcetaminophen 1000 mg PO q8h PRN pain x 5 days - #30 tabs, 0 refills (max 3000 mg/day from all sources)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 7 days - #1 bottle, 0 refills (begin POD1; only if an intraoral incision/flap was raised)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (lowest effective quantity; verify PDMP/state limit)\n\nAntibiotic (only if indicated - active infection, immunocompromised; NOT routine):\nIf indicated: Amoxicillin 500 mg PO q8h x 7 days - #21 tabs, 0 refills\nOR (if penicillin-allergic): Azithromycin 250 mg PO - 2 tabs day 1, then 1 tab daily days 2-5 - #6 tabs, 0 refills",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-orthognathic",
+    "dotPhrase": ".sacxrxortho",
+    "title": "Post-Op Rx - Orthognathic",
+    "description": "Post-op Rx for orthognathic / major oral surgery (liquid-compatible analgesia, antiemetic, nasal care)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - Orthognathic.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 1000 mg PO (liquid if MMF) q8h PRN pain x 7 days - #42 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO (liquid if MMF) q6h PRN pain x 7 days - #42 tabs, 0 refills (take with food; confirm no bleeding/renal contraindication)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 14 days - #1 bottle, 0 refills (begin POD1)\nOndansetron (Zofran) 4 mg ODT q8h PRN nausea/vomiting - #12 tabs, 0 refills\nOxycodone 5 mg PO (liquid if MMF) q6h PRN severe pain - #15 tabs, 0 refills (verify PDMP/state limit)\n\nMaxillary cases (Le Fort I / SARPE) - nasal care:\nOxymetazoline nasal spray - 1-2 sprays each nostril BID x 3 days (do not exceed 3 days)\nSaline nasal spray - PRN congestion\n\nAntibiotic (per protocol; peri-op is <=24h, not a routine discharge course):\nIf indicated: Amoxicillin 500 mg PO q8h x 5 days - #15 tabs, 0 refills\nOR (if penicillin-allergic): Clindamycin 300 mg PO q6h x 5 days - #20 tabs, 0 refills (reserve; C. difficile risk)",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nAcetaminophen 1000 mg PO (liquid if MMF) q8h PRN pain x 7 days - #42 tabs, 0 refills (max 3000 mg/day from all sources)\nIbuprofen 600 mg PO (liquid if MMF) q6h PRN pain x 7 days - #42 tabs, 0 refills (take with food; confirm no bleeding/renal contraindication)\nChlorhexidine gluconate 0.12% oral rinse - swish and spit q12h x 14 days - #1 bottle, 0 refills (begin POD1)\nOndansetron (Zofran) 4 mg ODT q8h PRN nausea/vomiting - #12 tabs, 0 refills\nOxycodone 5 mg PO (liquid if MMF) q6h PRN severe pain - #15 tabs, 0 refills (verify PDMP/state limit)\n\nMaxillary cases (Le Fort I / SARPE) - nasal care:\nOxymetazoline nasal spray - 1-2 sprays each nostril BID x 3 days (do not exceed 3 days)\nSaline nasal spray - PRN congestion\n\nAntibiotic (per protocol; peri-op is <=24h, not a routine discharge course):\nIf indicated: Amoxicillin 500 mg PO q8h x 5 days - #15 tabs, 0 refills\nOR (if penicillin-allergic): Clindamycin 300 mg PO q6h x 5 days - #20 tabs, 0 refills (reserve; C. difficile risk)",
+    "warnings": []
+  },
+  {
+    "id": "post-op-rx-tmj",
+    "dotPhrase": ".sacxrxtmj",
+    "title": "Post-Op Rx - TMJ",
+    "description": "Post-op Rx for TMJ procedures (NSAID/APAP, optional muscle relaxant; no oral rinse, no dental steroid)",
+    "category": "Post-Op Rx",
+    "modes": [
+      "postop",
+      "clinical",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Components/Post-Op Rx - TMJ.md",
+    "bodyTemplate": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 7 days - #42 tabs, 0 refills (take with food; scheduled NSAID often preferred for TMJ)\nAcetaminophen 1000 mg PO q8h PRN pain x 7 days - #42 tabs, 0 refills (max 3000 mg/day from all sources)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (open/TJR cases; verify PDMP/state limit)\n\nMuscle relaxant (optional, per surgeon):\nIf indicated: Cyclobenzaprine 5 mg PO qHS PRN spasm x 7 days - #7 tabs, 0 refills\n\nAntibiotic (open / anchor / prosthesis - peri-op only; not a routine discharge course):\nIf indicated: Cephalexin 500 mg PO QID x 5 days - #20 tabs, 0 refills (or per protocol)",
+    "fields": [],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [
+      "[ pfs_discharge_medications ]",
+      "[ Medications Given ]"
+    ],
+    "tags": [
+      "dot-phrase",
+      "component",
+      "prescriptions",
+      "post-op"
+    ],
+    "rawBody": "Rx:\n[ pfs_discharge_medications ]\n[ Medications Given ]\nIbuprofen 600 mg PO q6h PRN pain x 7 days - #42 tabs, 0 refills (take with food; scheduled NSAID often preferred for TMJ)\nAcetaminophen 1000 mg PO q8h PRN pain x 7 days - #42 tabs, 0 refills (max 3000 mg/day from all sources)\nOxycodone 5 mg PO q6h PRN severe pain - #10 tabs, 0 refills (open/TJR cases; verify PDMP/state limit)\n\nMuscle relaxant (optional, per surgeon):\nIf indicated: Cyclobenzaprine 5 mg PO qHS PRN spasm x 7 days - #7 tabs, 0 refills\n\nAntibiotic (open / anchor / prosthesis - peri-op only; not a routine discharge course):\nIf indicated: Cephalexin 500 mg PO QID x 5 days - #20 tabs, 0 refills (or per protocol)",
+    "warnings": []
+  },
+  {
     "id": "proc-arch-bars",
     "dotPhrase": ".sacxprocarchbars",
     "title": "Proc - Arch Bars",
