@@ -231,6 +231,32 @@ function build() {
     for (const w of c.warnings) console.warn(`  warn [${c.id}]: ${w}`)
   }
 
+  // Integrity lint: fail the build on a dangling frontmatter link or an unresolved
+  // .sac* include (either would otherwise render literally as "[insert .sacX]" or
+  // silently drop a linked handout/Rx at runtime). This is what would have caught
+  // the `.sacsign_` typo automatically.
+  const componentIds = new Set(components.map((c) => c.id))
+  const pullSheetIds = new Set(pullSheets.map((p) => p.id))
+  const declaredDots = new Set(all.map((c) => c.dotPhrase).filter(Boolean) as string[])
+  const ALIAS_DOTS = new Set(['.sacsign', '.sacxexam']) // mirror src/lib/resolve.ts
+  const lintErrors: string[] = []
+  for (const a of atoms) {
+    const L = a.links ?? {}
+    for (const id of L.postop ?? []) if (!componentIds.has(id)) lintErrors.push(`${a.id}: postop link '${id}' resolves to no component`)
+    for (const id of L.rx ?? []) if (!componentIds.has(id)) lintErrors.push(`${a.id}: rx link '${id}' resolves to no component`)
+    if (L.pullSheet && !pullSheetIds.has(L.pullSheet)) lintErrors.push(`${a.id}: pull_sheet link '${L.pullSheet}' resolves to no pull sheet`)
+  }
+  for (const c of all) {
+    for (const inc of c.includes ?? []) {
+      if (!declaredDots.has(inc) && !ALIAS_DOTS.has(inc)) lintErrors.push(`${c.id}: include '${inc}' resolves to no dot_phrase`)
+    }
+  }
+  if (lintErrors.length) {
+    console.error('Content integrity errors (dangling links / unresolved includes):')
+    for (const e of lintErrors) console.error(`  ${e}`)
+    process.exit(1)
+  }
+
   const outputs: Record<string, unknown> = {
     'components.generated.json': components,
     'optemplates.generated.json': opTemplates,
