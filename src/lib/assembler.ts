@@ -70,6 +70,15 @@ function formatField(field: Field, values: FieldValues): string | null {
     if (!d && !l) return null
     return `${d ? clean(d) : '_'}x${l ? clean(l) : '_'}`
   }
+  if (field.kind === 'optionalClause') {
+    // Three states: 'on' includes the clause (brackets stripped), 'omit' removes it,
+    // anything else (undecided) keeps the bracketed clause verbatim — identical to the
+    // pre-feature behavior, so an untouched note is byte-for-byte unchanged.
+    const v = values[field.id]
+    if (v === 'on') return field.raw.replace(/^\[|\]$/g, '').trim()
+    if (v === 'omit') return ''
+    return field.raw
+  }
   const v = values[field.id]
   return v && v.trim() ? clean(v.trim()) : null
 }

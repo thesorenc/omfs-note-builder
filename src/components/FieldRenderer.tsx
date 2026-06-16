@@ -186,6 +186,35 @@ export function InlineField({
     )
   }
 
+  if (field.kind === 'optionalClause') {
+    const key = k(field.id)
+    const v = values[key] ?? '' // '' undecided | 'on' include | 'omit' exclude
+    const text = field.raw.replace(/^\[|\]$/g, '').trim()
+    return (
+      <span className={'iclause ' + (v || 'undecided')} role="group" aria-label={`Optional: ${text}`}>
+        <span className="iclause-text">{text}</span>
+        <span className="iclause-tog">
+          <button
+            type="button"
+            aria-pressed={v === 'on'}
+            title="Include this clause"
+            onClick={() => setValue(key, v === 'on' ? '' : 'on')}
+          >
+            ✓
+          </button>
+          <button
+            type="button"
+            aria-pressed={v === 'omit'}
+            title="Omit this clause"
+            onClick={() => setValue(key, v === 'omit' ? '' : 'omit')}
+          >
+            ✕
+          </button>
+        </span>
+      </span>
+    )
+  }
+
   if (field.kind === 'hardwareDim') {
     return (
       <span className="ifield" role="group" aria-label={aria}>

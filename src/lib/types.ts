@@ -12,6 +12,7 @@ export type FieldKind =
   | 'hardwareCount' // [#]-hole, [#] screws -> integer
   | 'hardwareDim' // [diameter]x[length] -> compound (two number subfields)
   | 'enumText' // ___ (a / b / c) -> select with options + Other
+  | 'optionalClause' // [a whole bracketed prose clause] -> include/omit toggle
   | 'blank' // ___ or _ with no parseable hint -> free text
   | 'text' // [profile], [size], [Attending] -> free text
   | 'smartlink' // [Age], [Allergies], [pfs_*] -> NON-fillable, emitted verbatim

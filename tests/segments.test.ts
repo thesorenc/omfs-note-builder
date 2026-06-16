@@ -1,8 +1,20 @@
 import { describe, it, expect } from 'vitest'
 import { tokenize } from '../src/lib/tokenizer'
+import { assemble } from '../src/lib/assembler'
 import { splitTemplate } from '../src/lib/segments'
+import type { ParsedComponent } from '../src/lib/types'
 
 const parse = (s: string) => tokenize(s, 'seg')
+
+function asm(s: string, values: Record<string, string> = {}) {
+  const p = tokenize(s, 'seg')
+  const comp = {
+    id: 'seg', title: 'seg', category: '', modes: [], sourcePath: '',
+    bodyTemplate: p.bodyTemplate, fields: p.fields, flags: p.flags,
+    includes: p.includes, smartlinks: p.smartlinks, tags: [], rawBody: '', warnings: p.warnings,
+  } as ParsedComponent
+  return assemble(comp, values).text
+}
 
 describe('tokenizer — kind-based labels + sentence context', () => {
   it('labels are clean kind defaults, not preceding prose', () => {
@@ -58,6 +70,35 @@ describe('splitTemplate — prose ↔ field interleaving', () => {
     const { bodyTemplate, fields } = parse('Closing per .sacsign protocol.')
     const segs = splitTemplate(bodyTemplate, fields)
     expect(segs.some((s) => s.type === 'include' && s.dotPhrase === '.sacsign')).toBe(true)
+  })
+})
+
+describe('optionalClause — include / omit / undecided', () => {
+  const note = 'Pressure was held. [The site was closed with 3-0 chromic gut suture.] The tooth was delivered.'
+
+  it('a multi-word prose bracket becomes an optionalClause field', () => {
+    const f = parse(note).fields.find((x) => x.kind === 'optionalClause')
+    expect(f).toBeTruthy()
+    expect(f!.context).toBe('The site was closed with 3-0 chromic gut suture.')
+  })
+
+  it('undecided keeps the bracketed clause verbatim (zero output change)', () => {
+    expect(asm(note)).toContain('[The site was closed with 3-0 chromic gut suture.]')
+  })
+
+  it('include strips the brackets; omit removes the clause entirely', () => {
+    const f = parse(note).fields.find((x) => x.kind === 'optionalClause')!
+    const on = asm(note, { [f.id]: 'on' })
+    expect(on).toContain('The site was closed with 3-0 chromic gut suture.')
+    expect(on).not.toContain('[The site was closed')
+    const omit = asm(note, { [f.id]: 'omit' })
+    expect(omit).not.toContain('site was closed')
+  })
+
+  it('does not capture slash-choices, nested brackets, or underscore blanks', () => {
+    expect(parse('[a / b / c choice here]').fields.some((f) => f.kind === 'optionalClause')).toBe(false)
+    expect(parse('[region __ to __]').fields.some((f) => f.kind === 'optionalClause')).toBe(false)
+    expect(parse('[outer [#__] inner]').fields.some((f) => f.kind === 'optionalClause')).toBe(false)
   })
 })
 

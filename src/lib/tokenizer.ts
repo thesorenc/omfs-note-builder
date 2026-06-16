@@ -258,6 +258,15 @@ function classifyBrackets(brackets: BracketSpan[], full: string, warnings: strin
       tokens.push({ start: b.start, end: b.end, kind: 'text', raw })
       continue
     }
+    // Optional clause: a multi-word bracketed PROSE phrase the surgeon may keep or
+    // drop, e.g. "[The site was closed with 3-0 chromic gut suture.]". Becomes an
+    // inline include/omit toggle. Excludes nested brackets, slash-choices, and
+    // underscore blanks (those carry their own fillable content) so we never swallow
+    // a fillable token. Undecided renders the [clause] verbatim (no output change).
+    if (/\s/.test(trimmed) && !/[[\]/_]/.test(trimmed) && trimmed.split(/\s+/).length >= 2) {
+      tokens.push({ start: b.start, end: b.end, kind: 'optionalClause', raw, hint: trimmed })
+      continue
+    }
     // Unrecognized bracket -> KEEP inline verbatim (no data loss), warn only.
     warnings.push(`Unrecognized bracket kept inline: ${raw.slice(0, 60)}`)
     tokens.push({ start: b.start, end: b.end, kind: 'flag', raw, flagType: 'NOTE', strip: false, surface: false })
@@ -324,6 +333,8 @@ function defaultLabel(kind: Field['kind']): string {
       return 'Implant size (d x l)'
     case 'enumText':
       return 'Select'
+    case 'optionalClause':
+      return 'Optional step'
     case 'text':
       return 'Value'
     default:
@@ -420,7 +431,12 @@ export function tokenize(rawBodyInput: string, componentId: string): TokenizeRes
       kind: t.kind,
       raw: t.raw,
       label: deriveLabel(t.kind, t.unit),
-      context: deriveContext(rawBody, t.start, t.end),
+      // For an optional clause the clause text itself is the most useful context;
+      // for everything else, the containing sentence with this placeholder blanked.
+      context:
+        t.kind === 'optionalClause'
+          ? t.raw.replace(/^\[|\]$/g, '').trim()
+          : deriveContext(rawBody, t.start, t.end),
       unit: t.unit,
       options: t.options,
       hint: t.hint,

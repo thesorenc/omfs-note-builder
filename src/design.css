@@ -178,6 +178,16 @@ button{font-family:inherit;cursor:pointer}
 .ipill.on{background:var(--accent);color:#fff;border-style:solid;border-color:var(--accent)}
 .ipopover{display:block;margin:8px 0;padding:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px}
 
+/* Optional clause: the clause text + an include/omit toggle, inline in the prose.
+   Undecided reads as a tentative dashed clause; included = solid; omitted = struck. */
+.iclause{display:inline;border-radius:5px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.iclause.undecided .iclause-text{background:var(--accent-softer);border-bottom:1.5px dashed var(--accent-2)}
+.iclause.on .iclause-text{background:var(--accent-soft);color:var(--accent-ink)}
+.iclause.omit .iclause-text{color:var(--faint);text-decoration:line-through}
+.iclause-tog{display:inline-flex;gap:2px;margin-left:3px;vertical-align:baseline}
+.iclause-tog button{width:20px;height:18px;border:1px solid var(--line);background:var(--surface);border-radius:5px;font-size:10px;line-height:1;color:var(--muted);padding:0}
+.iclause-tog button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:600;font-family:inherit;transition:.12s;display:inline-flex;align-items:center;gap:6px}
 .chip:hover{border-color:var(--accent-2)}

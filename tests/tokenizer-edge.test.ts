@@ -1,8 +1,29 @@
 import { describe, it, expect } from 'vitest'
 import { tokenize } from '../src/lib/tokenizer'
-import { SENTINEL_OPEN, SENTINEL_CLOSE } from '../src/lib/types'
+import { assemble } from '../src/lib/assembler'
+import { SENTINEL_OPEN, SENTINEL_CLOSE, type ParsedComponent } from '../src/lib/types'
 
 const T = (s: string) => tokenize(s, 'edge')
+
+/** Assemble a tokenizer result directly (default keepRaw policy) to assert on output. */
+function assembleParsed(p: ReturnType<typeof tokenize>) {
+  const comp = {
+    id: 'edge',
+    title: 'edge',
+    category: '',
+    modes: [],
+    sourcePath: '',
+    bodyTemplate: p.bodyTemplate,
+    fields: p.fields,
+    flags: p.flags,
+    includes: p.includes,
+    smartlinks: p.smartlinks,
+    tags: [],
+    rawBody: '',
+    warnings: p.warnings,
+  } as ParsedComponent
+  return assemble(comp, {})
+}
 
 describe('tokenizer — adversarial / silent-loss edge cases', () => {
   it('a stray "[" does not swallow later placeholders (no black hole)', () => {
@@ -27,8 +48,13 @@ describe('tokenizer — adversarial / silent-loss edge cases', () => {
 
   it('does NOT delete bracketed prose that merely starts with a flag word', () => {
     const note = '[Note the patient is allergic to penicillin]'
-    const { bodyTemplate } = T(note)
-    expect(bodyTemplate).toContain('Note the patient is allergic') // kept inline, not stripped
+    const parsed = T(note)
+    // It is now classified as an optional clause (a multi-word prose bracket), NOT a
+    // strip-flag — so it is never silently deleted. Undecided, it assembles verbatim.
+    const f = parsed.fields.find((x) => x.kind === 'optionalClause')
+    expect(f?.raw).toContain('Note the patient is allergic')
+    const { text } = assembleParsed(parsed)
+    expect(text).toContain('Note the patient is allergic') // preserved in output (no data loss)
   })
 
   it('still strips a genuine dated reviewer annotation', () => {

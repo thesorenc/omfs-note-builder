@@ -263,7 +263,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Dental Implant.md",
-    "bodyTemplate": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site dental-implant:toothNumber:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at dental-implant:toothNumber:1 and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared dental-implant:hardwareDim:0 mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A dental-implant:hardwareDim:1 mm implant (REF dental-implant:blank:0, LOT dental-implant:blank:1) was placed into the osteotomy and torqued to dental-implant:measurement:0 Ncm. A dental-implant:enumText:0 was placed. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 dental-implant:enumText:1 suture.\n\n",
+    "bodyTemplate": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site dental-implant:toothNumber:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration dental-implant:optionalClause:0. A crestal incision was made over the edentulous ridge at dental-implant:toothNumber:1 and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared dental-implant:hardwareDim:0 mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A dental-implant:hardwareDim:1 mm implant (REF dental-implant:blank:0, LOT dental-implant:blank:1) was placed into the osteotomy and torqued to dental-implant:measurement:0 Ncm. A dental-implant:enumText:0 was placed. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 dental-implant:enumText:1 suture.\n\n",
     "fields": [
       {
         "id": "dental-implant:toothNumber:0",
@@ -271,6 +271,14 @@
         "raw": "[#__]",
         "label": "Tooth #",
         "context": "Attention was directed to implant site ___."
+      },
+      {
+        "id": "dental-implant:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[and an IAN block for mandibular sites]",
+        "label": "Optional step",
+        "context": "and an IAN block for mandibular sites",
+        "hint": "and an IAN block for mandibular sites"
       },
       {
         "id": "dental-implant:toothNumber:1",
@@ -382,9 +390,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site [#__]. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at [#__] and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared [diameter]x[length] mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm. A [cover screw / healing abutment] was placed. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 [Vicryl/chromic] suture.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [and an IAN block for mandibular sites]"
-    ]
+    "warnings": []
   },
   {
     "id": "endoscopic-brow-lift",
@@ -638,7 +644,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Excisional Biopsy Soft-tissue Excision.md",
-    "bodyTemplate": "PROCEDURE: Excisional Biopsy / Soft-tissue Excision\n\nAttention was directed to the excisional-biopsy-soft-tissue-excision:side:0 excisional-biopsy-soft-tissue-excision:text:0 where the excisional-biopsy-soft-tissue-excision:measurement:0 cm lesion was identified and its margins marked. The area was anesthetized with local infiltration of lidocaine with epinephrine, taking care to inject peripheral to rather than into the lesion. Using a #15 blade, an elliptical incision was made circumferentially around the lesion with a margin of clinically normal tissue as indicated by the lesion's character. The lesion was excised in toto with sharp and blunt dissection at an appropriate depth, and a excisional-biopsy-soft-tissue-excision:enumText:0 was placed to denote [anatomic orientation]. The specimen was placed in formalin and submitted for permanent pathologic examination. The base and margins of the surgical bed were inspected. Hemostasis was achieved with pressure and judicious electrocautery. The wound was irrigated with sterile saline and closed primarily with excisional-biopsy-soft-tissue-excision:enumText:1 excisional-biopsy-soft-tissue-excision:enumText:2 in excisional-biopsy-soft-tissue-excision:enumText:3 fashion after appropriate undermining for tension-free approximation. Specimen: [soft-tissue lesion] to permanent pathology.\n\n",
+    "bodyTemplate": "PROCEDURE: Excisional Biopsy / Soft-tissue Excision\n\nAttention was directed to the excisional-biopsy-soft-tissue-excision:side:0 excisional-biopsy-soft-tissue-excision:text:0 where the excisional-biopsy-soft-tissue-excision:measurement:0 cm lesion was identified and its margins marked. The area was anesthetized with local infiltration of lidocaine with epinephrine, taking care to inject peripheral to rather than into the lesion. Using a #15 blade, an elliptical incision was made circumferentially around the lesion with a margin of clinically normal tissue as indicated by the lesion's character. The lesion was excised in toto with sharp and blunt dissection at an appropriate depth, and a excisional-biopsy-soft-tissue-excision:enumText:0 was placed to denote excisional-biopsy-soft-tissue-excision:optionalClause:0. The specimen was placed in formalin and submitted for permanent pathologic examination. The base and margins of the surgical bed were inspected. Hemostasis was achieved with pressure and judicious electrocautery. The wound was irrigated with sterile saline and closed primarily with excisional-biopsy-soft-tissue-excision:enumText:1 excisional-biopsy-soft-tissue-excision:enumText:2 in excisional-biopsy-soft-tissue-excision:enumText:3 fashion after appropriate undermining for tension-free approximation. Specimen: excisional-biopsy-soft-tissue-excision:optionalClause:1 to permanent pathology.\n\n",
     "fields": [
       {
         "id": "excisional-biopsy-soft-tissue-excision:side:0",
@@ -680,6 +686,14 @@
         "hint": "marking suture / orientation note"
       },
       {
+        "id": "excisional-biopsy-soft-tissue-excision:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[anatomic orientation]",
+        "label": "Optional step",
+        "context": "anatomic orientation",
+        "hint": "anatomic orientation"
+      },
+      {
         "id": "excisional-biopsy-soft-tissue-excision:enumText:1",
         "kind": "enumText",
         "raw": "[3-0/4-0]",
@@ -714,6 +728,14 @@
           "running"
         ],
         "hint": "interrupted/running"
+      },
+      {
+        "id": "excisional-biopsy-soft-tissue-excision:optionalClause:1",
+        "kind": "optionalClause",
+        "raw": "[soft-tissue lesion]",
+        "label": "Optional step",
+        "context": "soft-tissue lesion",
+        "hint": "soft-tissue lesion"
       }
     ],
     "flags": [],
@@ -730,10 +752,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Excisional Biopsy / Soft-tissue Excision\n\nAttention was directed to the [R/L] [site] where the [X] cm lesion was identified and its margins marked. The area was anesthetized with local infiltration of lidocaine with epinephrine, taking care to inject peripheral to rather than into the lesion. Using a #15 blade, an elliptical incision was made circumferentially around the lesion with a margin of clinically normal tissue as indicated by the lesion's character. The lesion was excised in toto with sharp and blunt dissection at an appropriate depth, and a [marking suture / orientation note] was placed to denote [anatomic orientation]. The specimen was placed in formalin and submitted for permanent pathologic examination. The base and margins of the surgical bed were inspected. Hemostasis was achieved with pressure and judicious electrocautery. The wound was irrigated with sterile saline and closed primarily with [3-0/4-0] [chromic gut/Vicryl] in [interrupted/running] fashion after appropriate undermining for tension-free approximation. Specimen: [soft-tissue lesion] to permanent pathology.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [anatomic orientation]",
-      "Unrecognized bracket kept inline: [soft-tissue lesion]"
-    ]
+    "warnings": []
   },
   {
     "id": "exposure-and-bonding",
@@ -744,7 +763,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Exposure and Bonding.md",
-    "bodyTemplate": "PROCEDURE: Exposure and Bonding (impacted tooth)\n\nAttention was directed to the exposure-and-bonding:side:0 exposure-and-bonding:enumText:0 exposure-and-bonding:text:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A exposure-and-bonding:enumText:1 incision was made overlying impacted exposure-and-bonding:toothNumber:0 and a full thickness mucoperiosteal flap was raised to expose the overlying bone. Bone overlying the crown was removed with a round bur under copious irrigation until adequate enamel surface was exposed, taking care to preserve the cementoenamel junction. The exposed enamel was cleaned, etched, rinsed, and dried, and an orthodontic bracket with a gold chain was bonded to the crown. The chain was secured and routed [to emerge through the flap / under the flap to the alveolar crest]. The site was irrigated and the flap was repositioned and closed with 3-0 exposure-and-bonding:enumText:2 suture, leaving the chain accessible for orthodontic traction.\n\n",
+    "bodyTemplate": "PROCEDURE: Exposure and Bonding (impacted tooth)\n\nAttention was directed to the exposure-and-bonding:side:0 exposure-and-bonding:enumText:0 exposure-and-bonding:text:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration exposure-and-bonding:optionalClause:0. A exposure-and-bonding:enumText:1 incision was made overlying impacted exposure-and-bonding:toothNumber:0 and a full thickness mucoperiosteal flap was raised to expose the overlying bone. Bone overlying the crown was removed with a round bur under copious irrigation until adequate enamel surface was exposed, taking care to preserve the cementoenamel junction. The exposed enamel was cleaned, etched, rinsed, and dried, and an orthodontic bracket with a gold chain was bonded to the crown. The chain was secured and routed [to emerge through the flap / under the flap to the alveolar crest]. The site was irrigated and the flap was repositioned and closed with 3-0 exposure-and-bonding:enumText:2 suture, leaving the chain accessible for orthodontic traction.\n\n",
     "fields": [
       {
         "id": "exposure-and-bonding:side:0",
@@ -776,6 +795,14 @@
         "raw": "[region]",
         "label": "Value",
         "context": "Attention was directed to the [R/L] [maxillary/mandibular] ___."
+      },
+      {
+        "id": "exposure-and-bonding:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[and an IAN block for mandibular sites]",
+        "label": "Optional step",
+        "context": "and an IAN block for mandibular sites",
+        "hint": "and an IAN block for mandibular sites"
       },
       {
         "id": "exposure-and-bonding:enumText:1",
@@ -824,7 +851,6 @@
     "tags": [],
     "rawBody": "PROCEDURE: Exposure and Bonding (impacted tooth)\n\nAttention was directed to the [R/L] [maxillary/mandibular] [region]. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A [crestal / sulcular] incision was made overlying impacted [#__] and a full thickness mucoperiosteal flap was raised to expose the overlying bone. Bone overlying the crown was removed with a round bur under copious irrigation until adequate enamel surface was exposed, taking care to preserve the cementoenamel junction. The exposed enamel was cleaned, etched, rinsed, and dried, and an orthodontic bracket with a gold chain was bonded to the crown. The chain was secured and routed [to emerge through the flap / under the flap to the alveolar crest]. The site was irrigated and the flap was repositioned and closed with 3-0 [Vicryl/chromic] suture, leaving the chain accessible for orthodontic traction.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
-      "Unrecognized bracket kept inline: [and an IAN block for mandibular sites]",
       "Unrecognized bracket kept inline: [to emerge through the flap / under the flap to the alveolar"
     ]
   },
@@ -837,7 +863,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Extraction (simple).md",
-    "bodyTemplate": "PROCEDURE: Extraction (simple)\n\nAttention was directed to the extraction-simple:side:0 extraction-simple:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally [and an IAN block was performed for mandibular sites]. Tooth extraction-simple:toothNumber:0 was tested for profound anesthesia. A periosteal elevator was used to reflect the gingival attachment circumferentially. Tooth extraction-simple:toothNumber:1 was luxated with straight and angled elevators to expand the socket and disrupt the periodontal ligament, then delivered atraumatically with forceps. The socket was inspected and confirmed free of retained root tips. The socket was curetted of granulation tissue and irrigated with sterile saline. Sharp bony edges were smoothed and hemostasis was achieved with pressure. [The site was closed with 3-0 chromic gut suture.] The extracted tooth was [discarded per protocol / returned to the patient per request].\n\n",
+    "bodyTemplate": "PROCEDURE: Extraction (simple)\n\nAttention was directed to the extraction-simple:side:0 extraction-simple:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally extraction-simple:optionalClause:0. Tooth extraction-simple:toothNumber:0 was tested for profound anesthesia. A periosteal elevator was used to reflect the gingival attachment circumferentially. Tooth extraction-simple:toothNumber:1 was luxated with straight and angled elevators to expand the socket and disrupt the periodontal ligament, then delivered atraumatically with forceps. The socket was inspected and confirmed free of retained root tips. The socket was curetted of granulation tissue and irrigated with sterile saline. Sharp bony edges were smoothed and hemostasis was achieved with pressure. extraction-simple:optionalClause:1 The extracted tooth was [discarded per protocol / returned to the patient per request].\n\n",
     "fields": [
       {
         "id": "extraction-simple:side:0",
@@ -864,6 +890,14 @@
         "hint": "maxillary/mandibular"
       },
       {
+        "id": "extraction-simple:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[and an IAN block was performed for mandibular sites]",
+        "label": "Optional step",
+        "context": "and an IAN block was performed for mandibular sites",
+        "hint": "and an IAN block was performed for mandibular sites"
+      },
+      {
         "id": "extraction-simple:toothNumber:0",
         "kind": "toothNumber",
         "raw": "[#__]",
@@ -876,6 +910,14 @@
         "raw": "[#__]",
         "label": "Tooth #",
         "context": "Tooth ___ was luxated with straight and angled elevators to expand the socket and disrupt the periodontal ligament, then delivered atraumatically with forceps."
+      },
+      {
+        "id": "extraction-simple:optionalClause:1",
+        "kind": "optionalClause",
+        "raw": "[The site was closed with 3-0 chromic gut suture.]",
+        "label": "Optional step",
+        "context": "The site was closed with 3-0 chromic gut suture.",
+        "hint": "The site was closed with 3-0 chromic gut suture."
       }
     ],
     "flags": [],
@@ -893,8 +935,6 @@
     "tags": [],
     "rawBody": "PROCEDURE: Extraction (simple)\n\nAttention was directed to the [R/L] [maxillary/mandibular] vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally [and an IAN block was performed for mandibular sites]. Tooth [#__] was tested for profound anesthesia. A periosteal elevator was used to reflect the gingival attachment circumferentially. Tooth [#__] was luxated with straight and angled elevators to expand the socket and disrupt the periodontal ligament, then delivered atraumatically with forceps. The socket was inspected and confirmed free of retained root tips. The socket was curetted of granulation tissue and irrigated with sterile saline. Sharp bony edges were smoothed and hemostasis was achieved with pressure. [The site was closed with 3-0 chromic gut suture.] The extracted tooth was [discarded per protocol / returned to the patient per request].\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
-      "Unrecognized bracket kept inline: [and an IAN block was performed for mandibular sites]",
-      "Unrecognized bracket kept inline: [The site was closed with 3-0 chromic gut suture.]",
       "Unrecognized bracket kept inline: [discarded per protocol / returned to the patient per reques"
     ]
   },
@@ -1078,8 +1118,16 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Cosmetic & Facial/Laser Skin Resurfacing (CO2).md",
-    "bodyTemplate": "PROCEDURE: Laser Skin Resurfacing (CO2)\n\nExternal eye shields were worn by the patient during the entire procedure, and wavelength specific eye protection was worn by all staff in the room. Mirrors were stowed and opaque film applied to the windows. The vacuum was used for smoke evacuation, laser masks were worn by all staff, fire extinguishers were on standby, and a wet gauze/towel was on the field. Using the Lumenis UltraPulse CO2 laser (10,600 nm) with the DeepFX handpiece, ablative fractional treatment was delivered to the [treatment area] at laser-skin-resurfacing-co2:measurement:0 mJ, laser-skin-resurfacing-co2:measurement:1 Hz, laser-skin-resurfacing-co2:measurement:2% density, with pulses delivered in rows with minimal overlap. The ActiveFX handpiece was then used to deliver a second pass to the [treatment area] at laser-skin-resurfacing-co2:measurement:3 mJ for the periorbital area and laser-skin-resurfacing-co2:measurement:4 mJ for the remainder of the face, laser-skin-resurfacing-co2:measurement:5 Hz, laser-skin-resurfacing-co2:measurement:6% density, again in rows with minimal overlap. Hemostasis was confirmed following laser treatment and Aquaphor was applied to the entire treated area at the conclusion of the procedure.\n\n",
+    "bodyTemplate": "PROCEDURE: Laser Skin Resurfacing (CO2)\n\nExternal eye shields were worn by the patient during the entire procedure, and wavelength specific eye protection was worn by all staff in the room. Mirrors were stowed and opaque film applied to the windows. The vacuum was used for smoke evacuation, laser masks were worn by all staff, fire extinguishers were on standby, and a wet gauze/towel was on the field. Using the Lumenis UltraPulse CO2 laser (10,600 nm) with the DeepFX handpiece, ablative fractional treatment was delivered to the laser-skin-resurfacing-co2:optionalClause:0 at laser-skin-resurfacing-co2:measurement:0 mJ, laser-skin-resurfacing-co2:measurement:1 Hz, laser-skin-resurfacing-co2:measurement:2% density, with pulses delivered in rows with minimal overlap. The ActiveFX handpiece was then used to deliver a second pass to the laser-skin-resurfacing-co2:optionalClause:1 at laser-skin-resurfacing-co2:measurement:3 mJ for the periorbital area and laser-skin-resurfacing-co2:measurement:4 mJ for the remainder of the face, laser-skin-resurfacing-co2:measurement:5 Hz, laser-skin-resurfacing-co2:measurement:6% density, again in rows with minimal overlap. Hemostasis was confirmed following laser treatment and Aquaphor was applied to the entire treated area at the conclusion of the procedure.\n\n",
     "fields": [
+      {
+        "id": "laser-skin-resurfacing-co2:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[treatment area]",
+        "label": "Optional step",
+        "context": "treatment area",
+        "hint": "treatment area"
+      },
       {
         "id": "laser-skin-resurfacing-co2:measurement:0",
         "kind": "measurement",
@@ -1103,6 +1151,14 @@
         "label": "Measurement",
         "context": "Using the Lumenis UltraPulse CO2 laser (10,600 nm) with the DeepFX handpiece, ablative fractional treatment was delivered to the [treatment area] at [X] mJ, [X]",
         "unit": null
+      },
+      {
+        "id": "laser-skin-resurfacing-co2:optionalClause:1",
+        "kind": "optionalClause",
+        "raw": "[treatment area]",
+        "label": "Optional step",
+        "context": "treatment area",
+        "hint": "treatment area"
       },
       {
         "id": "laser-skin-resurfacing-co2:measurement:3",
@@ -1150,10 +1206,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Laser Skin Resurfacing (CO2)\n\nExternal eye shields were worn by the patient during the entire procedure, and wavelength specific eye protection was worn by all staff in the room. Mirrors were stowed and opaque film applied to the windows. The vacuum was used for smoke evacuation, laser masks were worn by all staff, fire extinguishers were on standby, and a wet gauze/towel was on the field. Using the Lumenis UltraPulse CO2 laser (10,600 nm) with the DeepFX handpiece, ablative fractional treatment was delivered to the [treatment area] at [X] mJ, [X] Hz, [X]% density, with pulses delivered in rows with minimal overlap. The ActiveFX handpiece was then used to deliver a second pass to the [treatment area] at [X] mJ for the periorbital area and [X] mJ for the remainder of the face, [X] Hz, [X]% density, again in rows with minimal overlap. Hemostasis was confirmed following laser treatment and Aquaphor was applied to the entire treated area at the conclusion of the procedure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [treatment area]",
-      "Unrecognized bracket kept inline: [treatment area]"
-    ]
+    "warnings": []
   },
   {
     "id": "le-fort-i-osteotomy",
@@ -1325,7 +1378,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Marginal Segmental Mandibulectomy.md",
-    "bodyTemplate": "PROCEDURE: Marginal / Segmental Mandibulectomy\n\nAttention was directed to the marginal-segmental-mandibulectomy:side:0 mandible harboring the marginal-segmental-mandibulectomy:measurement:0 cm lesion. The site was accessed via [a transoral vestibular incision / a transcervical approach with the incision placed [X] cm below the inferior border to protect the marginal mandibular nerve]. A subperiosteal dissection exposed the involved segment of mandible and the planned osteotomy sites, leaving the desired soft-tissue cuff over the lesion. The marginal-segmental-mandibulectomy:enumText:0 nerve was [identified and protected / sacrificed within the resection margin as dictated by tumor extent]. Bony resection margins were marked at marginal-segmental-mandibulectomy:measurement:1 cm from the radiographic and palpable lesion borders. For a marginal resection, the involved portion of the mandible was osteotomized with a reciprocating saw under copious irrigation, preserving the inferior border for continuity. For a segmental resection, vertical osteotomies were made through the full height of the mandible at the proximal and distal margins with a reciprocating saw under irrigation, and the involved segment was removed en bloc. The specimen was oriented, marked for marginal-segmental-mandibulectomy:enumText:1 orientation, and submitted for permanent pathologic examination, with [frozen-section margins sent intraoperatively / bony and soft-tissue margins designated for permanent evaluation]. The resection bed was inspected and bony margins smoothed. Hemostasis was confirmed. [Reconstruction proceeded as separately documented.] Specimen: [marginal/segmental mandibular resection] to permanent pathology [with intraoperative frozen-section margins].\n\n",
+    "bodyTemplate": "PROCEDURE: Marginal / Segmental Mandibulectomy\n\nAttention was directed to the marginal-segmental-mandibulectomy:side:0 mandible harboring the marginal-segmental-mandibulectomy:measurement:0 cm lesion. The site was accessed via [a transoral vestibular incision / a transcervical approach with the incision placed [X] cm below the inferior border to protect the marginal mandibular nerve]. A subperiosteal dissection exposed the involved segment of mandible and the planned osteotomy sites, leaving the desired soft-tissue cuff over the lesion. The marginal-segmental-mandibulectomy:enumText:0 nerve was [identified and protected / sacrificed within the resection margin as dictated by tumor extent]. Bony resection margins were marked at marginal-segmental-mandibulectomy:measurement:1 cm from the radiographic and palpable lesion borders. For a marginal resection, the involved portion of the mandible was osteotomized with a reciprocating saw under copious irrigation, preserving the inferior border for continuity. For a segmental resection, vertical osteotomies were made through the full height of the mandible at the proximal and distal margins with a reciprocating saw under irrigation, and the involved segment was removed en bloc. The specimen was oriented, marked for marginal-segmental-mandibulectomy:enumText:1 orientation, and submitted for permanent pathologic examination, with [frozen-section margins sent intraoperatively / bony and soft-tissue margins designated for permanent evaluation]. The resection bed was inspected and bony margins smoothed. Hemostasis was confirmed. marginal-segmental-mandibulectomy:optionalClause:0 Specimen: [marginal/segmental mandibular resection] to permanent pathology marginal-segmental-mandibulectomy:optionalClause:1.\n\n",
     "fields": [
       {
         "id": "marginal-segmental-mandibulectomy:side:0",
@@ -1378,6 +1431,22 @@
           "posterior and superior"
         ],
         "hint": "anterior/posterior and superior"
+      },
+      {
+        "id": "marginal-segmental-mandibulectomy:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[Reconstruction proceeded as separately documented.]",
+        "label": "Optional step",
+        "context": "Reconstruction proceeded as separately documented.",
+        "hint": "Reconstruction proceeded as separately documented."
+      },
+      {
+        "id": "marginal-segmental-mandibulectomy:optionalClause:1",
+        "kind": "optionalClause",
+        "raw": "[with intraoperative frozen-section margins]",
+        "label": "Optional step",
+        "context": "with intraoperative frozen-section margins",
+        "hint": "with intraoperative frozen-section margins"
       }
     ],
     "flags": [],
@@ -1399,9 +1468,7 @@
       "Unrecognized bracket kept inline: [a transoral vestibular incision / a transcervical approach ",
       "Unrecognized bracket kept inline: [identified and protected / sacrificed within the resection ",
       "Unrecognized bracket kept inline: [frozen-section margins sent intraoperatively / bony and sof",
-      "Unrecognized bracket kept inline: [Reconstruction proceeded as separately documented.]",
-      "Unrecognized bracket kept inline: [marginal/segmental mandibular resection]",
-      "Unrecognized bracket kept inline: [with intraoperative frozen-section margins]"
+      "Unrecognized bracket kept inline: [marginal/segmental mandibular resection]"
     ]
   },
   {
@@ -2166,7 +2233,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Reconstruction Plate.md",
-    "bodyTemplate": "PROCEDURE: Reconstruction Plate\n\nAttention was directed to the reconstruction-plate:side:0 mandibular defect spanning [region __ to __]. The proximal and distal native bone segments were exposed subperiosteally and the defect length confirmed. The reconstruction-plate:enumText:0 nerve was [identified and protected / noted within the prior resection field]. A reconstruction-plate:text:0 reconstruction plate was selected and adapted to the residual mandible, restoring the pre-resection arch form and occlusal relationship [with the patient in MMF / against the preserved pre-resection contour]. The plate was seated passively and secured with bicortical locking screws, reconstruction-plate:toothNumber:0 in the proximal segment and reconstruction-plate:toothNumber:1 in the distal segment, placed under copious irrigation away from the IAN and tooth roots. Plate adaptation, screw purchase, and occlusion were verified. The construct was confirmed stable and the hardware seated passively without rocking. The site was copiously irrigated with sterile saline and hemostasis confirmed. [The wound was closed in layers over a drain as separately documented.]\n\n",
+    "bodyTemplate": "PROCEDURE: Reconstruction Plate\n\nAttention was directed to the reconstruction-plate:side:0 mandibular defect spanning [region __ to __]. The proximal and distal native bone segments were exposed subperiosteally and the defect length confirmed. The reconstruction-plate:enumText:0 nerve was [identified and protected / noted within the prior resection field]. A reconstruction-plate:text:0 reconstruction plate was selected and adapted to the residual mandible, restoring the pre-resection arch form and occlusal relationship [with the patient in MMF / against the preserved pre-resection contour]. The plate was seated passively and secured with bicortical locking screws, reconstruction-plate:toothNumber:0 in the proximal segment and reconstruction-plate:toothNumber:1 in the distal segment, placed under copious irrigation away from the IAN and tooth roots. Plate adaptation, screw purchase, and occlusion were verified. The construct was confirmed stable and the hardware seated passively without rocking. The site was copiously irrigated with sterile saline and hemostasis confirmed. reconstruction-plate:optionalClause:0\n\n",
     "fields": [
       {
         "id": "reconstruction-plate:side:0",
@@ -2212,6 +2279,14 @@
         "raw": "[#__]",
         "label": "Tooth #",
         "context": "The plate was seated passively and secured with bicortical locking screws, [#__] in the proximal segment and ___ in the distal segment, placed under copious irr"
+      },
+      {
+        "id": "reconstruction-plate:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[The wound was closed in layers over a drain as separately documented.]",
+        "label": "Optional step",
+        "context": "The wound was closed in layers over a drain as separately documented.",
+        "hint": "The wound was closed in layers over a drain as separately documented."
       }
     ],
     "flags": [],
@@ -2232,8 +2307,7 @@
     "warnings": [
       "Unrecognized bracket kept inline: [region __ to __]",
       "Unrecognized bracket kept inline: [identified and protected / noted within the prior resection",
-      "Unrecognized bracket kept inline: [with the patient in MMF / against the preserved pre-resecti",
-      "Unrecognized bracket kept inline: [The wound was closed in layers over a drain as separately d"
+      "Unrecognized bracket kept inline: [with the patient in MMF / against the preserved pre-resecti"
     ]
   },
   {
@@ -2245,7 +2319,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Orthognathic/SARPE.md",
-    "bodyTemplate": "PROCEDURE: SARPE\n\nAttention was directed to the maxillary buccal vestibule. The maxillary surgical site was anesthetized with 10 cc of 2% lidocaine with 1:100,000 epinephrine by local infiltration. A circumvestibular incision was initiated with bovie electrocautery from the left first molar approximately 5 mm superior to the mucogingival junction to the right first molar and carried down to bone. A full-thickness mucoperiosteal flap was reflected from the right maxillary buttress to the left maxillary buttress and superiorly to expose the piriform rims and the right and left infraorbital neurovascular bundles, both of which were intact and remained so for the duration of the case. The nasal mucosa was dissected off the bone bilaterally with a curved free elevator and a Sayer elevator. Bilateral Le Fort I osteotomy sites were marked with a reciprocating saw from the curvature of the maxillary buttress to the piriform rim in a flat, symmetric plane clear of the tooth roots, and completed with the saw, taking a conservative wedge of bone off the lateral zygomaticomaxillary junction to avoid interference with expansion. An interdental osteotomy was initiated between teeth sarpe:toothNumber:0 and sarpe:toothNumber:1 with an oscillating saw under copious irrigation. A double safe-sided osteotome was used to separate the septum from the palate and single safe-sided osteotomes were used to separate the lateral nasal walls. A straight osteotome completed the interdental osteotomy between sarpe:toothNumber:2 and sarpe:toothNumber:3, extended posteriorly to the posterior extent of the hard palate. The Hyrax appliance was activated sarpe:measurement:0 turns (sarpe:measurement:1 mm of expansion) to confirm symmetric expansion, and any interferences were conservatively reduced. The appliance was then reduced back to sarpe:measurement:2 turns (leaving sarpe:measurement:3 mm of expansion). The palatal soft tissues were inspected with no tears noted, and the segments were confirmed to move equally and independently. [Optional adjunct: bone morphogenetic protein (rhBMP-2), hydrated for 20 minutes on an absorbable collagen sponge, was placed into the interdental osteotomy after a final thorough irrigation.] The mucosa was tacked at the midline with a 3-0 chromic gut suture and the circumvestibular incision was closed bilaterally with running 3-0 chromic gut.\n\n",
+    "bodyTemplate": "PROCEDURE: SARPE\n\nAttention was directed to the maxillary buccal vestibule. The maxillary surgical site was anesthetized with 10 cc of 2% lidocaine with 1:100,000 epinephrine by local infiltration. A circumvestibular incision was initiated with bovie electrocautery from the left first molar approximately 5 mm superior to the mucogingival junction to the right first molar and carried down to bone. A full-thickness mucoperiosteal flap was reflected from the right maxillary buttress to the left maxillary buttress and superiorly to expose the piriform rims and the right and left infraorbital neurovascular bundles, both of which were intact and remained so for the duration of the case. The nasal mucosa was dissected off the bone bilaterally with a curved free elevator and a Sayer elevator. Bilateral Le Fort I osteotomy sites were marked with a reciprocating saw from the curvature of the maxillary buttress to the piriform rim in a flat, symmetric plane clear of the tooth roots, and completed with the saw, taking a conservative wedge of bone off the lateral zygomaticomaxillary junction to avoid interference with expansion. An interdental osteotomy was initiated between teeth sarpe:toothNumber:0 and sarpe:toothNumber:1 with an oscillating saw under copious irrigation. A double safe-sided osteotome was used to separate the septum from the palate and single safe-sided osteotomes were used to separate the lateral nasal walls. A straight osteotome completed the interdental osteotomy between sarpe:toothNumber:2 and sarpe:toothNumber:3, extended posteriorly to the posterior extent of the hard palate. The Hyrax appliance was activated sarpe:measurement:0 turns (sarpe:measurement:1 mm of expansion) to confirm symmetric expansion, and any interferences were conservatively reduced. The appliance was then reduced back to sarpe:measurement:2 turns (leaving sarpe:measurement:3 mm of expansion). The palatal soft tissues were inspected with no tears noted, and the segments were confirmed to move equally and independently. sarpe:optionalClause:0 The mucosa was tacked at the midline with a 3-0 chromic gut suture and the circumvestibular incision was closed bilaterally with running 3-0 chromic gut.\n\n",
     "fields": [
       {
         "id": "sarpe:toothNumber:0",
@@ -2306,6 +2380,14 @@
         "label": "Measurement (mm)",
         "context": "The appliance was then reduced back to [X] turns (leaving ___ mm of expansion).",
         "unit": "mm"
+      },
+      {
+        "id": "sarpe:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[Optional adjunct: bone morphogenetic protein (rhBMP-2), hydrated for 20 minutes on an absorbable collagen sponge, was placed into the interdental osteotomy after a final thorough irrigation.]",
+        "label": "Optional step",
+        "context": "Optional adjunct: bone morphogenetic protein (rhBMP-2), hydrated for 20 minutes on an absorbable collagen sponge, was placed into the interdental osteotomy after a final thorough irrigation.",
+        "hint": "Optional adjunct: bone morphogenetic protein (rhBMP-2), hydrated for 20 minutes on an absorbable collagen sponge, was placed into the interdental osteotomy after a final thorough irrigation."
       }
     ],
     "flags": [],
@@ -2324,9 +2406,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: SARPE\n\nAttention was directed to the maxillary buccal vestibule. The maxillary surgical site was anesthetized with 10 cc of 2% lidocaine with 1:100,000 epinephrine by local infiltration. A circumvestibular incision was initiated with bovie electrocautery from the left first molar approximately 5 mm superior to the mucogingival junction to the right first molar and carried down to bone. A full-thickness mucoperiosteal flap was reflected from the right maxillary buttress to the left maxillary buttress and superiorly to expose the piriform rims and the right and left infraorbital neurovascular bundles, both of which were intact and remained so for the duration of the case. The nasal mucosa was dissected off the bone bilaterally with a curved free elevator and a Sayer elevator. Bilateral Le Fort I osteotomy sites were marked with a reciprocating saw from the curvature of the maxillary buttress to the piriform rim in a flat, symmetric plane clear of the tooth roots, and completed with the saw, taking a conservative wedge of bone off the lateral zygomaticomaxillary junction to avoid interference with expansion. An interdental osteotomy was initiated between teeth [#__] and [#__] with an oscillating saw under copious irrigation. A double safe-sided osteotome was used to separate the septum from the palate and single safe-sided osteotomes were used to separate the lateral nasal walls. A straight osteotome completed the interdental osteotomy between [#__] and [#__], extended posteriorly to the posterior extent of the hard palate. The Hyrax appliance was activated [X] turns ([X] mm of expansion) to confirm symmetric expansion, and any interferences were conservatively reduced. The appliance was then reduced back to [X] turns (leaving [X] mm of expansion). The palatal soft tissues were inspected with no tears noted, and the segments were confirmed to move equally and independently. [Optional adjunct: bone morphogenetic protein (rhBMP-2), hydrated for 20 minutes on an absorbable collagen sponge, was placed into the interdental osteotomy after a final thorough irrigation.] The mucosa was tacked at the midline with a 3-0 chromic gut suture and the circumvestibular incision was closed bilaterally with running 3-0 chromic gut.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [Optional adjunct: bone morphogenetic protein (rhBMP-2), hyd"
-    ]
+    "warnings": []
   },
   {
     "id": "septorhinoplasty",
@@ -2475,7 +2555,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Sinus Augmentation.md",
-    "bodyTemplate": "PROCEDURE: Sinus Augmentation\n\nAttention was directed to the sinus-augmentation:side:0 posterior maxilla. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration. A crestal incision with distal release was made over the edentulous ridge at sinus-augmentation:toothNumber:0 and a full thickness mucoperiosteal flap was raised to expose the lateral maxillary sinus wall. A lateral window osteotomy was outlined with a round bur under copious irrigation and the bony window was carefully infractured. The Schneiderian membrane was elevated off the sinus floor and medial wall with sinus elevators, taking care to keep the membrane intact. No perforation was noted. sinus-augmentation:measurement:0 cc of [graft material] (REF sinus-augmentation:blank:0, LOT sinus-augmentation:blank:1) was placed and condensed beneath the elevated membrane to augment the sinus floor. A collagen membrane was placed over the lateral window. The flap was repositioned and closed primarily with 3-0 sinus-augmentation:enumText:0 suture. Sinus precautions were reviewed with the patient.\n\n",
+    "bodyTemplate": "PROCEDURE: Sinus Augmentation\n\nAttention was directed to the sinus-augmentation:side:0 posterior maxilla. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration. A crestal incision with distal release was made over the edentulous ridge at sinus-augmentation:toothNumber:0 and a full thickness mucoperiosteal flap was raised to expose the lateral maxillary sinus wall. A lateral window osteotomy was outlined with a round bur under copious irrigation and the bony window was carefully infractured. The Schneiderian membrane was elevated off the sinus floor and medial wall with sinus elevators, taking care to keep the membrane intact. No perforation was noted. sinus-augmentation:measurement:0 cc of sinus-augmentation:optionalClause:0 (REF sinus-augmentation:blank:0, LOT sinus-augmentation:blank:1) was placed and condensed beneath the elevated membrane to augment the sinus floor. A collagen membrane was placed over the lateral window. The flap was repositioned and closed primarily with 3-0 sinus-augmentation:enumText:0 suture. Sinus precautions were reviewed with the patient.\n\n",
     "fields": [
       {
         "id": "sinus-augmentation:side:0",
@@ -2503,6 +2583,14 @@
         "label": "Measurement (cc)",
         "context": "___ cc of [graft material] (REF [__], LOT [__]) was placed and condensed beneath the elevated membrane to augment the sinus floor.",
         "unit": "cc"
+      },
+      {
+        "id": "sinus-augmentation:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[graft material]",
+        "label": "Optional step",
+        "context": "graft material",
+        "hint": "graft material"
       },
       {
         "id": "sinus-augmentation:blank:0",
@@ -2546,9 +2634,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Sinus Augmentation\n\nAttention was directed to the [R/L] posterior maxilla. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration. A crestal incision with distal release was made over the edentulous ridge at [#__] and a full thickness mucoperiosteal flap was raised to expose the lateral maxillary sinus wall. A lateral window osteotomy was outlined with a round bur under copious irrigation and the bony window was carefully infractured. The Schneiderian membrane was elevated off the sinus floor and medial wall with sinus elevators, taking care to keep the membrane intact. No perforation was noted. [X] cc of [graft material] (REF [__], LOT [__]) was placed and condensed beneath the elevated membrane to augment the sinus floor. A collagen membrane was placed over the lateral window. The flap was repositioned and closed primarily with 3-0 [Vicryl/chromic] suture. Sinus precautions were reviewed with the patient.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [graft material]"
-    ]
+    "warnings": []
   },
   {
     "id": "socket-ridge-graft",
@@ -2559,7 +2645,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Socket Ridge Graft.md",
-    "bodyTemplate": "PROCEDURE: Socket / Ridge Graft\n\nAttention was directed to the socket-ridge-graft:toothNumber:0 socket-ridge-graft:enumText:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. The socket was thoroughly debrided of granulation tissue with curettes and irrigated with sterile saline, and the bony walls were confirmed intact. socket-ridge-graft:measurement:0 cc of [graft material] (REF socket-ridge-graft:blank:0, LOT socket-ridge-graft:blank:1) was placed into the defect and condensed to fill the socket to the level of the crestal bone. A socket-ridge-graft:text:0 cm collagen membrane was placed over the graft. The site was closed with 3-0 socket-ridge-graft:enumText:1 suture in a figure-of-eight fashion to stabilize the graft and membrane. Hemostasis was confirmed.\n\n",
+    "bodyTemplate": "PROCEDURE: Socket / Ridge Graft\n\nAttention was directed to the socket-ridge-graft:toothNumber:0 socket-ridge-graft:enumText:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration socket-ridge-graft:optionalClause:0. The socket was thoroughly debrided of granulation tissue with curettes and irrigated with sterile saline, and the bony walls were confirmed intact. socket-ridge-graft:measurement:0 cc of socket-ridge-graft:optionalClause:1 (REF socket-ridge-graft:blank:0, LOT socket-ridge-graft:blank:1) was placed into the defect and condensed to fill the socket to the level of the crestal bone. A socket-ridge-graft:text:0 cm collagen membrane was placed over the graft. The site was closed with 3-0 socket-ridge-graft:enumText:1 suture in a figure-of-eight fashion to stabilize the graft and membrane. Hemostasis was confirmed.\n\n",
     "fields": [
       {
         "id": "socket-ridge-graft:toothNumber:0",
@@ -2581,12 +2667,28 @@
         "hint": "extraction socket / edentulous ridge defect"
       },
       {
+        "id": "socket-ridge-graft:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[and an IAN block for mandibular sites]",
+        "label": "Optional step",
+        "context": "and an IAN block for mandibular sites",
+        "hint": "and an IAN block for mandibular sites"
+      },
+      {
         "id": "socket-ridge-graft:measurement:0",
         "kind": "measurement",
         "raw": "[X]",
         "label": "Measurement (cc)",
         "context": "___ cc of [graft material] (REF [__], LOT [__]) was placed into the defect and condensed to fill the socket to the level of the crestal bone.",
         "unit": "cc"
+      },
+      {
+        "id": "socket-ridge-graft:optionalClause:1",
+        "kind": "optionalClause",
+        "raw": "[graft material]",
+        "label": "Optional step",
+        "context": "graft material",
+        "hint": "graft material"
       },
       {
         "id": "socket-ridge-graft:blank:0",
@@ -2636,10 +2738,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Socket / Ridge Graft\n\nAttention was directed to the [#__] [extraction socket / edentulous ridge defect]. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. The socket was thoroughly debrided of granulation tissue with curettes and irrigated with sterile saline, and the bony walls were confirmed intact. [X] cc of [graft material] (REF [__], LOT [__]) was placed into the defect and condensed to fill the socket to the level of the crestal bone. A [size] cm collagen membrane was placed over the graft. The site was closed with 3-0 [Vicryl/chromic] suture in a figure-of-eight fashion to stabilize the graft and membrane. Hemostasis was confirmed.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [and an IAN block for mandibular sites]",
-      "Unrecognized bracket kept inline: [graft material]"
-    ]
+    "warnings": []
   },
   {
     "id": "surgical-extraction-impacted",
@@ -2650,7 +2749,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Surgical Extraction (impacted).md",
-    "bodyTemplate": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the surgical-extraction-impacted:side:0 surgical-extraction-impacted:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted surgical-extraction-impacted:toothNumber:0 and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. [The mental nerve was visualized and protected.] A 702 bur under copious irrigation was used to develop a buccal trough lateral to surgical-extraction-impacted:toothNumber:1 and remove overlying bone. The 702 bur was then used to section surgical-extraction-impacted:toothNumber:2, and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n",
+    "bodyTemplate": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the surgical-extraction-impacted:side:0 surgical-extraction-impacted:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted surgical-extraction-impacted:toothNumber:0 and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. surgical-extraction-impacted:optionalClause:0 A 702 bur under copious irrigation was used to develop a buccal trough lateral to surgical-extraction-impacted:toothNumber:1 and remove overlying bone. The 702 bur was then used to section surgical-extraction-impacted:toothNumber:2, and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n",
     "fields": [
       {
         "id": "surgical-extraction-impacted:side:0",
@@ -2684,6 +2783,14 @@
         "context": "Using a #15 blade, a distal hockey stick incision was made to access impacted ___ and carried forward in a sulcular fashion to the adjacent tooth."
       },
       {
+        "id": "surgical-extraction-impacted:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[The mental nerve was visualized and protected.]",
+        "label": "Optional step",
+        "context": "The mental nerve was visualized and protected.",
+        "hint": "The mental nerve was visualized and protected."
+      },
+      {
         "id": "surgical-extraction-impacted:toothNumber:1",
         "kind": "toothNumber",
         "raw": "[#__]",
@@ -2712,9 +2819,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the [R/L] [maxillary/mandibular] vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted [#__] and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. [The mental nerve was visualized and protected.] A 702 bur under copious irrigation was used to develop a buccal trough lateral to [#__] and remove overlying bone. The 702 bur was then used to section [#__], and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [The mental nerve was visualized and protected.]"
-    ]
+    "warnings": []
   },
   {
     "id": "tmj-arthrocentesis",
@@ -2888,7 +2993,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/TMJ/TMJ Discopexy Mitek Anchor.md",
-    "bodyTemplate": "PROCEDURE: Discopexy (Mitek Anchor)\n\nThe patient was placed supine and underwent nasal endotracheal intubation without incident. The patient was prepped and draped in standard sterile fashion and the tmj-discopexy-mitek-anchor:side:0 external auditory canal was protected with a Betadine-soaked kittner. An Ioban was placed over the oral cavity to isolate the sterile field.\n\nAttention was directed to the tmj-discopexy-mitek-anchor:side:1 TMJ. The endaural incision was marked and infiltrated with 3 cc of 2% lidocaine with 1:100,000 epinephrine. Using a #15 blade, the endaural incision was made through dermis to subcutaneous tissue and continued anteriorly following the tragal cartilage. Blunt dissection continued above the zygomatic arch to identify the temporalis fascia, where a circumferential plane was created and connected to the avascular plane below the zygomatic arch. The zygomatic arch was identified and Bovie electrocautery was used to incise the periosteum. Subperiosteal dissection was carried over the arch and the lateral joint capsule was visualized with a #9 Molt elevator.\n\nThe superior joint space was insufflated with 1 cc of 2% lidocaine with 1:100,000 epinephrine. An incision was made between the lateral joint space and the glenoid fossa to enter the superior joint space, which was explored with a Freer and freed of adhesions from the meniscus to the glenoid fossa and articular eminence. A #15 blade was used to incise over the condylar head to enter the inferior joint space, which was explored. The disc was [medially and anteriorly] displaced without perforation, with hyperemia and inflammation of the retrodiscal tissue. A curved Freer was used to free the articular disc from the glenoid and condyle and reposition it over the condyle. Inflamed retrodiscal tissue was excised.\n\nA Mitek anchor was placed within the posterior-lateral aspect of the condyle. The attached braided suture was secured to the medial and posterior aspects of the articular disc. The mandible was manipulated to confirm appropriate disc position with the condyle in function. The surgical site was copiously irrigated with sterile saline and confirmed hemostatic.\n\nClosure was performed with deep 3-0 Vicryl in simple interrupted fashion, 4-0 Monocryl in the deep dermal layer in simple interrupted fashion, and tension-free skin closure with 5-0 Prolene in a running subcuticular fashion.\n\n",
+    "bodyTemplate": "PROCEDURE: Discopexy (Mitek Anchor)\n\nThe patient was placed supine and underwent nasal endotracheal intubation without incident. The patient was prepped and draped in standard sterile fashion and the tmj-discopexy-mitek-anchor:side:0 external auditory canal was protected with a Betadine-soaked kittner. An Ioban was placed over the oral cavity to isolate the sterile field.\n\nAttention was directed to the tmj-discopexy-mitek-anchor:side:1 TMJ. The endaural incision was marked and infiltrated with 3 cc of 2% lidocaine with 1:100,000 epinephrine. Using a #15 blade, the endaural incision was made through dermis to subcutaneous tissue and continued anteriorly following the tragal cartilage. Blunt dissection continued above the zygomatic arch to identify the temporalis fascia, where a circumferential plane was created and connected to the avascular plane below the zygomatic arch. The zygomatic arch was identified and Bovie electrocautery was used to incise the periosteum. Subperiosteal dissection was carried over the arch and the lateral joint capsule was visualized with a #9 Molt elevator.\n\nThe superior joint space was insufflated with 1 cc of 2% lidocaine with 1:100,000 epinephrine. An incision was made between the lateral joint space and the glenoid fossa to enter the superior joint space, which was explored with a Freer and freed of adhesions from the meniscus to the glenoid fossa and articular eminence. A #15 blade was used to incise over the condylar head to enter the inferior joint space, which was explored. The disc was tmj-discopexy-mitek-anchor:optionalClause:0 displaced without perforation, with hyperemia and inflammation of the retrodiscal tissue. A curved Freer was used to free the articular disc from the glenoid and condyle and reposition it over the condyle. Inflamed retrodiscal tissue was excised.\n\nA Mitek anchor was placed within the posterior-lateral aspect of the condyle. The attached braided suture was secured to the medial and posterior aspects of the articular disc. The mandible was manipulated to confirm appropriate disc position with the condyle in function. The surgical site was copiously irrigated with sterile saline and confirmed hemostatic.\n\nClosure was performed with deep 3-0 Vicryl in simple interrupted fashion, 4-0 Monocryl in the deep dermal layer in simple interrupted fashion, and tension-free skin closure with 5-0 Prolene in a running subcuticular fashion.\n\n",
     "fields": [
       {
         "id": "tmj-discopexy-mitek-anchor:side:0",
@@ -2913,6 +3018,14 @@
           "L"
         ],
         "linkKey": "side"
+      },
+      {
+        "id": "tmj-discopexy-mitek-anchor:optionalClause:0",
+        "kind": "optionalClause",
+        "raw": "[medially and anteriorly]",
+        "label": "Optional step",
+        "context": "medially and anteriorly",
+        "hint": "medially and anteriorly"
       }
     ],
     "flags": [],
@@ -2928,9 +3041,7 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: Discopexy (Mitek Anchor)\n\nThe patient was placed supine and underwent nasal endotracheal intubation without incident. The patient was prepped and draped in standard sterile fashion and the [R/L] external auditory canal was protected with a Betadine-soaked kittner. An Ioban was placed over the oral cavity to isolate the sterile field.\n\nAttention was directed to the [R/L] TMJ. The endaural incision was marked and infiltrated with 3 cc of 2% lidocaine with 1:100,000 epinephrine. Using a #15 blade, the endaural incision was made through dermis to subcutaneous tissue and continued anteriorly following the tragal cartilage. Blunt dissection continued above the zygomatic arch to identify the temporalis fascia, where a circumferential plane was created and connected to the avascular plane below the zygomatic arch. The zygomatic arch was identified and Bovie electrocautery was used to incise the periosteum. Subperiosteal dissection was carried over the arch and the lateral joint capsule was visualized with a #9 Molt elevator.\n\nThe superior joint space was insufflated with 1 cc of 2% lidocaine with 1:100,000 epinephrine. An incision was made between the lateral joint space and the glenoid fossa to enter the superior joint space, which was explored with a Freer and freed of adhesions from the meniscus to the glenoid fossa and articular eminence. A #15 blade was used to incise over the condylar head to enter the inferior joint space, which was explored. The disc was [medially and anteriorly] displaced without perforation, with hyperemia and inflammation of the retrodiscal tissue. A curved Freer was used to free the articular disc from the glenoid and condyle and reposition it over the condyle. Inflamed retrodiscal tissue was excised.\n\nA Mitek anchor was placed within the posterior-lateral aspect of the condyle. The attached braided suture was secured to the medial and posterior aspects of the articular disc. The mandible was manipulated to confirm appropriate disc position with the condyle in function. The surgical site was copiously irrigated with sterile saline and confirmed hemostatic.\n\nClosure was performed with deep 3-0 Vicryl in simple interrupted fashion, 4-0 Monocryl in the deep dermal layer in simple interrupted fashion, and tension-free skin closure with 5-0 Prolene in a running subcuticular fashion.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": [
-      "Unrecognized bracket kept inline: [medially and anteriorly]"
-    ]
+    "warnings": []
   },
   {
     "id": "tmj-eminectomy",
