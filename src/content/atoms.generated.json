@@ -357,7 +357,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Dental Implant.md",
-    "bodyTemplate": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site dental-implant:toothNumber:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at dental-implant:toothNumber:1 and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared dental-implant:hardwareDim:0 mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A dental-implant:hardwareDim:1 mm implant (REF dental-implant:blank:0, LOT dental-implant:blank:1) was placed into the osteotomy and torqued to dental-implant:measurement:0 Ncm. A dental-implant:enumText:0 was placed. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 dental-implant:enumText:1 suture.\n\n",
+    "bodyTemplate": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site dental-implant:toothNumber:0. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at dental-implant:toothNumber:1 and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared dental-implant:hardwareDim:0 mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A dental-implant:enumText:0 dental-implant:hardwareDim:1 mm implant (REF dental-implant:blank:0, LOT dental-implant:blank:1) was placed into the osteotomy and torqued to dental-implant:measurement:0 Ncm. A dental-implant:enumText:1 was placed. A multi-unit abutment (dental-implant:enumText:2, dental-implant:measurement:1 mm cuff height) was placed and torqued to 15 Ncm if a screw-retained restoration was planned. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 dental-implant:enumText:3 suture.\n\n",
     "fields": [
       {
         "id": "dental-implant:toothNumber:0",
@@ -395,11 +395,24 @@
         ]
       },
       {
+        "id": "dental-implant:enumText:0",
+        "kind": "enumText",
+        "raw": "[RP/NP/WP]",
+        "label": "Select",
+        "context": "A ___ [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm.",
+        "options": [
+          "RP",
+          "NP",
+          "WP"
+        ],
+        "hint": "RP/NP/WP"
+      },
+      {
         "id": "dental-implant:hardwareDim:1",
         "kind": "hardwareDim",
         "raw": "[diameter]x[length]",
         "label": "Implant size (d x l)",
-        "context": "A ___ mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm.",
+        "context": "A [RP/NP/WP] ___ mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm.",
         "subFields": [
           {
             "id": "dental-implant:hardwareDim:1:d",
@@ -420,25 +433,25 @@
         "kind": "blank",
         "raw": "[__]",
         "label": "Field",
-        "context": "A [diameter]x[length] mm implant (REF ___, LOT [__]) was placed into the osteotomy and torqued to [X] Ncm."
+        "context": "A [RP/NP/WP] [diameter]x[length] mm implant (REF ___, LOT [__]) was placed into the osteotomy and torqued to [X] Ncm."
       },
       {
         "id": "dental-implant:blank:1",
         "kind": "blank",
         "raw": "[__]",
         "label": "Field",
-        "context": "A [diameter]x[length] mm implant (REF [__], LOT ___) was placed into the osteotomy and torqued to [X] Ncm."
+        "context": "A [RP/NP/WP] [diameter]x[length] mm implant (REF [__], LOT ___) was placed into the osteotomy and torqued to [X] Ncm."
       },
       {
         "id": "dental-implant:measurement:0",
         "kind": "measurement",
         "raw": "[X]",
         "label": "Measurement (Ncm)",
-        "context": "A [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to ___ Ncm.",
+        "context": "A [RP/NP/WP] [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to ___ Ncm.",
         "unit": "Ncm"
       },
       {
-        "id": "dental-implant:enumText:0",
+        "id": "dental-implant:enumText:1",
         "kind": "enumText",
         "raw": "[cover screw / healing abutment]",
         "label": "Select",
@@ -450,7 +463,28 @@
         "hint": "cover screw / healing abutment"
       },
       {
-        "id": "dental-implant:enumText:1",
+        "id": "dental-implant:enumText:2",
+        "kind": "enumText",
+        "raw": "[straight / 17 degree / 30 degree]",
+        "label": "Select",
+        "context": "A multi-unit abutment (___, [X] mm cuff height) was placed and torqued to 15 Ncm if a screw-retained restoration was planned.",
+        "options": [
+          "straight",
+          "17 degree",
+          "30 degree"
+        ],
+        "hint": "straight / 17 degree / 30 degree"
+      },
+      {
+        "id": "dental-implant:measurement:1",
+        "kind": "measurement",
+        "raw": "[X]",
+        "label": "Measurement (mm)",
+        "context": "A multi-unit abutment ([straight / 17 degree / 30 degree], ___ mm cuff height) was placed and torqued to 15 Ncm if a screw-retained restoration was planned.",
+        "unit": "mm"
+      },
+      {
+        "id": "dental-implant:enumText:3",
         "kind": "enumText",
         "raw": "[Vicryl/chromic]",
         "label": "Select",
@@ -475,7 +509,7 @@
       "est": "45 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site [#__]. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at [#__] and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared [diameter]x[length] mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm. A [cover screw / healing abutment] was placed. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 [Vicryl/chromic] suture.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Dental Implant\n\nAttention was directed to implant site [#__]. The site was anesthetized with 1% lidocaine with 1:100,000 epi via local infiltration [and an IAN block for mandibular sites]. A crestal incision was made over the edentulous ridge at [#__] and a full thickness mucoperiosteal flap was raised to expose the alveolar crest. The implant system was followed to develop an underprepared [diameter]x[length] mm osteotomy under copious irrigation, with sequential drilling to the planned depth and confirmation of intact bony walls. A [RP/NP/WP] [diameter]x[length] mm implant (REF [__], LOT [__]) was placed into the osteotomy and torqued to [X] Ncm. A [cover screw / healing abutment] was placed. A multi-unit abutment ([straight / 17 degree / 30 degree], [X] mm cuff height) was placed and torqued to 15 Ncm if a screw-retained restoration was planned. Bone profiling was performed around the implant with a round diamond bur as needed. The site was irrigated with sterile saline and the flap was reapproximated and closed with 3-0 [Vicryl/chromic] suture.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [and an IAN block for mandibular sites]"
     ]
@@ -531,7 +565,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Enucleation and Curettage.md",
-    "bodyTemplate": "PROCEDURE: Enucleation and Curettage (cyst/tumor)\n\nAttention was directed to the enucleation-and-curettage:side:0 enucleation-and-curettage:enumText:0 enucleation-and-curettage:enumText:1 overlying the enucleation-and-curettage:measurement:0 cm lesion, which was anesthetized with local infiltration of lidocaine with epinephrine and a regional block as appropriate. Using a #15 blade, a enucleation-and-curettage:enumText:2 incision was made with distal release as needed. A full-thickness mucoperiosteal flap was elevated and subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The enucleation-and-curettage:enumText:3 nerve was enucleation-and-curettage:enumText:4. An 18-gauge needle was used to aspirate the lesion prior to entry, returning enucleation-and-curettage:enumText:5. A bony window was developed over the lesion with a enucleation-and-curettage:enumText:6 bur under copious irrigation, and thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in enucleation-and-curettage:enumText:7. [Tooth [#__] was extracted atraumatically and the associated follicle removed with the specimen.] The specimen was placed in formalin and submitted for permanent pathologic examination. The residual bony cavity was thoroughly curetted and inspected, and [a peripheral ostectomy was performed with a round bur under irrigation / modified Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. Hemostasis was confirmed and the cavity enucleation-and-curettage:enumText:8. The site was copiously irrigated with sterile saline. The flap was repositioned and closed with enucleation-and-curettage:enumText:9 [Vicryl/chromic gut] in a enucleation-and-curettage:enumText:10 fashion, re-suspending the papillae. No pathologic fracture was identified. Specimen: [cyst/tumor lining +/- tooth [#__]] to permanent pathology.\n\n",
+    "bodyTemplate": "PROCEDURE: Enucleation and Curettage (cyst/tumor)\n\nAttention was directed to the enucleation-and-curettage:side:0 enucleation-and-curettage:enumText:0 enucleation-and-curettage:enumText:1 overlying the enucleation-and-curettage:measurement:0 cm lesion, which was anesthetized with local infiltration of lidocaine with epinephrine and a regional block as appropriate. Using a #15 blade, a enucleation-and-curettage:enumText:2 incision was made with distal release as needed. A full-thickness mucoperiosteal flap was elevated and subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The enucleation-and-curettage:enumText:3 nerve was enucleation-and-curettage:enumText:4. An 18-gauge needle was used to aspirate the lesion prior to entry, returning enucleation-and-curettage:enumText:5. A bony window was developed over the lesion with a enucleation-and-curettage:enumText:6 bur under copious irrigation, and thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in enucleation-and-curettage:enumText:7. [Tooth [#__] was extracted atraumatically and the associated follicle removed with the specimen.] The specimen was placed in formalin and submitted for permanent pathologic examination. The residual bony cavity was thoroughly curetted and inspected, and [a peripheral ostectomy was performed with a round bur under irrigation / modified Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. For an anterior maxillary/nasopalatine lesion, the nasopalatine neurovascular bundle was cauterized and divided to access the lesion. Hemostasis was confirmed and the cavity enucleation-and-curettage:enumText:8. The site was copiously irrigated with sterile saline. The flap was repositioned and closed with enucleation-and-curettage:enumText:9 [Vicryl/chromic gut] in a enucleation-and-curettage:enumText:10 fashion, re-suspending the papillae. No pathologic fracture was identified. Specimen: [cyst/tumor lining +/- tooth [#__]] to permanent pathology.\n\n",
     "fields": [
       {
         "id": "enucleation-and-curettage:side:0",
@@ -656,14 +690,15 @@
       {
         "id": "enucleation-and-curettage:enumText:8",
         "kind": "enumText",
-        "raw": "[packed with collagen / left to fill with clot]",
+        "raw": "[packed with collagen / grafted with particulate allograft and a resorbable membrane / left to fill with clot]",
         "label": "Select",
         "context": "Hemostasis was confirmed and the cavity ___.",
         "options": [
           "packed with collagen",
+          "grafted with particulate allograft and a resorbable membrane",
           "left to fill with clot"
         ],
-        "hint": "packed with collagen / left to fill with clot"
+        "hint": "packed with collagen / grafted with particulate allograft and a resorbable membrane / left to fill with clot"
       },
       {
         "id": "enucleation-and-curettage:enumText:9",
@@ -704,7 +739,7 @@
       "est": "120 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Enucleation and Curettage (cyst/tumor)\n\nAttention was directed to the [R/L] [mandibular/maxillary] [vestibule/alveolus] overlying the [X] cm lesion, which was anesthetized with local infiltration of lidocaine with epinephrine and a regional block as appropriate. Using a #15 blade, a [crestal/sulcular/vestibular] incision was made with distal release as needed. A full-thickness mucoperiosteal flap was elevated and subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The [IAN/mental/lingual/infraorbital] nerve was [identified and protected / not encountered]. An 18-gauge needle was used to aspirate the lesion prior to entry, returning [straw-colored fluid / keratinaceous material / nothing]. A bony window was developed over the lesion with a [701/702] bur under copious irrigation, and thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in [toto/piecemeal]. [Tooth [#__] was extracted atraumatically and the associated follicle removed with the specimen.] The specimen was placed in formalin and submitted for permanent pathologic examination. The residual bony cavity was thoroughly curetted and inspected, and [a peripheral ostectomy was performed with a round bur under irrigation / modified Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. Hemostasis was confirmed and the cavity [packed with collagen / left to fill with clot]. The site was copiously irrigated with sterile saline. The flap was repositioned and closed with [3-0/4-0] [Vicryl/chromic gut] in a [running/interrupted] fashion, re-suspending the papillae. No pathologic fracture was identified. Specimen: [cyst/tumor lining +/- tooth [#__]] to permanent pathology.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Enucleation and Curettage (cyst/tumor)\n\nAttention was directed to the [R/L] [mandibular/maxillary] [vestibule/alveolus] overlying the [X] cm lesion, which was anesthetized with local infiltration of lidocaine with epinephrine and a regional block as appropriate. Using a #15 blade, a [crestal/sulcular/vestibular] incision was made with distal release as needed. A full-thickness mucoperiosteal flap was elevated and subperiosteal dissection completed, exposing the underlying cortex and any bony expansion or dehiscence over the lesion. The [IAN/mental/lingual/infraorbital] nerve was [identified and protected / not encountered]. An 18-gauge needle was used to aspirate the lesion prior to entry, returning [straw-colored fluid / keratinaceous material / nothing]. A bony window was developed over the lesion with a [701/702] bur under copious irrigation, and thinned overlying cortex was removed. The cystic lining was carefully separated from the bony walls with periosteal elevators and curettes and enucleated in [toto/piecemeal]. [Tooth [#__] was extracted atraumatically and the associated follicle removed with the specimen.] The specimen was placed in formalin and submitted for permanent pathologic examination. The residual bony cavity was thoroughly curetted and inspected, and [a peripheral ostectomy was performed with a round bur under irrigation / modified Carnoy's solution was applied for [X] minutes with adjacent structures protected, then copiously irrigated / no adjunctive treatment was performed]. For an anterior maxillary/nasopalatine lesion, the nasopalatine neurovascular bundle was cauterized and divided to access the lesion. Hemostasis was confirmed and the cavity [packed with collagen / grafted with particulate allograft and a resorbable membrane / left to fill with clot]. The site was copiously irrigated with sterile saline. The flap was repositioned and closed with [3-0/4-0] [Vicryl/chromic gut] in a [running/interrupted] fashion, re-suspending the papillae. No pathologic fracture was identified. Specimen: [cyst/tumor lining +/- tooth [#__]] to permanent pathology.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": [
       "Unrecognized bracket kept inline: [Tooth [#__] was extracted atraumatically and the associated",
       "Unrecognized bracket kept inline: [a peripheral ostectomy was performed with a round bur under",
@@ -1529,7 +1564,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Incision and Drainage.md",
-    "bodyTemplate": "PROCEDURE: Incision and Drainage\n\nAttention was directed to the incision-and-drainage:side:0 submandibular region. An incision was planned greater than incision-and-drainage:measurement:0 cm below the inferior border of the mandible to protect the marginal mandibular branch of the facial nerve, and 4 cc of 1% lidocaine with 1:100,000 epinephrine was infiltrated in a subdermal plane. A incision-and-drainage:measurement:1 cm incision was made with a #15 blade at the planned site, carried through dermis, subcutaneous fat, platysma, and underlying fascia. Blunt dissection was carried out with a curved hemostat in the closed position down to the inferior border of the mandible, then opened to explore the involved space. The fluid collection on the medial surface of the posterior mandible was entered and drainage expressed. The drainage was sampled on a sterile cotton-tipped applicator and sent for Gram stain and aerobic and anaerobic culture and sensitivity. The space was thoroughly irrigated with sterile saline. A 0.25 inch Penrose drain was placed into the dependent portion of the wound and secured to the skin with a 2-0 nylon suture. A sterile 4x4 dressing was placed over the drain. The site was hemostatic with minimal drainage.\n\n",
+    "bodyTemplate": "PROCEDURE: Incision and Drainage\n\nAttention was directed to the incision-and-drainage:side:0 submandibular region. An incision was planned greater than incision-and-drainage:measurement:0 cm below the inferior border of the mandible to protect the marginal mandibular branch of the facial nerve, and 4 cc of 1% lidocaine with 1:100,000 epinephrine was infiltrated in a subdermal plane. A incision-and-drainage:measurement:1 cm incision was made with a #15 blade at the planned site, carried through dermis, subcutaneous fat, platysma, and underlying fascia. Blunt dissection was carried out with a curved hemostat in the closed position down to the inferior border of the mandible, then opened to explore the involved space. The fluid collection on the medial surface of the posterior mandible was entered and drainage expressed. The drainage was sampled on a sterile cotton-tipped applicator and sent for Gram stain and aerobic and anaerobic culture and sensitivity. The space was thoroughly irrigated with sterile saline. A 0.25 inch Penrose drain was placed into the dependent portion of the wound and secured to the skin with a 2-0 nylon suture. A sterile 4x4 dressing was placed over the drain. The site was hemostatic with minimal drainage. The offending tooth was extracted to achieve source control.\n\n",
     "fields": [
       {
         "id": "incision-and-drainage:side:0",
@@ -1574,7 +1609,7 @@
       "est": "60 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Incision and Drainage\n\nAttention was directed to the [R/L] submandibular region. An incision was planned greater than [X] cm below the inferior border of the mandible to protect the marginal mandibular branch of the facial nerve, and 4 cc of 1% lidocaine with 1:100,000 epinephrine was infiltrated in a subdermal plane. A [X] cm incision was made with a #15 blade at the planned site, carried through dermis, subcutaneous fat, platysma, and underlying fascia. Blunt dissection was carried out with a curved hemostat in the closed position down to the inferior border of the mandible, then opened to explore the involved space. The fluid collection on the medial surface of the posterior mandible was entered and drainage expressed. The drainage was sampled on a sterile cotton-tipped applicator and sent for Gram stain and aerobic and anaerobic culture and sensitivity. The space was thoroughly irrigated with sterile saline. A 0.25 inch Penrose drain was placed into the dependent portion of the wound and secured to the skin with a 2-0 nylon suture. A sterile 4x4 dressing was placed over the drain. The site was hemostatic with minimal drainage.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Incision and Drainage\n\nAttention was directed to the [R/L] submandibular region. An incision was planned greater than [X] cm below the inferior border of the mandible to protect the marginal mandibular branch of the facial nerve, and 4 cc of 1% lidocaine with 1:100,000 epinephrine was infiltrated in a subdermal plane. A [X] cm incision was made with a #15 blade at the planned site, carried through dermis, subcutaneous fat, platysma, and underlying fascia. Blunt dissection was carried out with a curved hemostat in the closed position down to the inferior border of the mandible, then opened to explore the involved space. The fluid collection on the medial surface of the posterior mandible was entered and drainage expressed. The drainage was sampled on a sterile cotton-tipped applicator and sent for Gram stain and aerobic and anaerobic culture and sensitivity. The space was thoroughly irrigated with sterile saline. A 0.25 inch Penrose drain was placed into the dependent portion of the wound and secured to the skin with a 2-0 nylon suture. A sterile 4x4 dressing was placed over the drain. The site was hemostatic with minimal drainage. The offending tooth was extracted to achieve source control.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": []
   },
   {
@@ -2162,7 +2197,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Trauma/Orbital Floor Reconstruction.md",
-    "bodyTemplate": "PROCEDURE: Orbital Floor Reconstruction\n\nAttention was drawn to the orbital-floor-reconstruction:side:0 orbit, which was marked and grossly edematous. A forced duction test was performed showing a true restriction in upward gaze. Corneal shields with ophthalmic lubricant were placed in the orbital-floor-reconstruction:side:1 eye. An incision was marked on the lower lid approximately 7 mm below the lid margin in a skin crease, and 3 cc of 2% lidocaine with 1:100,000 epi was infiltrated. The incision was made through skin and orbicularis oculi with a #15 blade, with a needle-tip Bovie used for hemostasis. Blunt dissection was carried to the inferior orbital rim, and at the level of periosteum a sharp incision was made to bone. A #9 periosteal elevator dissected and exposed the orbital floor and inferior orbital rim in a subperiosteal plane. The infraorbital nerve was protected throughout. The orbital floor defect was identified with orbital contents herniating into the maxillary sinus. The orbital contents were gently and atraumatically elevated back into the orbit, and stable native bone was exposed on all sides of the defect. The posterior stop measured orbital-floor-reconstruction:measurement:0 mm from the orbital rim. With the orbital tissues retracted superiorly, a pre-formed orbital floor reconstruction plate was measured, cut, and tried in for size, then adapted across the defect and perched on solid bone. Once all orbital contents were elevated superiorly, the plate was secured to the inferior orbital rim with orbital-floor-reconstruction:hardwareCount:0 self-drilling orbital-floor-reconstruction:measurement:1-mm screws and noted to be well seated and stable. The corneal shield was removed and a forced duction test showed a normal range of motion without restriction or impingement in any direction of gaze. The site was thoroughly irrigated with sterile saline and confirmed hemostatic. Periosteum was closed over the plate with several buried simple interrupted 5-0 Vicryl sutures, and the skin was closed with a running 4-0 plain gut suture. Ophthalmic sterile saline was used to irrigate the eye and a final forced duction test confirmed extraocular movements intact.\n\n",
+    "bodyTemplate": "PROCEDURE: Orbital Floor Reconstruction\n\nAttention was drawn to the orbital-floor-reconstruction:side:0 orbit, which was marked and grossly edematous. A forced duction test was performed showing a true restriction in upward gaze. Corneal shields with ophthalmic lubricant were placed in the orbital-floor-reconstruction:side:1 eye. A orbital-floor-reconstruction:enumText:0 approach was selected. The incision was marked (for a subciliary approach, approximately 7 mm below the lid margin in a skin crease) and 3 cc of 2% lidocaine with 1:100,000 epi was infiltrated. The incision was made through skin and orbicularis oculi with a #15 blade, with a needle-tip Bovie used for hemostasis. Blunt dissection was carried to the inferior orbital rim, and at the level of periosteum a sharp incision was made to bone. A #9 periosteal elevator dissected and exposed the orbital floor and inferior orbital rim in a subperiosteal plane. The infraorbital nerve was protected throughout. The orbital floor defect was identified with orbital contents herniating into the maxillary sinus. The orbital contents were gently and atraumatically elevated back into the orbit, and stable native bone was exposed on all sides of the defect. The posterior stop measured orbital-floor-reconstruction:measurement:0 mm from the orbital rim. With the orbital tissues retracted superiorly, a pre-formed orbital floor reconstruction plate was measured, cut, and tried in for size, then adapted across the defect and perched on solid bone. Once all orbital contents were elevated superiorly, the plate was secured to the inferior orbital rim with orbital-floor-reconstruction:hardwareCount:0 self-drilling orbital-floor-reconstruction:measurement:1-mm screws and noted to be well seated and stable. The corneal shield was removed and a forced duction test showed a normal range of motion without restriction or impingement in any direction of gaze. The site was thoroughly irrigated with sterile saline and confirmed hemostatic. Periosteum was closed over the plate with several buried simple interrupted 5-0 Vicryl sutures, and the skin was closed with a running 4-0 plain gut suture. Ophthalmic sterile saline was used to irrigate the eye and a final forced duction test confirmed extraocular movements intact.\n\n",
     "fields": [
       {
         "id": "orbital-floor-reconstruction:side:0",
@@ -2187,6 +2222,19 @@
           "L"
         ],
         "linkKey": "side"
+      },
+      {
+        "id": "orbital-floor-reconstruction:enumText:0",
+        "kind": "enumText",
+        "raw": "[transconjunctival / subciliary / transcutaneous]",
+        "label": "Select",
+        "context": "A ___ approach was selected.",
+        "options": [
+          "transconjunctival",
+          "subciliary",
+          "transcutaneous"
+        ],
+        "hint": "transconjunctival / subciliary / transcutaneous"
       },
       {
         "id": "orbital-floor-reconstruction:measurement:0",
@@ -2227,7 +2275,7 @@
       "est": "90 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Orbital Floor Reconstruction\n\nAttention was drawn to the [R/L] orbit, which was marked and grossly edematous. A forced duction test was performed showing a true restriction in upward gaze. Corneal shields with ophthalmic lubricant were placed in the [R/L] eye. An incision was marked on the lower lid approximately 7 mm below the lid margin in a skin crease, and 3 cc of 2% lidocaine with 1:100,000 epi was infiltrated. The incision was made through skin and orbicularis oculi with a #15 blade, with a needle-tip Bovie used for hemostasis. Blunt dissection was carried to the inferior orbital rim, and at the level of periosteum a sharp incision was made to bone. A #9 periosteal elevator dissected and exposed the orbital floor and inferior orbital rim in a subperiosteal plane. The infraorbital nerve was protected throughout. The orbital floor defect was identified with orbital contents herniating into the maxillary sinus. The orbital contents were gently and atraumatically elevated back into the orbit, and stable native bone was exposed on all sides of the defect. The posterior stop measured [X] mm from the orbital rim. With the orbital tissues retracted superiorly, a pre-formed orbital floor reconstruction plate was measured, cut, and tried in for size, then adapted across the defect and perched on solid bone. Once all orbital contents were elevated superiorly, the plate was secured to the inferior orbital rim with [#] self-drilling [length]-mm screws and noted to be well seated and stable. The corneal shield was removed and a forced duction test showed a normal range of motion without restriction or impingement in any direction of gaze. The site was thoroughly irrigated with sterile saline and confirmed hemostatic. Periosteum was closed over the plate with several buried simple interrupted 5-0 Vicryl sutures, and the skin was closed with a running 4-0 plain gut suture. Ophthalmic sterile saline was used to irrigate the eye and a final forced duction test confirmed extraocular movements intact.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Orbital Floor Reconstruction\n\nAttention was drawn to the [R/L] orbit, which was marked and grossly edematous. A forced duction test was performed showing a true restriction in upward gaze. Corneal shields with ophthalmic lubricant were placed in the [R/L] eye. A [transconjunctival / subciliary / transcutaneous] approach was selected. The incision was marked (for a subciliary approach, approximately 7 mm below the lid margin in a skin crease) and 3 cc of 2% lidocaine with 1:100,000 epi was infiltrated. The incision was made through skin and orbicularis oculi with a #15 blade, with a needle-tip Bovie used for hemostasis. Blunt dissection was carried to the inferior orbital rim, and at the level of periosteum a sharp incision was made to bone. A #9 periosteal elevator dissected and exposed the orbital floor and inferior orbital rim in a subperiosteal plane. The infraorbital nerve was protected throughout. The orbital floor defect was identified with orbital contents herniating into the maxillary sinus. The orbital contents were gently and atraumatically elevated back into the orbit, and stable native bone was exposed on all sides of the defect. The posterior stop measured [X] mm from the orbital rim. With the orbital tissues retracted superiorly, a pre-formed orbital floor reconstruction plate was measured, cut, and tried in for size, then adapted across the defect and perched on solid bone. Once all orbital contents were elevated superiorly, the plate was secured to the inferior orbital rim with [#] self-drilling [length]-mm screws and noted to be well seated and stable. The corneal shield was removed and a forced duction test showed a normal range of motion without restriction or impingement in any direction of gaze. The site was thoroughly irrigated with sterile saline and confirmed hemostatic. Periosteum was closed over the plate with several buried simple interrupted 5-0 Vicryl sutures, and the skin was closed with a running 4-0 plain gut suture. Ophthalmic sterile saline was used to irrigate the eye and a final forced duction test confirmed extraocular movements intact.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": []
   },
   {
@@ -2352,7 +2400,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Trauma/ORIF Mandible.md",
-    "bodyTemplate": "PROCEDURE: ORIF Mandible (body/angle/symphysis)\n\norif-mandible:hardwareCount:0 orif-mandible:measurement:0-mm intermaxillary fixation (IMF) screws were placed into the mandible and maxilla with even distribution (orif-mandible:hardwareCount:1 in the maxilla, orif-mandible:hardwareCount:2 in the mandible). Attention was directed to the orif-mandible:side:0 mandibular orif-mandible:enumText:0 fracture. A vestibular incision 5 mm below the mucogingival junction was made from tooth orif-mandible:toothNumber:0 and carried to bone with electrocautery, staying superior to the mental foramen. A subperiosteal dissection was performed with a #9 periosteal elevator. The mental foramen and mental nerve were visualized, isolated, skeletonized, and remained intact throughout the procedure. The fracture site was well exposed, including the inferior border, and the fracture was mobilized. The site was thoroughly irrigated with sterile saline. The patient was then placed tightly into maxillomandibular fixation (MMF) with 24-gauge wires looped between the IMF screws, and occlusion was verified to be native and stable. The fracture was reduced and confirmed satisfactory. A orif-mandible:text:0 orif-mandible:hardwareCount:3-hole straight plate was adapted equally across the fracture on the inferior border and secured with orif-mandible:hardwareCount:4 bicortical screws under copious irrigation. The fracture was re-evaluated and noted to be well reduced and stable, and the occlusion remained native. The MMF was released and occlusion and reduction were re-evaluated as stable, anatomic, and reproducible. All sites were irrigated with copious sterile saline and noted to be hemostatic. The mentalis was re-suspended with 3-0 Vicryl in a running fashion reinforced with simple interrupted 3-0 Vicryl, and the mucosa was re-approximated with 3-0 chromic gut in a running fashion. The patient was placed in guiding elastics.\n\n",
+    "bodyTemplate": "PROCEDURE: ORIF Mandible (body/angle/symphysis)\n\norif-mandible:hardwareCount:0 orif-mandible:measurement:0-mm intermaxillary fixation (IMF) screws were placed into the mandible and maxilla with even distribution (orif-mandible:hardwareCount:1 in the maxilla, orif-mandible:hardwareCount:2 in the mandible). Attention was directed to the orif-mandible:side:0 mandibular orif-mandible:enumText:0 fracture. A vestibular incision 5 mm below the mucogingival junction was made from tooth orif-mandible:toothNumber:0 and carried to bone with electrocautery, staying superior to the mental foramen. A subperiosteal dissection was performed with a #9 periosteal elevator. The mental foramen and mental nerve were visualized, isolated, skeletonized, and remained intact throughout the procedure. The fracture site was well exposed, including the inferior border, and the fracture was mobilized. The site was thoroughly irrigated with sterile saline. The patient was then placed tightly into maxillomandibular fixation (MMF) with 24-gauge wires looped between the IMF screws, and occlusion was verified to be native and stable. The fracture was reduced and confirmed satisfactory. A orif-mandible:text:0 orif-mandible:hardwareCount:3-hole straight plate was adapted equally across the fracture on the inferior border and secured with orif-mandible:hardwareCount:4 bicortical screws under copious irrigation[, placed via a transbuccal trocar for posterior body/angle access]. A second orif-mandible:text:1 orif-mandible:hardwareCount:5-hole miniplate was adapted along the superior border as a tension band and secured with orif-mandible:hardwareCount:6 monocortical screws, completing a Champy load-sharing construct if indicated. The fracture was re-evaluated and noted to be well reduced and stable, and the occlusion remained native. The MMF was released and occlusion and reduction were re-evaluated as stable, anatomic, and reproducible. All sites were irrigated with copious sterile saline and noted to be hemostatic. The mentalis was re-suspended with 3-0 Vicryl in a running fashion reinforced with simple interrupted 3-0 Vicryl, and the mucosa was re-approximated with 3-0 chromic gut in a running fashion. The patient was placed in guiding elastics.\n\n",
     "fields": [
       {
         "id": "orif-mandible:hardwareCount:0",
@@ -2420,7 +2468,7 @@
         "kind": "text",
         "raw": "[profile]",
         "label": "Value",
-        "context": "A ___ [#]-hole straight plate was adapted equally across the fracture on the inferior border and secured with [#] bicortical screws under copious irrigation."
+        "context": "A ___ [#]-hole straight plate was adapted equally across the fracture on the inferior border and secured with [#] bicortical screws under copious irrigation[, p"
       },
       {
         "id": "orif-mandible:hardwareCount:3",
@@ -2435,6 +2483,27 @@
         "raw": "[#]",
         "label": "Count",
         "context": "A [profile] [#]-hole straight plate was adapted equally across the fracture on the inferior border and secured with ___ bicortical screws under copious irrigati"
+      },
+      {
+        "id": "orif-mandible:text:1",
+        "kind": "text",
+        "raw": "[profile]",
+        "label": "Value",
+        "context": "A second ___ [#]-hole miniplate was adapted along the superior border as a tension band and secured with [#] monocortical screws, completing a Champy load-shari"
+      },
+      {
+        "id": "orif-mandible:hardwareCount:5",
+        "kind": "hardwareCount",
+        "raw": "[#]",
+        "label": "Count",
+        "context": "A second [profile] ___-hole miniplate was adapted along the superior border as a tension band and secured with [#] monocortical screws, completing a Champy load"
+      },
+      {
+        "id": "orif-mandible:hardwareCount:6",
+        "kind": "hardwareCount",
+        "raw": "[#]",
+        "label": "Count",
+        "context": "A second [profile] [#]-hole miniplate was adapted along the superior border as a tension band and secured with ___ monocortical screws, completing a Champy load"
       }
     ],
     "flags": [],
@@ -2451,8 +2520,10 @@
       "est": "120 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: ORIF Mandible (body/angle/symphysis)\n\n[#] [length]-mm intermaxillary fixation (IMF) screws were placed into the mandible and maxilla with even distribution ([#] in the maxilla, [#] in the mandible). Attention was directed to the [R/L] mandibular [body/angle/symphysis] fracture. A vestibular incision 5 mm below the mucogingival junction was made from tooth [#__] and carried to bone with electrocautery, staying superior to the mental foramen. A subperiosteal dissection was performed with a #9 periosteal elevator. The mental foramen and mental nerve were visualized, isolated, skeletonized, and remained intact throughout the procedure. The fracture site was well exposed, including the inferior border, and the fracture was mobilized. The site was thoroughly irrigated with sterile saline. The patient was then placed tightly into maxillomandibular fixation (MMF) with 24-gauge wires looped between the IMF screws, and occlusion was verified to be native and stable. The fracture was reduced and confirmed satisfactory. A [profile] [#]-hole straight plate was adapted equally across the fracture on the inferior border and secured with [#] bicortical screws under copious irrigation. The fracture was re-evaluated and noted to be well reduced and stable, and the occlusion remained native. The MMF was released and occlusion and reduction were re-evaluated as stable, anatomic, and reproducible. All sites were irrigated with copious sterile saline and noted to be hemostatic. The mentalis was re-suspended with 3-0 Vicryl in a running fashion reinforced with simple interrupted 3-0 Vicryl, and the mucosa was re-approximated with 3-0 chromic gut in a running fashion. The patient was placed in guiding elastics.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
-    "warnings": []
+    "rawBody": "PROCEDURE: ORIF Mandible (body/angle/symphysis)\n\n[#] [length]-mm intermaxillary fixation (IMF) screws were placed into the mandible and maxilla with even distribution ([#] in the maxilla, [#] in the mandible). Attention was directed to the [R/L] mandibular [body/angle/symphysis] fracture. A vestibular incision 5 mm below the mucogingival junction was made from tooth [#__] and carried to bone with electrocautery, staying superior to the mental foramen. A subperiosteal dissection was performed with a #9 periosteal elevator. The mental foramen and mental nerve were visualized, isolated, skeletonized, and remained intact throughout the procedure. The fracture site was well exposed, including the inferior border, and the fracture was mobilized. The site was thoroughly irrigated with sterile saline. The patient was then placed tightly into maxillomandibular fixation (MMF) with 24-gauge wires looped between the IMF screws, and occlusion was verified to be native and stable. The fracture was reduced and confirmed satisfactory. A [profile] [#]-hole straight plate was adapted equally across the fracture on the inferior border and secured with [#] bicortical screws under copious irrigation[, placed via a transbuccal trocar for posterior body/angle access]. A second [profile] [#]-hole miniplate was adapted along the superior border as a tension band and secured with [#] monocortical screws, completing a Champy load-sharing construct if indicated. The fracture was re-evaluated and noted to be well reduced and stable, and the occlusion remained native. The MMF was released and occlusion and reduction were re-evaluated as stable, anatomic, and reproducible. All sites were irrigated with copious sterile saline and noted to be hemostatic. The mentalis was re-suspended with 3-0 Vicryl in a running fashion reinforced with simple interrupted 3-0 Vicryl, and the mucosa was re-approximated with 3-0 chromic gut in a running fashion. The patient was placed in guiding elastics.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "warnings": [
+      "Unrecognized bracket kept inline: [, placed via a transbuccal trocar for posterior body/angle "
+    ]
   },
   {
     "id": "orif-noe",
@@ -2830,6 +2901,51 @@
     },
     "tags": [],
     "rawBody": "PROCEDURE: ORIF ZMC\n\nAttention was directed to the [R/L] lateral brow, which was anesthetized with 2 cc of 1% lidocaine with 1:100,000 epi. Using a 15 blade, a curvilinear incision was made along the lateral orbital wall and subperiosteal dissection performed to expose the zygomaticofrontal suture, which was fractured and displaced. Attention was directed to the [R/L] maxillary vestibule, anesthetized with 3 cc of 1% lidocaine with 1:100,000 epi. Using a 15 blade, an incision was made 5 mm above the mucogingival junction from midline to the first molar region and carried to periosteum, and a subperiosteal dissection exposed the anterior maxillary sinus fracture and the zygomaticomaxillary suture fracture. The site was copiously irrigated. The ZF, ZM, and zygomatic arch fractures were manually reduced with Rowe disimpaction forceps. The ZF suture was fixated with a [profile] [#]-hole curvilinear plate and self-drilling [length]-mm screws. The ZM was fixated with a [profile] L-plate secured with [#] self-drilling [length]-mm screws. Adequate reduction was confirmed. The infraorbital nerve was protected throughout. All surgical sites were irrigated with normal saline and hemostasis confirmed. The lateral brow incision was closed with 3-0 deep Vicryl, 4-0 subdermal Monocryl, and 5-0 plain gut for skin, with Steri-Strips placed over the incision. The intraoral incision was closed with 3-0 Vicryl in a running fashion.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "warnings": []
+  },
+  {
+    "id": "orthognathic-closing",
+    "title": "Orthognathic Closing (occlusion, elastics, Exparel)",
+    "category": "Orthognathic",
+    "modes": [
+      "atom",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Procedures/Orthognathic/Orthognathic Closing.md",
+    "bodyTemplate": "PROCEDURE: Orthognathic Closing (occlusion, elastics, Exparel)\n\nThe throat pack was removed and the oropharynx was suctioned free of debris. An orogastric tube was passed to decompress the stomach. Final occlusion was verified to be stable, reproducible, and consistent with the planned position. The patient was placed into orthognathic-closing:enumText:0 guiding elastics, and the final orthodontic bracket and surgical lug count was confirmed correct. orthognathic-closing:measurement:0 cc of Exparel was infiltrated at the surgical sites for postoperative analgesia.\n\n",
+    "fields": [
+      {
+        "id": "orthognathic-closing:enumText:0",
+        "kind": "enumText",
+        "raw": "[box / Class II / Class III]",
+        "label": "Select",
+        "context": "The patient was placed into ___ guiding elastics, and the final orthodontic bracket and surgical lug count was confirmed correct.",
+        "options": [
+          "box",
+          "Class II",
+          "Class III"
+        ],
+        "hint": "box / Class II / Class III"
+      },
+      {
+        "id": "orthognathic-closing:measurement:0",
+        "kind": "measurement",
+        "raw": "[X]",
+        "label": "Measurement (cc)",
+        "context": "___ cc of Exparel was infiltrated at the surgical sites for postoperative analgesia.",
+        "unit": "cc"
+      }
+    ],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [],
+    "links": {
+      "postop": [],
+      "rx": [],
+      "est": "10 min"
+    },
+    "tags": [],
+    "rawBody": "PROCEDURE: Orthognathic Closing (occlusion, elastics, Exparel)\n\nThe throat pack was removed and the oropharynx was suctioned free of debris. An orogastric tube was passed to decompress the stomach. Final occlusion was verified to be stable, reproducible, and consistent with the planned position. The patient was placed into [box / Class II / Class III] guiding elastics, and the final orthodontic bracket and surgical lug count was confirmed correct. [X] cc of Exparel was infiltrated at the surgical sites for postoperative analgesia.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use. Stack ONCE at the end of an orthognathic case.]",
     "warnings": []
   },
   {
@@ -3280,7 +3396,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Sialolithotomy Wharton Duct.md",
-    "bodyTemplate": "PROCEDURE: Sialolithotomy (Wharton Duct)\n\nThe floor of the mouth was anesthetized with local infiltration of 2% lidocaine with epinephrine. The palpable stone in the sialolithotomy-wharton-duct:side:0 proximal hilum of Wharton's duct was localized by bimanual palpation. A trans-oral incision was made through the floor-of-mouth mucosa overlying the palpable stone with electrocautery, carried just through the mucosa. Blunt dissection was then carried out with a hemostat and Molt instruments, reflecting and protecting the lingual nerve and the sublingual gland, riding an avascular plane down to Wharton's duct and the stone. The lingual nerve was identified along the lateral aspect of the dissection and protected throughout. The sialolithotomy-wharton-duct:measurement:0 cm sialolith was visualized and carefully dissected free atraumatically, along with any additional smaller stones, and submitted in formalin for permanent pathologic examination. The duct was inspected and confirmed patent after stone removal, with salivary flow expressed. The surgical site was thoroughly irrigated with copious normal saline and hemostasis achieved. The lingual nerve and sublingual gland were confirmed intact and unaltered. The floor-of-mouth mucosa was loosely reapproximated with interrupted 3-0 chromic gut sutures to allow for adequate drainage. Specimen: sialolithotomy-wharton-duct:text:0 to permanent pathology.\n\n",
+    "bodyTemplate": "PROCEDURE: Sialolithotomy (Wharton Duct)\n\nThe floor of the mouth was anesthetized with local infiltration of 2% lidocaine with epinephrine. Diagnostic sialendoscopy was attempted first with sequential dilation and irrigation; the stone could not be retrieved endoscopically and the case was converted to a transoral approach. The palpable stone in the sialolithotomy-wharton-duct:side:0 proximal hilum of Wharton's duct was localized by bimanual palpation. A trans-oral incision was made through the floor-of-mouth mucosa overlying the palpable stone with electrocautery, carried just through the mucosa. Blunt dissection was then carried out with a hemostat and Molt instruments, reflecting and protecting the lingual nerve and the sublingual gland, riding an avascular plane down to Wharton's duct and the stone. The lingual nerve was identified along the lateral aspect of the dissection and protected throughout. The sialolithotomy-wharton-duct:measurement:0 cm sialolith was visualized and carefully dissected free atraumatically, along with any additional smaller stones, and submitted in formalin for permanent pathologic examination. The duct was inspected and confirmed patent after stone removal, with salivary flow expressed. The surgical site was thoroughly irrigated with copious normal saline and hemostasis achieved. The lingual nerve and sublingual gland were confirmed intact and unaltered. The floor-of-mouth mucosa was loosely reapproximated with interrupted 3-0 chromic gut sutures to allow for adequate drainage. Specimen: sialolithotomy-wharton-duct:text:0 to permanent pathology.\n\n",
     "fields": [
       {
         "id": "sialolithotomy-wharton-duct:side:0",
@@ -3323,7 +3439,7 @@
       "est": "60 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Sialolithotomy (Wharton Duct)\n\nThe floor of the mouth was anesthetized with local infiltration of 2% lidocaine with epinephrine. The palpable stone in the [R/L] proximal hilum of Wharton's duct was localized by bimanual palpation. A trans-oral incision was made through the floor-of-mouth mucosa overlying the palpable stone with electrocautery, carried just through the mucosa. Blunt dissection was then carried out with a hemostat and Molt instruments, reflecting and protecting the lingual nerve and the sublingual gland, riding an avascular plane down to Wharton's duct and the stone. The lingual nerve was identified along the lateral aspect of the dissection and protected throughout. The [X] cm sialolith was visualized and carefully dissected free atraumatically, along with any additional smaller stones, and submitted in formalin for permanent pathologic examination. The duct was inspected and confirmed patent after stone removal, with salivary flow expressed. The surgical site was thoroughly irrigated with copious normal saline and hemostasis achieved. The lingual nerve and sublingual gland were confirmed intact and unaltered. The floor-of-mouth mucosa was loosely reapproximated with interrupted 3-0 chromic gut sutures to allow for adequate drainage. Specimen: [sialolith(s)] to permanent pathology.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Sialolithotomy (Wharton Duct)\n\nThe floor of the mouth was anesthetized with local infiltration of 2% lidocaine with epinephrine. Diagnostic sialendoscopy was attempted first with sequential dilation and irrigation; the stone could not be retrieved endoscopically and the case was converted to a transoral approach. The palpable stone in the [R/L] proximal hilum of Wharton's duct was localized by bimanual palpation. A trans-oral incision was made through the floor-of-mouth mucosa overlying the palpable stone with electrocautery, carried just through the mucosa. Blunt dissection was then carried out with a hemostat and Molt instruments, reflecting and protecting the lingual nerve and the sublingual gland, riding an avascular plane down to Wharton's duct and the stone. The lingual nerve was identified along the lateral aspect of the dissection and protected throughout. The [X] cm sialolith was visualized and carefully dissected free atraumatically, along with any additional smaller stones, and submitted in formalin for permanent pathologic examination. The duct was inspected and confirmed patent after stone removal, with salivary flow expressed. The surgical site was thoroughly irrigated with copious normal saline and hemostasis achieved. The lingual nerve and sublingual gland were confirmed intact and unaltered. The floor-of-mouth mucosa was loosely reapproximated with interrupted 3-0 chromic gut sutures to allow for adequate drainage. Specimen: [sialolith(s)] to permanent pathology.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": []
   },
   {
@@ -3502,6 +3618,65 @@
     ]
   },
   {
+    "id": "specimen-culture-hardware-accounting",
+    "title": "Specimen, Culture and Hardware Accounting",
+    "category": "Pathology & Reconstruction",
+    "modes": [
+      "atom",
+      "library"
+    ],
+    "sourcePath": "Note Templates/Procedures/Pathology & Reconstruction/Specimen Culture Hardware Accounting.md",
+    "bodyTemplate": "PROCEDURE: Specimen, Culture and Hardware Accounting\n\nSpecimens were submitted as follows: specimen-culture-hardware-accounting:text:0 in formalin for permanent pathologic examination. A separate fresh specimen was sent for frozen-section analysis if indicated. Cultures were obtained and sent as indicated: specimen-culture-hardware-accounting:enumText:0. Explanted hardware was accounted for and removed in its entirety (specimen-culture-hardware-accounting:hardwareCount:0 plates and specimen-culture-hardware-accounting:hardwareCount:1 screws). Sponge, needle, and instrument counts were confirmed correct with the nursing team prior to closure.\n\n",
+    "fields": [
+      {
+        "id": "specimen-culture-hardware-accounting:text:0",
+        "kind": "text",
+        "raw": "[specimen(s)]",
+        "label": "Value",
+        "context": "___ in formalin for permanent pathologic examination."
+      },
+      {
+        "id": "specimen-culture-hardware-accounting:enumText:0",
+        "kind": "enumText",
+        "raw": "[aerobic / anaerobic / fungal / acid-fast]",
+        "label": "Select",
+        "context": "___.",
+        "options": [
+          "aerobic",
+          "anaerobic",
+          "fungal",
+          "acid-fast"
+        ],
+        "hint": "aerobic / anaerobic / fungal / acid-fast"
+      },
+      {
+        "id": "specimen-culture-hardware-accounting:hardwareCount:0",
+        "kind": "hardwareCount",
+        "raw": "[#]",
+        "label": "Count",
+        "context": "Explanted hardware was accounted for and removed in its entirety (___ plates and [#] screws)."
+      },
+      {
+        "id": "specimen-culture-hardware-accounting:hardwareCount:1",
+        "kind": "hardwareCount",
+        "raw": "[#]",
+        "label": "Count",
+        "context": "Explanted hardware was accounted for and removed in its entirety ([#] plates and ___ screws)."
+      }
+    ],
+    "flags": [],
+    "includes": [],
+    "smartlinks": [],
+    "links": {
+      "postop": [],
+      "rx": [],
+      "est": "5 min"
+    },
+    "tags": [],
+    "rawBody": "PROCEDURE: Specimen, Culture and Hardware Accounting\n\nSpecimens were submitted as follows: [specimen(s)] in formalin for permanent pathologic examination. A separate fresh specimen was sent for frozen-section analysis if indicated. Cultures were obtained and sent as indicated: [aerobic / anaerobic / fungal / acid-fast]. Explanted hardware was accounted for and removed in its entirety ([#] plates and [#] screws). Sponge, needle, and instrument counts were confirmed correct with the nursing team prior to closure.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use. Stack as an adjunct on resection, infection, or hardware cases.]",
+    "warnings": []
+  },
+  {
     "id": "submandibular-gland-reduction",
     "title": "Submandibular Gland Reduction",
     "category": "Cosmetic & Facial",
@@ -3646,7 +3821,7 @@
       "library"
     ],
     "sourcePath": "Note Templates/Procedures/Dentoalveolar & Implant/Surgical Extraction (impacted).md",
-    "bodyTemplate": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the surgical-extraction-impacted:side:0 surgical-extraction-impacted:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted surgical-extraction-impacted:toothNumber:0 and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. surgical-extraction-impacted:optionalClause:0 A 702 bur under copious irrigation was used to develop a buccal trough lateral to surgical-extraction-impacted:toothNumber:1 and remove overlying bone. The 702 bur was then used to section surgical-extraction-impacted:toothNumber:2, and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n",
+    "bodyTemplate": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the surgical-extraction-impacted:side:0 surgical-extraction-impacted:enumText:0 vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted surgical-extraction-impacted:toothNumber:0 and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. surgical-extraction-impacted:optionalClause:0 A 702 bur under copious irrigation was used to develop a buccal trough lateral to surgical-extraction-impacted:toothNumber:1 and remove overlying bone. The 702 bur was then used to section surgical-extraction-impacted:toothNumber:2, and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. The associated soft-tissue/follicular lesion was removed with the specimen and submitted for pathologic examination. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n",
     "fields": [
       {
         "id": "surgical-extraction-impacted:side:0",
@@ -3715,7 +3890,7 @@
       "est": "30 min"
     },
     "tags": [],
-    "rawBody": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the [R/L] [maxillary/mandibular] vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted [#__] and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. [The mental nerve was visualized and protected.] A 702 bur under copious irrigation was used to develop a buccal trough lateral to [#__] and remove overlying bone. The 702 bur was then used to section [#__], and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
+    "rawBody": "PROCEDURE: Surgical Extraction (impacted)\n\nAttention was directed to the [R/L] [maxillary/mandibular] vestibule. 10 cc of 1% lidocaine with 1:100,000 epi was infiltrated locally and an IAN block was performed. Using a #15 blade, a distal hockey stick incision was made to access impacted [#__] and carried forward in a sulcular fashion to the adjacent tooth. Using a periosteal elevator, a subperiosteal dissection was completed to expose the underlying bone. [The mental nerve was visualized and protected.] A 702 bur under copious irrigation was used to develop a buccal trough lateral to [#__] and remove overlying bone. The 702 bur was then used to section [#__], and the crown and root segments were elevated atraumatically. The socket was inspected for retained root tips, curetted of any follicular tissue, and irrigated with sterile saline. The associated soft-tissue/follicular lesion was removed with the specimen and submitted for pathologic examination. All sharp bone was reduced. The flap and surgical site were thoroughly irrigated and the incision was closed with 3-0 Vicryl suture, taking care to re-suspend the papilla.\n\n[TEMPLATE: atomic snippet adapted from prior notes; review before use.]",
     "warnings": []
   },
   {

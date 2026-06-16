@@ -23,9 +23,18 @@ describe('content referential integrity', () => {
     expect(dangling).toEqual([])
   })
 
-  it('the default Rx component exists and every procedure has at least one Rx', () => {
+  it('the default Rx component exists and every clinical procedure links a valid Rx', () => {
     expect(compIds.has('post-op-rx')).toBe(true)
-    for (const p of PROCEDURES) expect(p.rxIds.length).toBeGreaterThan(0)
+    for (const p of PROCEDURES) {
+      // Adjunct atoms (closings, specimen/hardware accounting) intentionally carry no Rx.
+      const adjunct = /closing|accounting/.test(p.id)
+      if (adjunct) {
+        expect(p.rxIds.length, `${p.id} adjunct should carry no Rx`).toBe(0)
+      } else {
+        expect(p.rxIds.length, `${p.id} has no Rx`).toBeGreaterThan(0)
+        for (const id of p.rxIds) expect(compIds.has(id), `${p.id} -> ${id} dangling`).toBe(true)
+      }
+    }
   })
 
   it('content ids are unique WITHIN each collection and dot phrases are globally unique', () => {
@@ -61,9 +70,14 @@ describe('assembly invariants — every procedure composes clean output', () => 
       expect(opnote).toContain(p.name) // op note names the procedure
       expect(opnote).not.toMatch(/\[TEMPLATE:/i) // authoring markers stripped from op notes
 
-      const { text: rx } = buildDocument([{ instanceId: 'a', procedureId: p.id }], {}, defaultEncounter(), 'rx')
-      const parsed = parseRx(rx)
-      expect(parsed.orderCount + parsed.lines.filter((l) => l.kind === 'smartlink').length).toBeGreaterThan(0)
+      // Procedures that LINK an Rx must produce a non-empty prescription. Adjunct atoms
+      // (e.g. closings, specimen/hardware accounting) intentionally carry no Rx (rx: []),
+      // so they're exempt — they only ever stack onto a real procedure that supplies it.
+      if (p.rxIds.length > 0) {
+        const { text: rx } = buildDocument([{ instanceId: 'a', procedureId: p.id }], {}, defaultEncounter(), 'rx')
+        const parsed = parseRx(rx)
+        expect(parsed.orderCount + parsed.lines.filter((l) => l.kind === 'smartlink').length).toBeGreaterThan(0)
+      }
     })
   }
 })

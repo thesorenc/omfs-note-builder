@@ -30,8 +30,10 @@ const COSMETIC_TMJ = [
 ]
 
 describe('Rx routing — clinical-safety invariants', () => {
-  it('every procedure resolves a real Rx block (no dangling rx link)', () => {
+  it('every procedure that links an Rx resolves a real, non-empty block (no dangling link)', () => {
     for (const p of PROCEDURES) {
+      // Adjunct atoms (closings, accounting) intentionally carry no Rx (rx: []).
+      if (p.rxIds.length === 0) continue
       const { full } = defaultRx(p.id)
       expect(full.length, `${p.id} produced empty Rx`).toBeGreaterThan(0)
     }
