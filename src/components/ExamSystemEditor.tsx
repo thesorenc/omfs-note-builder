@@ -104,6 +104,7 @@ export function ExamSystemEditor({ section, systemId }: { section: Section; syst
               detail={rec.detail}
               onSelect={(mark, value) => selectChoice(section, systemId, el.id, mark, value)}
               onDetail={(sub, value) => setDetail(section, systemId, sub ? `${el.id}.${sub}` : el.id, value)}
+              allowNote={section === 'pe'}
             />
           ))}
         </div>
@@ -114,12 +115,13 @@ export function ExamSystemEditor({ section, systemId }: { section: Section; syst
   )
 }
 
-function ElementRow({ element, mark, detail, onSelect, onDetail }: {
+function ElementRow({ element, mark, detail, onSelect, onDetail, allowNote }: {
   element: ExamElement
   mark: Mark | undefined
   detail: Record<string, string>
   onSelect: (mark: Mark | null, value?: string) => void
   onDetail: (sub: string | undefined, value: string) => void
+  allowNote: boolean
 }) {
   const { choices, multi, dropdown } = deriveChoices(element)
   const get: Getter = (sub) => detail[sub ? `${element.id}.${sub}` : element.id] ?? ''
@@ -137,6 +139,7 @@ function ElementRow({ element, mark, detail, onSelect, onDetail }: {
         ) : (
           <ButtonChoices choices={choices} mark={mark} val={val} onSelect={onSelect} />
         )}
+        {allowNote && mark && <ElemNote value={get('note')} onChange={(v) => onDetail('note', v)} />}
       </div>
 
       {mark === '+' && reveal === 'gcs' && <GcsControl get={get} set={onDetail} />}
@@ -304,6 +307,19 @@ function TrigeminalControl({ get, set }: { get: Getter; set: Setter }) {
       </div>
       <SideSeg value={get('side')} onChange={(v) => set('side', v)} />
     </div>
+  )
+}
+
+/** Small inline note that trails a single marked finding (appended after its clause). */
+function ElemNote({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [open, setOpen] = useState(false)
+  if (open || value) {
+    return <input className="elem-note" value={value} placeholder="note…" aria-label="finding note" onChange={(e) => onChange(e.target.value)} />
+  }
+  return (
+    <button type="button" className="elem-note-btn" title="Add a note to this finding" onClick={() => setOpen(true)}>
+      ✎
+    </button>
   )
 }
 

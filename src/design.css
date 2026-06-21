@@ -436,6 +436,11 @@ button{font-family:inherit;cursor:pointer}
 .choice.on{background:var(--rose-soft);border-color:var(--rose-line);color:#a23b30}
 .choice-dd{flex:0 1 240px}
 .choice-dd select{padding:7px 30px 7px 11px;font-size:12.5px}
+/* per-finding inline note (✎): trails the finding's own clause in the note */
+.elem-note-btn{border:none;background:none;color:var(--faint);font-size:13px;line-height:1;padding:3px 5px;border-radius:6px}
+.elem-note-btn:hover{background:var(--surface-2);color:var(--accent-ink)}
+.elem-note{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:3px 9px;font-family:inherit;font-size:12px;color:var(--ink);outline:none;flex:0 1 190px;min-width:110px}
+.elem-note:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
 /* per-system free-text comment */
 .comment-wrap{display:flex;flex-direction:column}
 .comment-btn{align-self:flex-start}

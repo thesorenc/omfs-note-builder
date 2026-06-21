@@ -35,6 +35,11 @@ describe('peLine — defaults & legacy toggle', () => {
     const l = peLine(peSys('mf'), rec({ marks: { crep: '-' }, comment: 'Guarding noted.' }))
     expect(l?.text).toBe('Guarding noted. No crepitus.')
   })
+
+  it('a per-finding note trails that finding only', () => {
+    const l = peLine(peSys('mf'), rec({ marks: { swell: '+', crep: '-' }, detail: { swell: 'left', 'swell.note': 'extends to orbit' } }))
+    expect(l?.text).toBe('Left facial swelling — extends to orbit; no crepitus.')
+  })
 })
 
 describe('Tier-1 controls', () => {

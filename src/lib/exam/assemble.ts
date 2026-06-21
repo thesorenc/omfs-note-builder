@@ -48,10 +48,15 @@ function withComment(text: string, comment: string): string {
 /** PE: positives (with detail) then pertinent negatives, each a clause. */
 export function peLine(system: ExamSystem, rec: ExamRecord | undefined): ExamLine | null {
   if (!rec) return null
+  // A per-element note (detail[`${id}.note`]) trails that finding's own clause.
+  const note = (id: string) => {
+    const n = (rec.detail[`${id}.note`] ?? '').trim()
+    return n ? ` — ${n}` : ''
+  }
   const positives = system.elements
     .filter((e) => rec.marks[e.id] === '+')
-    .map((e) => posPhrase(e, (sub?: string) => rec.detail[sub ? `${e.id}.${sub}` : e.id] ?? ''))
-  const negatives = system.elements.filter((e) => rec.marks[e.id] === '-').map((e) => negPhrase(e))
+    .map((e) => posPhrase(e, (sub?: string) => rec.detail[sub ? `${e.id}.${sub}` : e.id] ?? '') + note(e.id))
+  const negatives = system.elements.filter((e) => rec.marks[e.id] === '-').map((e) => negPhrase(e) + note(e.id))
   const parts = [...positives, ...negatives]
   if (!parts.length && !rec.comment.trim()) return null
   const base = parts.length ? cap(parts.join('; ')) + '.' : ''
