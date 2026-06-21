@@ -8,17 +8,12 @@ import { ExamOutput } from '@/components/ExamOutput'
 
 type Modality = 'PE' | 'ROS'
 
-/** Left-list badge + subtitle from the marks on a system (empty until the user acts). */
-function status(rec: ExamRecord | undefined): { badge: ReactNode; sub: string } {
-  const vals = rec ? Object.values(rec.marks) : []
-  const p = vals.filter((v) => v === '+').length
-  const n = vals.filter((v) => v === '-').length
-  if (!p && !n) {
-    if (rec?.comment.trim()) return { badge: <span className="pc-norm">✎</span>, sub: 'Comment' }
-    return { badge: <span className="pc-add">+</span>, sub: 'Not addressed' }
-  }
-  const sub = p && n ? `${p} pos · ${n} neg` : p ? `${p} positive` : `${n} negative`
-  return { badge: <span className="pc-count">{p + n}</span>, sub }
+/** Left-list badge: a count once the system has any marks (no subtitle text). */
+function badgeFor(rec: ExamRecord | undefined): ReactNode {
+  const count = rec ? Object.values(rec.marks).filter((v) => v === '+' || v === '-').length : 0
+  if (count) return <span className="pc-count">{count}</span>
+  if (rec?.comment.trim()) return <span className="pc-norm">✎</span>
+  return null
 }
 
 export function ExamBuilder() {
@@ -62,19 +57,15 @@ export function ExamBuilder() {
         </div>
         <div className="lib-group">
           <h4>{modality === 'PE' ? 'Exam by system' : 'Systems'}</h4>
-          {systems.map((s) => {
-            const { badge, sub } = status(recordsForModality[s.id])
-            return (
-              <button key={s.id} className={'proc-card' + (s.id === active ? ' on' : '')} aria-current={s.id === active} onClick={() => setActive(s.id)}>
-                <span className="pc-icon">{s.abbr}</span>
-                <span className="pc-body">
-                  <span className="pc-name">{s.name}</span>
-                  <span className="pc-desc">{sub}</span>
-                </span>
-                {badge}
-              </button>
-            )
-          })}
+          {systems.map((s) => (
+            <button key={s.id} className={'proc-card' + (s.id === active ? ' on' : '')} aria-current={s.id === active} onClick={() => setActive(s.id)}>
+              <span className="pc-icon">{s.abbr}</span>
+              <span className="pc-body">
+                <span className="pc-name">{s.name}</span>
+              </span>
+              {badgeFor(recordsForModality[s.id])}
+            </button>
+          ))}
         </div>
       </aside>
 

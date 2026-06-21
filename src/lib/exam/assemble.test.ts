@@ -34,20 +34,18 @@ describe('peLine — defaults & legacy toggle', () => {
 
 describe('Tier-1 controls', () => {
   it('Facial nerve → House-Brackmann grade + side', () => {
-    const l = peLine(peSys('cn'), rec({ marks: { facial: '+' }, detail: { facial: 'IV', 'facial.side': 'left' } }))
+    const l = peLine(peSys('neuro'), rec({ marks: { facial: '+' }, detail: { facial: 'IV', 'facial.side': 'left' } }))
     expect(l?.text).toBe('Left House-Brackmann IV facial weakness.')
   })
 
   it('Facial nerve "−" emits HB I pertinent negative', () => {
-    const l = peLine(peSys('cn'), rec({ marks: { facial: '-' } }))
+    const l = peLine(peSys('neuro'), rec({ marks: { facial: '-' } }))
     expect(l?.text).toBe('Facial nerve symmetric, House-Brackmann I.')
   })
 
-  it('Occlusion → Angle class (per-side) and open-bite measurement', () => {
-    const angle = peLine(peSys('occ'), rec({ marks: { angle: '+' }, detail: { angle: 'II', 'angle.side': 'bilateral' } }))
-    expect(angle?.text).toBe('Bilateral Class II occlusion.')
-    const ob = peLine(peSys('occ'), rec({ marks: { openbite: '+' }, detail: { openbite: '3' } }))
-    expect(ob?.text).toBe('3 mm anterior open bite.')
+  it('Occlusion (folded into Mouth) → stable vs malocclusion', () => {
+    expect(peLine(peSys('io'), rec({ marks: { occ: '-' } }))?.text).toBe('Occlusion stable and reproducible.')
+    expect(peLine(peSys('io'), rec({ marks: { occ: '+' }, detail: { occ: 'mal' } }))?.text).toBe('Malocclusion.')
   })
 
   it('Tooth fracture → multi-tooth list', () => {
@@ -56,7 +54,7 @@ describe('Tier-1 controls', () => {
   })
 
   it('Trigeminal → division/nerve + deficit type + side', () => {
-    const l = peLine(peSys('cn'), rec({ marks: { sens: '+' }, detail: { 'sens.nerves': 'V3, IAN', 'sens.type': 'anesthesia', 'sens.side': 'left' } }))
+    const l = peLine(peSys('neuro'), rec({ marks: { sens: '+' }, detail: { 'sens.nerves': 'V3, IAN', 'sens.type': 'anesthesia', 'sens.side': 'left' } }))
     expect(l?.text).toBe('Left V3, IAN anesthesia.')
   })
 
